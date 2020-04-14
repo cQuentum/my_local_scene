@@ -172,9 +172,9 @@ puts "Geocoded seeds done in #{total_time}s"
 # Add our accounts
 
 adrien = User.new(
-    first_name: "Adrien"
+    first_name: "Adrien",
     last_name: "Abadou",
-    email: "abadou@gmail.com"
+    email: "abadou@gmail.com",
     password: "lolilol",
     password_confirmation: "lolilol",
     location: "Brest",
@@ -187,9 +187,9 @@ adrien = User.new(
 adrien.save!
 
 jerome = User.new(
-    first_name: "Jerome"
+    first_name: "Jerome",
     last_name: "Luce",
-    email: "luce@gmail.com"
+    email: "luce@gmail.com",
     password: "lolilol",
     password_confirmation: "lolilol",
     location: "Brest",
@@ -202,9 +202,9 @@ jerome = User.new(
 jerome.save!
 
 paul = User.new(
-    first_name: "Paul"
+    first_name: "Paul",
     last_name: "Fourchon",
-    email: "fourchon@gmail.com"
+    email: "fourchon@gmail.com",
     password: "lolilol",
     password_confirmation: "lolilol",
     location: "Brest",
@@ -217,9 +217,9 @@ paul = User.new(
 paul.save!
 
 quentin = User.new(
-    first_name: "Quentin"
+    first_name: "Quentin",
     last_name: "Messager",
-    email: "messager@gmail.com"
+    email: "messager@gmail.com",
     password: "lolilol",
     password_confirmation: "lolilol",
     location: "Brest",
