@@ -6,4 +6,6 @@ class Concert < ApplicationRecord
   has_many :participations
 
   validates :price_cents, numericality: true
+
+  has_one_attached :photo
 end
