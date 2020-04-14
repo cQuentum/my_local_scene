@@ -1,11 +1,12 @@
 class LocationsController < ApplicationController
   def index
-    @concerts = Concert.geocoded # returns flats with coordinates
+    @users = User.geocoded # returns flats with coordinates
 
-    @markers = @concerts.map do |concert|
+    @markers = @users.map do |user|
         {
-          lat: concert.latitude,
-          lng: concert.longitude
+          lat: user.latitude,
+          lng: user.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { user: user })
         }
     end
   end
