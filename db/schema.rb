@@ -10,10 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_172216) do
+ActiveRecord::Schema.define(version: 2020_04_14_092445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bands", force: :cascade do |t|
+    t.string "name"
+    t.string "genre"
+    t.string "external_link"
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_bands_on_user_id"
+  end
+
+  create_table "concerts", force: :cascade do |t|
+    t.string "title"
+    t.string "address"
+    t.text "description"
+    t.string "external_link"
+    t.integer "price_cents"
+    t.bigint "band_id", null: false
+    t.boolean "confirmed"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["band_id"], name: "index_concerts_on_band_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "concert_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["concert_id"], name: "index_participations_on_concert_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +60,19 @@ ActiveRecord::Schema.define(version: 2020_04_13_172216) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "location"
+    t.float "latitude"
+    t.float "longitude"
+    t.integer "move_radius"
+    t.string "genres", default: [], array: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bands", "users"
+  add_foreign_key "concerts", "bands"
+  add_foreign_key "participations", "concerts"
+  add_foreign_key "participations", "users"
 end
