@@ -1,6 +1,9 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #12193F;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +11,18 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 100px;
+  margin-left: 50px;
 }
+
+.navbar-light .navbar-nav .nav-link {
+    color: #FFFFFF;
+    margin-right: 50px;
+}
+
+
+
+// .navbar-lewagon h1 {
+//   color: #F18668;
+//   line-height: 1;
+// }
