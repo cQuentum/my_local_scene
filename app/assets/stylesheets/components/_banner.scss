@@ -1,15 +1,16 @@
 .banner {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(Bannerimage.jpg);
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 300px 0;
 }
 
 .banner h1 {
   margin: 0;
   color: #F18668;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 48px;
+  font-weight: 1000;
 }
 
 .banner p {
@@ -19,3 +20,5 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+
+// style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'Bannerimage.jpg' %>);"
