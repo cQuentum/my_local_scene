@@ -2,6 +2,23 @@
   <div class="container">
     <h1 class="text-center">Des groupes et des scènes proches de vous !</h1>
   </div>
+
+  <div class="row mt-5">
+    <div class="col-md-3 offset-md-4">
+
+      <%= form_tag locations_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control search-form-index hover-search",
+      placeholder: "Entrez une ville..."
+    %>
+    </div>
+    <div class="col">
+       <%= submit_tag "Rechercher", class: "btn btn-dark search-form-button" %>
+    </div>
+      <% end %>
+  </div>
+
 </div>
 
   <div class="container mt-5 pb-2 pl-0">
