@@ -13,4 +13,6 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :location, presence: true
   validates :move_radius, numericality: { only_integer: true }
+
+  has_one_attached :photo
 end
