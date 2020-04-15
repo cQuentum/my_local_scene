@@ -1,0 +1,60 @@
+.form-block {
+  background-color: white;
+  margin: 30px 170px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 1px 9px 20px rgba(7, 0, 255, 0.1);
+  label {
+    color: $mls-blue;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  input {
+    margin-bottom: 40px;
+  }
+  h5 {
+    padding-bottom: 30px;
+    text-align: center;
+    color: $mls-blue;
+  }
+  h2 {
+    text-align: center;
+    font-weight: bold;
+    padding: 20px 0px;
+  }
+}
+
+#form-price {
+  width: 80%;
+}
+
+
+.datepicker {
+  width: 90%;
+  background-color: white !important;
+}
+
+.form-inline-mls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hidden {
+  display: none;
+}
+
+.vertical-mls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#fixed-height-mls{
+  height: 200px;
+}
+
+.button-create-mls-form {
+  input {
+
+  }
+}
