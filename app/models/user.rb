@@ -1,4 +1,10 @@
 class User < ApplicationRecord
+  include AlgoliaSearch
+
+  algoliasearch do
+      attributes :location
+    end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   geocoded_by :location

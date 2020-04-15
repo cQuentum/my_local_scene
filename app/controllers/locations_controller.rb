@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   def index
-    @users = User.geocoded # returns flats with coordinates
+    @users = User.geocoded # returns users with coordinates
 
     @markers = @users.map do |user|
         {
