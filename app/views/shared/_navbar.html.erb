@@ -15,9 +15,9 @@
         <li class="nav-item active">
           <%= link_to "Créer un concert", new_my_concert_path %>
         </li>
-        <% if current_user.band == true %>
+        <% if current_user.band %>
           <li class="nav-item">
-            <%= link_to "Mon groupe", band_path %>
+            <%= link_to "Mon groupe", band_path(current_user.band) %>
           </li>
         <% else %>
           <li class="nav-item">
