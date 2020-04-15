@@ -111,7 +111,6 @@ counter = 1
 end
 
 # Seed band random Finistere
-# adj -> %w
 adjectives = %w(Raging Flaming Incredible Mean Noisy Brilliant Anonymous Arctic Dark Solemn)
 counter = 1
 220.times do
