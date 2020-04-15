@@ -1,0 +1,81 @@
+.show-container {
+  margin-right: 8%;
+  margin-left: 8%;
+  margin-top : 4%;
+  margin-bottom : 4%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.concert-poster-show {
+  background-color: gray;
+  height: 750px;
+  width: 550px;
+  border-radius: 14px;
+}
+
+.band-genre-show {
+  color: $mls-blue;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+}
+
+.band-name-show {
+  font-size: 64px;
+  font-weight: 300;
+  color: #100F3E;
+}
+
+.concert-date-show {
+  font-size: 26px;
+  font-weight: 800;
+  color: #100F3E;
+}
+
+.concert-hour-show {
+  font-size: 26px;
+  font-weight: 800;
+  color: #100F3E;
+  border-left: solid;
+  border-right: solid;
+  border-width: 2px;
+  border-color: gray;
+  padding-left: 55px;
+  padding-right: 55px;
+  margin-left: 55px;
+  margin-right: 55px;
+}
+
+.concert-price-show {
+  font-size: 26px;
+  color: $mls-orange;
+  font-weight: 800;
+}
+
+.concert-description-show {
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(55, 58, 60, 0.55);
+  margin-top: 60px;
+}
+
+.concert-localisation-show {
+  font-size: 20px;
+  color: #100F3E;
+  font-weight: 800;
+  margin-top: 60px;
+}
+
+#infos-show {
+  margin-top: 60px;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}
