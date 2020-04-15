@@ -23,9 +23,8 @@ counter = 1
   user = User.new(
     first_name: GlobalConstants::FIRST_NAMES.sample,
     last_name: last_name,
-    email: "#{prefix}#{last_name.delete(' ').downcase}#{suffix}@gmail.com",
+    email: Faker::Internet.unique.email,
     password: "lolilol",
-    password_confirmation: "lolilol",
     location: "Brest",
     latitude: 48.3905283,
     longitude: -4.4860088,
@@ -46,9 +45,8 @@ counter = 1
   user = User.new(
     first_name: GlobalConstants::FIRST_NAMES.sample,
     last_name: last_name,
-    email: "#{prefix}#{last_name.delete(' ').downcase}#{suffix}@gmail.com",
+    email: Faker::Internet.unique.email,
     password: "lolilol",
-    password_confirmation: "lolilol",
     location: "Quimper",
     latitude: 47.9960325,
     longitude: -4.1024782,
@@ -69,9 +67,8 @@ counter = 1
   user = User.new(
     first_name: GlobalConstants::FIRST_NAMES.sample,
     last_name: last_name,
-    email: "#{prefix}#{last_name.delete(' ').downcase}#{suffix}@gmail.com",
+    email: Faker::Internet.unique.email,
     password: "lolilol",
-    password_confirmation: "lolilol",
     location: "Carhaix",
     latitude: 48.2779589,
     longitude: -3.5620953,
@@ -102,9 +99,8 @@ counter = 1
   user = User.new(
     first_name: GlobalConstants::FIRST_NAMES.sample,
     last_name: last_name,
-    email: "#{prefix}#{last_name.delete(' ').downcase}#{suffix}@gmail.com",
+    email: Faker::Internet.unique.email,
     password: "lolilol",
-    password_confirmation: "lolilol",
     location: finistere.sample,
     move_radius: rand(1..30),
     genres: GlobalConstants::GENRES.sample(rand(1..3))
@@ -115,12 +111,13 @@ counter = 1
 end
 
 # Seed band random Finistere
-adjectives = ["Raging", "Flaming", "Incredible", "Mean", "Noisy", "Brilliant", "Anonymous", "Arctic", "Dark", "Solemn"]
+# adj -> %w
+adjectives = %w(Raging Flaming Incredible Mean Noisy Brilliant Anonymous Arctic Dark Solemn)
 counter = 1
 220.times do
   user_counter = rand(1..(User.count))
   random_words = Faker::Hipster.words(number: 3)
-  band_name = "The #{adjectives.sample.capitalize} #{random_words[0].capitalize} #{random_words[1].capitalize} of #{random_words[2].capitalize}"
+  band_name = "The #{adjectives.sample} #{random_words[0].capitalize} #{random_words[1].capitalize} of #{random_words[2].capitalize}"
   band_genre = GlobalConstants::GENRES.sample
   band = Band.new(
     name: band_name,
@@ -142,7 +139,7 @@ end
   address = band.user.location
   starting_hour = ["19", "20", "21"]
   start_time = DateTime.strptime("#{rand(17..30)}/04/20 #{starting_hour.sample}:00", "%d/%m/%y %H:%M")
-  end_time = start_time + ((rand(1..3)/24.0))
+  end_time = start_time + ((rand(1..3)/24.0)) #.hours ?
   concert = Concert.new(
     title: "#{band.name} à #{address}",
     address: address,
@@ -154,10 +151,10 @@ end
     confirmed: true,
     start_time: start_time,
     end_time: end_time,
-    skip_geocoding: true
+    skip_geocoding: true,
+    band: band
     )
 
-  concert.band = band
   concert.save!
   puts "Concert n°#{concert.id} saved!"
 end
@@ -174,7 +171,6 @@ test_account = User.new(
     last_name: "McTesty",
     email: "test@gmail.com",
     password: "lolilol",
-    password_confirmation: "lolilol",
     location: "Brest",
     latitude: 48.3905283,
     longitude: -4.4860088,
@@ -188,7 +184,7 @@ test_account.save!
 
 # Créer de petits clusters du genre choisi pour le groupe => Country
 # Morlaix, Douarnenez, Concarneau
-
+start_seed_time = Time.now
 # Morlaix
 counter = 1
 110.times do
@@ -198,9 +194,8 @@ counter = 1
   user = User.new(
     first_name: GlobalConstants::FIRST_NAMES.sample,
     last_name: last_name,
-    email: "#{prefix}#{last_name.delete(' ').downcase}#{suffix}@gmail.com",
+    email: Faker::Internet.unique.email,
     password: "lolilol",
-    password_confirmation: "lolilol",
     location: "Morlaix",
     latitude: 48.5776,
     longitude: -3.8282,
@@ -222,9 +217,8 @@ counter = 1
   user = User.new(
     first_name: GlobalConstants::FIRST_NAMES.sample,
     last_name: last_name,
-    email: "#{prefix}#{last_name.delete(' ').downcase}#{suffix}@gmail.com",
+    email: Faker::Internet.unique.email,
     password: "lolilol",
-    password_confirmation: "lolilol",
     location: "Douarnenez",
     latitude: 48.0932,
     longitude: -4.3286,
@@ -246,9 +240,8 @@ counter = 1
   user = User.new(
     first_name: GlobalConstants::FIRST_NAMES.sample,
     last_name: last_name,
-    email: "#{prefix}#{last_name.delete(' ').downcase}#{suffix}@gmail.com",
+    email: Faker::Internet.unique.email,
     password: "lolilol",
-    password_confirmation: "lolilol",
     location: "Concarneau",
     latitude: 47.8728,
     longitude: -3.9207,
@@ -261,6 +254,9 @@ counter = 1
   counter += 1
 end
 
+total_time = Time.now - start_seed_time
+
+puts "Three clusters done in #{total_time}"
 # Create the Demo users (Paul who has the band, Jerome who's a spectator)
 
 paul = User.new(
@@ -268,7 +264,6 @@ paul = User.new(
     last_name: "Fourchon",
     email: "fourchon@gmail.com",
     password: "lolilol",
-    password_confirmation: "lolilol",
     location: "Landéda",
     latitude: 48.5870,
     longitude: -4.5723,
@@ -284,7 +279,6 @@ jerome = User.new(
     last_name: "Luce",
     email: "luce@gmail.com",
     password: "lolilol",
-    password_confirmation: "lolilol",
     location: "Morlaix",
     latitude: 48.5776,
     longitude: -3.8282,
