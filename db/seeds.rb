@@ -3,8 +3,6 @@ require 'faker'
 require 'pry'
 require 'json'
 
-GlobalConstants::GENRES
-
 start_seed_time = Time.now
 
 # Fetch all cities in Finistère, store in array
@@ -18,7 +16,7 @@ end
 
 #Seeding Brest
 counter = 1
-500.times do
+320.times do
   last_name = GlobalConstants::FAMILY_NAMES.sample
   prefix = rand(0..10000).to_s
   suffix = rand(0..10000).to_s
@@ -41,7 +39,7 @@ counter = 1
 end
 
 counter = 1
-250.times do
+218.times do
   last_name = GlobalConstants::FAMILY_NAMES.sample
   prefix = rand(0..10000).to_s
   suffix = rand(0..10000).to_s
@@ -64,7 +62,7 @@ counter = 1
 end
 
 counter = 1
-200.times do
+140.times do
   last_name = GlobalConstants::FAMILY_NAMES.sample
   prefix = rand(0..10000).to_s
   suffix = rand(0..10000).to_s
@@ -119,7 +117,7 @@ end
 # Seed band random Finistere
 adjectives = ["Raging", "Flaming", "Incredible", "Mean", "Noisy", "Brilliant", "Anonymous", "Arctic", "Dark", "Solemn"]
 counter = 1
-500.times do
+220.times do
   user_counter = rand(1..(User.count))
   random_words = Faker::Hipster.words(number: 3)
   band_name = "The #{adjectives.sample.capitalize} #{random_words[0].capitalize} #{random_words[1].capitalize} of #{random_words[2].capitalize}"
@@ -139,7 +137,7 @@ end
 
 # Seed concert
 
-500.times do
+456.times do
   band = Band.find(rand(1..(Band.count)))
   address = band.user.location
   starting_hour = ["19", "20", "21"]
@@ -169,12 +167,12 @@ total_time = Time.now - start_seed_time
 puts "Geocoded seeds done in #{total_time}s"
 
 
-# Add our accounts
+# Add test account
 
-adrien = User.new(
-    first_name: "Adrien",
-    last_name: "Abadou",
-    email: "abadou@gmail.com",
+test_account = User.new(
+    first_name: "Test",
+    last_name: "McTesty",
+    email: "test@gmail.com",
     password: "lolilol",
     password_confirmation: "lolilol",
     location: "Brest",
@@ -184,22 +182,86 @@ adrien = User.new(
     genres: ["Metal"].push(GlobalConstants::GENRES_BREST.sample(rand(1..2))).flatten,
     skip_geocoding: true
   )
-adrien.save!
+test_account.save!
 
-jerome = User.new(
-    first_name: "Jerome",
-    last_name: "Luce",
-    email: "luce@gmail.com",
+### Demo
+
+# Créer de petits clusters du genre choisi pour le groupe => Country
+# Morlaix, Douarnenez, Concarneau
+
+# Morlaix
+counter = 1
+110.times do
+  last_name = GlobalConstants::FAMILY_NAMES.sample
+  prefix = rand(0..10000).to_s
+  suffix = rand(0..10000).to_s
+  user = User.new(
+    first_name: GlobalConstants::FIRST_NAMES.sample,
+    last_name: last_name,
+    email: "#{prefix}#{last_name.delete(' ').downcase}#{suffix}@gmail.com",
     password: "lolilol",
     password_confirmation: "lolilol",
-    location: "Brest",
-    latitude: 48.3905283,
-    longitude: -4.4860088,
+    location: "Morlaix",
+    latitude: 48.5776,
+    longitude: -3.8282,
     move_radius: rand(1..30),
-    genres: ["Metal"].push(GlobalConstants::GENRES_BREST.sample(rand(1..2))).flatten,
+    genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
     skip_geocoding: true
   )
-jerome.save!
+  user.save!
+  puts "Morlaix user #{counter} saved. Genres : #{user.genres}"
+  counter += 1
+end
+
+#Dournenez
+counter = 1
+87.times do
+  last_name = GlobalConstants::FAMILY_NAMES.sample
+  prefix = rand(0..10000).to_s
+  suffix = rand(0..10000).to_s
+  user = User.new(
+    first_name: GlobalConstants::FIRST_NAMES.sample,
+    last_name: last_name,
+    email: "#{prefix}#{last_name.delete(' ').downcase}#{suffix}@gmail.com",
+    password: "lolilol",
+    password_confirmation: "lolilol",
+    location: "Douarnenez",
+    latitude: 48.0932,
+    longitude: -4.3286,
+    move_radius: rand(1..30),
+    genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
+    skip_geocoding: true
+  )
+  user.save!
+  puts "Douarnenez user #{counter} saved. Genres : #{user.genres}"
+  counter += 1
+end
+
+#Concarneau
+counter = 1
+79.times do
+  last_name = GlobalConstants::FAMILY_NAMES.sample
+  prefix = rand(0..10000).to_s
+  suffix = rand(0..10000).to_s
+  user = User.new(
+    first_name: GlobalConstants::FIRST_NAMES.sample,
+    last_name: last_name,
+    email: "#{prefix}#{last_name.delete(' ').downcase}#{suffix}@gmail.com",
+    password: "lolilol",
+    password_confirmation: "lolilol",
+    location: "Concarneau",
+    latitude: 47.8728,
+    longitude: -3.9207,
+    move_radius: rand(1..30),
+    genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
+    skip_geocoding: true
+  )
+  user.save!
+  puts "Concarneau user #{counter} saved. Genres : #{user.genres}"
+  counter += 1
+end
+
+# Create the Demo users (Paul who has the band, Jerome who's a spectator)
 
 paul = User.new(
     first_name: "Paul",
@@ -207,26 +269,89 @@ paul = User.new(
     email: "fourchon@gmail.com",
     password: "lolilol",
     password_confirmation: "lolilol",
-    location: "Brest",
-    latitude: 48.3905283,
-    longitude: -4.4860088,
+    location: "Landéda",
+    latitude: 48.5870,
+    longitude: -4.5723,
     move_radius: rand(1..30),
-    genres: ["Metal"].push(GlobalConstants::GENRES_BREST.sample(rand(1..2))).flatten,
+    genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
     skip_geocoding: true
   )
+
 paul.save!
 
-quentin = User.new(
-    first_name: "Quentin",
-    last_name: "Messager",
-    email: "messager@gmail.com",
+jerome = User.new(
+    first_name: "Jérôme",
+    last_name: "Luce",
+    email: "luce@gmail.com",
     password: "lolilol",
     password_confirmation: "lolilol",
-    location: "Brest",
-    latitude: 48.3905283,
-    longitude: -4.4860088,
+    location: "Morlaix",
+    latitude: 48.5776,
+    longitude: -3.8282,
     move_radius: rand(1..30),
-    genres: ["Metal"].push(GlobalConstants::GENRES_BREST.sample(rand(1..2))).flatten,
+    genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
     skip_geocoding: true
   )
-quentin.save!
+
+jerome.save
+
+# Create Demo band
+
+zombie_rednecks = Band.new(
+    name: "The Zombie Rednecks",
+    genre: "Country",
+    description: "Yeeehaw ! Les Zombie Rednecks, c'est notre nouveau projet Country. On prévoit de ramener l'amérique profonde dans la bretagne profonde !",
+    external_link: "zombierednecks.bandcamp.com"
+  )
+zombie_rednecks.user = paul
+zombie_rednecks.save!
+
+# Créer des concerts passés et futurs
+
+# Landeda (Hometown)
+start_time = DateTime.strptime("06/03/20 20:00", "%d/%m/%y %H:%M")
+end_time = start_time + (3/24.0)
+concert_landeda = Concert.new(
+  title: "#{zombie_rednecks.name} + Lonely but Together + The Crop Circlers - Bar Les Embruns",
+  address: "180 route de doenna, Landéda",
+  description: "Première date chez nous en bonne compagnie puisque nous retrouvons nos potes de Lonely but Together et un tout nouveau groupe local The Crop Circlers.",
+  external_link: "facebook.com/event/zombie_rednecks43",
+  price_cents: 1200,
+  confirmed: true,
+  start_time: start_time,
+  end_time: end_time,
+  )
+concert_landeda.band = zombie_rednecks
+concert_landeda.save!
+
+# Brest (Random choice)
+start_time = DateTime.strptime("23/04/20 23:00", "%d/%m/%y %H:%M")
+end_time = start_time + (1/24.0)
+concert_brest = Concert.new(
+  title: "#{zombie_rednecks.name} - Discothèque Baroombar",
+  address: "22 bis rue de Lyon, Brest",
+  description: "Venez vous enjailler avec nous à Brest ce week-end !",
+  external_link: "facebook.com/event/zombie_rednecks46",
+  price_cents: 500,
+  confirmed: true,
+  start_time: start_time,
+  end_time: end_time,
+  )
+concert_brest.band = zombie_rednecks
+concert_brest.save!
+
+# Concarneau (Actual Country cluster)
+start_time = DateTime.strptime("21/03/20 20:00", "%d/%m/%y %H:%M")
+end_time = start_time + (3/24.0)
+concert_concarneau = Concert.new(
+  title: "#{zombie_rednecks.name} + Babayou - La Taverne des Korrigans",
+  address: "2 avenue du Dr Pierre Nicolas, Concarneau",
+  description: "Concarneau, on arrive ! Babayou nous invite sur ses terres pour une soirée qui s'annonce mythique.",
+  external_link: "facebook.com/event/zombie_rednecks53",
+  price_cents: 1500,
+  confirmed: true,
+  start_time: start_time,
+  end_time: end_time,
+  )
+concert_concarneau.band = zombie_rednecks
+concert_concarneau.save!
