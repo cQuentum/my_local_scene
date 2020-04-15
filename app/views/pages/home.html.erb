@@ -35,8 +35,9 @@
         <div class="card-concert-user-infos">
           <div class="card-name">
             <h2><%= concert.band.genre %></h2>
-            <h2><%= concert.title %></h2>
-            <p><%= concert.start_time %></p>
+            <h2><%= concert.band.name %></h2>
+            <p><%= frenchdate(concert.start_time.strftime("%A %d %B %Y"))%></p>
+            <p><%= concert.start_time.strftime("%Hh%M") %></p>
             <p><%= concert.address %></p>
           </div>
           <div class="card-concert-user-pricing">
@@ -48,8 +49,6 @@
   <% end %>
   </div>
 </div>
-
-
 
 
 

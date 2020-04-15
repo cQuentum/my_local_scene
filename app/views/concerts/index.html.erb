@@ -1,6 +1,6 @@
 <div class="container mt-5 mb-5">
   <div class="container mt-5 pb-2 pl-0">
-    <h2 >Concerts à l'affiche : </h2>
+    <h2 >Concerts à l'affiche à <%= params[:query]%></h2>
   </div>
   <div class="cards justify-content-around">
     <% @concerts.each do |concert| %>
@@ -10,8 +10,8 @@
         <div class="card-concert-user-infos">
           <div class="card-name">
             <h2><%= concert.band.genre %></h2>
-            <h2><%= concert.title %></h2>
-            <p><%= concert.start_time %></p>
+            <h2><%= concert.band.name %></h2>
+            <p><%= frenchdate(concert.start_time.strftime("%A %d %B %Y")) %></p>
             <p><%= concert.address %></p>
           </div>
           <div class="card-concert-user-pricing">
