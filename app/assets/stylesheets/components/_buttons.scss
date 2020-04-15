@@ -40,6 +40,12 @@
   color: white;
 }
 
+.form-description-tall {
+  textarea {
+    height: 135px;
+  }
+}
+  
 .btn-mls-show {
   background-color: $mls-blue;
   color: white;
