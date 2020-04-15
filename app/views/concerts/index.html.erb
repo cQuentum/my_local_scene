@@ -1,5 +1,8 @@
 <div class="container mt-5 mb-5">
   <div class="container mt-5 pb-2 pl-0">
+      <% if (@concerts.blank?) %>
+    <h2> There is no concert in <%= params[:query]%>.</h2>
+    <% else %>
     <h2 >Concerts à l'affiche à <%= params[:query]%></h2>
   </div>
   <div class="cards justify-content-around">
@@ -20,6 +23,7 @@
         </div>
       </div>
     <% end %>
+  <% end %>
   <% end %>
   </div>
 </div>
