@@ -1,26 +1,24 @@
 .form-block {
   background-color: white;
   margin: 30px 170px;
-  padding: 20px 30px;
+  padding: 20px 70px;
   border-radius: 10px;
   box-shadow: 1px 9px 20px rgba(7, 0, 255, 0.1);
   label {
     color: $mls-blue;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 20px;
   }
   input {
     margin-bottom: 40px;
-  }
-  h5 {
-    padding-bottom: 30px;
-    text-align: center;
-    color: $mls-blue;
+    border: 1px solid #8290D8;
+    border-radius: 5px;
   }
   h2 {
+    font-size: 40px;
     text-align: center;
     font-weight: bold;
-    padding: 20px 0px;
+    padding: 40px 0px;
   }
 }
 
@@ -50,11 +48,18 @@
 }
 
 #fixed-height-mls{
-  height: 200px;
+  height: 180px;
 }
 
-.button-create-mls-form {
-  input {
-
+.form-description-tall {
+  textarea {
+    height: 135px;
+    border: 1px solid #8290D8;
+    border-radius: 5px;
   }
+}
+
+ #form-external-link {
+  width: 430px;
+  margin-right: 33px;
 }

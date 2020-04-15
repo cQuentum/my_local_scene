@@ -10,6 +10,7 @@ class MyConcertsController < ApplicationController
     @band = current_user.band
     @concert = Concert.new(concert_params)
     @concert.price_cents = @concert.price_cents * 100
+    @concert.confirmed = true
     @concert.band = @band
     if @concert.save
       redirect_to my_concert_path(@concert)
