@@ -39,3 +39,20 @@
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
 }
+
+.form-description-tall {
+  textarea {
+    height: 135px;
+  }
+}
+  
+.btn-mls-show {
+  background-color: $mls-blue;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  width: 220px;
+  border-radius: 65px;
+  position: absolute;
+  bottom: 0px;
+}
