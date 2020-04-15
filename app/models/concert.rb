@@ -1,4 +1,10 @@
 class Concert < ApplicationRecord
+  include AlgoliaSearch
+
+  algoliasearch do
+      attributes :address
+    end
+
   geocoded_by :address
   after_validation :geocode, if: -> { will_save_change_to_address? && !skip_geocoding }
 
