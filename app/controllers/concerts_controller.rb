@@ -2,7 +2,11 @@ class ConcertsController < ApplicationController
   before_action :set_concert, only: [:show]
 
   def index
-    @concerts = Concert.all.reverse
+    if params[:query].present?
+      @concerts = Concert.where("address ILIKE ?", "%#{params[:query]}%")
+    else
+      @concerts = Concert.all.reverse
+    end
   end
 
   def show

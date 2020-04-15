@@ -1,0 +1,24 @@
+<div class="show-container">
+  <div class="row">
+    <div class="col-9">
+      <h2 class="band-genre-show"><%= @concert.band.genre.upcase %></h2>
+      <h1 class="band-name-show"><%= @concert.band.name %></h1>
+      <h4 id="infos-show" class="d-flex justify-content-evenly">
+        <div class="concert-date-show"><%= @concert.start_time.strftime("%B %d, %Y") %></div>
+        <div class="concert-hour-show"><%= @concert.start_time.strftime("%Hh%M") %></div>
+        <div class="concert-price-show"><%= number_with_delimiter(@concert.price_cents / 100) %>€</div>
+      </h4>
+      <p class="concert-description-show"><%= @concert.description %></p>
+      <h5 class="concert-localisation-show"><%= @concert.address %></h5>
+      <%= link_to concert_participations_path(@concert.id) do %>
+        <div class="btn-mls-show">PARTICIPER</div>
+      <% end %>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-5">
+      <div class="concert-poster-show"></div>
+    </div>
+  </div>
+</div>
