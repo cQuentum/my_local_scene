@@ -2,6 +2,12 @@ class MyConcertsController < ApplicationController
   def show
   end
 
+  def index
+    @band = Band.where(user_id: current_user.id)
+    @participations = Participation.where(concert: @concert)
+    @concerts = Concert.where(band: @band).reverse
+  end
+
   def new
     @concert = Concert.new
   end
