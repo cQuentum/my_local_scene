@@ -1,2 +1,36 @@
-<h1>Bands#show</h1>
-<p>Find me in app/views/bands/show.html.erb</p>
+<div class="band_show-container">
+  <div class="d-flex justify-content-between">
+    <div class="row">
+      <div class="col band-show-infos">
+        <h2 class="band-genre-show"><%= @band_show.genre.upcase %></h2>
+        <h1 class="band-name-show"><%= @band_show.name %></h1>
+        <p class="concert-description-show"><%= @band_show.description %></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="band-poster-show"> <img src="https://images.unsplash.com/photo-1518552722618-737f6d8e91c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="grid-band-show mb-5 mt-5">Vos prochains concerts</h2>
+  <div class="band-show-cards">
+    <% @concerts.each do |concert| %>
+      <%= link_to concert, :action => 'go' do %>
+        <div class="card-show-band">
+          <%= image_tag "Bannerimage.jpg" %>
+          <div class="card-show-band-infos">
+            <div class="card-name">
+              <h2 class="card-band-genre-show"><%= concert.band.genre %></h2>
+              <h2 class="card-concert-localisation-show"><%= /.+, (.+)$/.match(concert.address)[1] %></h2>
+              <h2 class="card-concert-date-show"><%= frenchdate(concert.start_time.strftime("%A %d %B %Y"))%> | <%= concert.start_time.strftime("%Hh%M") %></h2>
+              <h2><%= concert.participations.count %> Participants</h2>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    </div>
+</div>

@@ -1,3 +1,5 @@
+//concert show
+
 .show-container {
   margin-right: 9%;
   margin-left: 9%;
@@ -102,4 +104,27 @@
 .btn-mls-show a:hover {
   text-decoration: none;
   color: white;
+}
+
+//band show
+
+.band-poster-show img {
+  height: 500px;
+  width: 700px;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+.band-show-infos {
+  width: 700px;
+}
+
+.band_show-container {
+  margin-right: 9%;
+  margin-left: 9%;
+  margin-top : 130px;
+  margin-bottom : 70px;
+  display: flex;
+  flex-direction: column;
 }

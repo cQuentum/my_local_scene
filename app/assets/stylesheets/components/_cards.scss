@@ -153,3 +153,46 @@
   padding-top: 50px;
   min-height: 90vh;
 }
+
+//cards band show
+
+.card-show-band {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  width: 350px;
+  height: 540px;
+}
+
+.card-show-band > img {
+  height: 370px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-show-band .card-show-band-infos {
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  height: 170px;
+}
+
+.card-show-band-infos .card-show-band-band {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.card-show-band:hover {
+  box-shadow: 0 0 15px rgba(100,100,100,1);
+}
+
+.band-show-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 30px;
+}

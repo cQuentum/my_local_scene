@@ -1,7 +1,15 @@
 class BandsController < ApplicationController
-  before_action :set_band, only: [:show]
+  before_action :set_band
+
+  def index
+  end
 
   def show
+    @band_show = Band.find(params[:id])
+    @band = Band.where(user_id: current_user.id)
+    @participations = Participation.where(concert: @concert)
+    @concerts = Concert.where(band: @band)
+    @future_concerts = @concerts.where('start_time >= ?', DateTime.now)
   end
 
   def new
