@@ -13,15 +13,15 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Créer un concert", new_my_concert_path %>
+          <%= link_to "Créer un concert", new_my_concert_path, id: "whitelink"  %>
         </li>
         <% if current_user.band %>
           <li class="nav-item">
-            <%= link_to "Mon groupe", band_path(current_user.band) %>
+            <%= link_to "Mon groupe", band_path(current_user.band), id: "whitelink"  %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Créer un groupe", new_band_path %>
+            <%= link_to "Créer un groupe", new_band_path, id: "whitelink"  %>
           </li>
         <% end %>
         <li class="nav-item dropdown">
