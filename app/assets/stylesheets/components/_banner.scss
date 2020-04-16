@@ -1,5 +1,5 @@
 .banner {
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(Bannerimage.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset_path("Bannerimage.jpg"));
   background-size: cover;
   background-position: center;
   padding: 300px 0;
