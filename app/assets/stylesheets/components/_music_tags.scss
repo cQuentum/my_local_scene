@@ -1,0 +1,12 @@
+.tag-group {
+ display: flex;
+}
+
+.music-tag {
+  border: 1px solid $mls-blue;
+  padding: 2px 10px;
+  border-radius: 50px;
+  text-align: center;
+  margin-right: 10px;
+  color: $mls-orange;
+}
