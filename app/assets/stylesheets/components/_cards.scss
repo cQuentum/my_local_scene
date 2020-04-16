@@ -70,8 +70,9 @@
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   position: relative;
+  height: 180px;
 }
 
 .card-concert-user-infos .card-concert-user-user {
@@ -111,6 +112,13 @@
   color: #100F3E;
   margin-top: 15px;
 }
+
+.card-concert-user-pricing h2 {
+  // margin-top: 15px;
+  font-weight: 800;
+  font-size: 22px;
+}
+
 
 
 // .card-concert-user h2 {
