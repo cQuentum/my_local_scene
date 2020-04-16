@@ -35,14 +35,13 @@
         <%= image_tag "Bannerimage.jpg" %>
         <div class="card-concert-user-infos">
           <div class="card-name">
-            <h2><%= concert.band.genre %></h2>
-            <h2><%= concert.band.name %></h2>
-            <p><%= frenchdate(concert.start_time.strftime("%A %d %B %Y"))%></p>
-            <p><%= concert.start_time.strftime("%Hh%M") %></p>
-            <p><%= concert.address %></p>
+            <h2 class="card-band-genre-show"><%= concert.band.genre %></h2>
+            <h2 class="card-band-name-show"><%= concert.band.name %></h2>
+            <h2 class="card-concert-date-show"><%= frenchdate(concert.start_time.strftime("%A %d %B %Y"))%> | <%= concert.start_time.strftime("%Hh%M") %></h2>
+            <h2 class="card-concert-localisation-show"><%= concert.address %></h2>
           </div>
           <div class="card-concert-user-pricing">
-            <h2>$<%= number_with_delimiter(concert.price_cents/100) %></h2>
+            <h2><%= number_with_delimiter(concert.price_cents/100) %>€</h2>
           </div>
         </div>
       </div>
@@ -57,7 +56,7 @@
     <h2 >Vous faites partie d'un groupe ?</h2>
   </div>
   <div class="container bg-light p-5">
-    <h4>Blablabla</h4>
+    <h4>Hey toi !!</h4>
     <p>Fatigué de jouer devant... et bien personne ? Trouvez les meilleures endroits où vous produire, préparer vos affaires et mettez le feu!</p>
     <a class="btn btn-flat btn-blue" href="/bands/new">Créer un groupe</a>
   </div>

@@ -66,19 +66,6 @@
   object-fit: cover;
 }
 
-.card-concert-user h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-concert-user p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-  color: black;
-}
-
 .card-concert-user .card-concert-user-infos {
   padding: 16px;
   display: flex;
@@ -99,7 +86,45 @@
 }
 
 
+//Style du contenu
+.card-band-genre-show {
+  color: $mls-blue;
+  font-size: 20px;
+}
 
+.card-band-name-show {
+  font-size: 20px;
+  color: #100F3E;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+
+.card-concert-date-show {
+  font-size: 16px;
+  color: #100F3E;
+  opacity: 0.8;
+}
+
+.card-concert-localisation-show {
+  font-size: 20px;
+  color: #100F3E;
+  margin-top: 15px;
+}
+
+
+// .card-concert-user h2 {
+//   font-size: 16px;
+//   font-weight: bold;
+//   margin: 0;
+// }
+
+// .card-concert-user p {
+//   font-size: 12px;
+//   opacity: .7;
+//   margin: 0;
+//   color: black;
+// }
 
 
 // Div de Display des cards
