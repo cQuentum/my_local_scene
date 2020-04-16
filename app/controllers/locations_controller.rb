@@ -1,13 +1,24 @@
 class LocationsController < ApplicationController
-  def index
-    @users = User.geocoded # returns users with coordinates
+def index
+    @users_data = User.select("latitude, longitude, location, COUNT(users.*) as number_of_users").
+              group(:location, :latitude, :longitude).
+              geocoded
 
-    @markers = @users.map do |user|
+    @markers = @users_data.flat_map do |user_data|
+      user_data.number_of_users.times.map do
         {
-          lat: user.latitude,
-          lng: user.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { user: user })
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [user_data.longitude, user_data.latitude]
+          },
+          "properties": {
+            "location": user_data.location,
+            "userCount": user_data.number_of_users
+            # "infoWindow": render_to_string(...)
+          }
         }
+      end
     end
   end
 end
