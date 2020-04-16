@@ -10,7 +10,8 @@
     <%= text_field_tag :query,
       params[:query],
       class: "form-control search-form-index hover-search",
-      placeholder: "Entrez une ville..."
+      placeholder: "Entrez une ville...",
+      :required => 'required'
     %>
     </div>
     <div class="col">
