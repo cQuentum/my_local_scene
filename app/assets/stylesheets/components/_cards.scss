@@ -61,18 +61,18 @@
 }
 
 .card-concert-user > img {
-  height: 357px;
+  height: 370px;
   width: 100%;
   object-fit: cover;
 }
 
 .card-concert-user .card-concert-user-infos {
-  padding: 16px;
+  padding: 18px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
-  height: 180px;
+  height: 170px;
 }
 
 .card-concert-user-infos .card-concert-user-user {
@@ -110,7 +110,7 @@
 .card-concert-localisation-show {
   font-size: 20px;
   color: #100F3E;
-  margin-top: 15px;
+  // margin-top: 15px;
 }
 
 .card-concert-user-pricing h2 {
