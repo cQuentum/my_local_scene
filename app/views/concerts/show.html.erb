@@ -11,11 +11,19 @@
       <p class="concert-description-show"><%= @concert.description %></p>
       <h5 class="concert-localisation-show"><%= @concert.address %></h5>
 
-      <% if Participation.exists?(user_id: current_user.id, concert_id: @concert.id) %>
-        <div class="btn-mls-show">ANNULER</div>
+      <% if current_user.band == @concert.band %>
+        <div class="btn-mls-show">DUPLIQUER</div>
+        <div class="concert-participations-show">
+          <div class="participations-count-show"><%= @concert.participations.count %></div>
+          <div class="participations-sentence-show">personnes participent à votre concert</div>
+        </div>
       <% else %>
-        <%= link_to concert_participations_path(@concert), method: :post do %>
-          <div class="btn-mls-show">PARTICIPER</div>
+        <% if Participation.exists?(user_id: current_user.id, concert_id: @concert.id) %>
+          <div class="btn-mls-show">ANNULER</div>
+        <% else %>
+          <%= link_to concert_participations_path(@concert), method: :post do %>
+            <div class="btn-mls-show">PARTICIPER</div>
+          <% end %>
         <% end %>
       <% end %>
 

@@ -68,6 +68,25 @@
   margin-top: 60px;
 }
 
+.concert-participations-show {
+  display: flex;
+  margin-top: 60px;
+}
+
+.concert-participations-show .participations-count-show {
+  font-size: 30px;
+  font-weight: 800;
+  color: $mls-blue;
+  line-height: 40px;
+  margin-right: 5px;
+}
+
+.concert-participations-show .participations-sentence-show {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 40px;
+}
+
 #infos-show {
   margin-top: 60px;
 }
