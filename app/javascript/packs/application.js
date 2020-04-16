@@ -26,12 +26,13 @@ require("channels")
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '../plugins/flatpickr';
-import { initMapbox } from '../plugins/init_mapbox';
 import { previewImageOnFileSelect } from '../components/image_preview'
 
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { initMapbox } from '../plugins/init_mapbox';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
