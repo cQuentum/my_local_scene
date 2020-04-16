@@ -1,17 +1,18 @@
 .show-container {
-  margin-right: 8%;
-  margin-left: 8%;
-  margin-top : 4%;
+  margin-right: 9%;
+  margin-left: 9%;
+  margin-top : 7%;
   margin-bottom : 4%;
   display: flex;
   justify-content: space-between;
 }
 
-.concert-poster-show {
-  background-color: gray;
-  height: 750px;
+.concert-poster-show img {
+  height: 800px;
   width: 550px;
   border-radius: 14px;
+  object-fit: fill;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 
 .band-genre-show {
@@ -40,7 +41,7 @@
   border-left: solid;
   border-right: solid;
   border-width: 2px;
-  border-color: gray;
+  border-color: rgba(55, 58, 60, 0.55);
   padding-left: 55px;
   padding-right: 55px;
   margin-left: 55px;
@@ -71,11 +72,21 @@
   margin-top: 60px;
 }
 
-a {
+.concert-show-infos {
+  width: 800px;
+}
+
+
+
+
+
+
+
+.btn-mls-show a {
   color: white;
 }
 
-a:hover {
+.btn-mls-show a:hover {
   text-decoration: none;
   color: white;
 }
