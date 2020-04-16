@@ -1,0 +1,50 @@
+<div class="container mb-5" id="container-margin">
+
+  <div class="container mt-5 pb-4 pl-0">
+    <% if (@concerts.blank?) %>
+      <h2> You don't have any concerts coming.</h2>
+    <% else %>
+      <h2 >Vos prochains concerts</h2>
+  </div>
+
+  <div class="cards justify-content-around">
+    <% @future_concerts.each do |concert| %>
+      <%= link_to concert, :action => 'go' do %>
+        <div class="card-concert-user">
+          <%= image_tag "Bannerimage.jpg" %>
+          <div class="card-concert-user-infos">
+            <div class="card-name">
+              <h2 class="card-band-genre-show"><%= concert.band.genre %></h2>
+              <h2 class="card-concert-localisation-show"><%= /.+, (.+)$/.match(concert.address)[1] %></h2>
+              <h2 class="card-concert-date-show"><%= frenchdate(concert.start_time.strftime("%A %d %B %Y"))%> | <%= concert.start_time.strftime("%Hh%M") %></h2>
+              <h2><%= concert.participations.count %> Participants</h2>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+  </div>
+
+  <div class="container mt-5 pb-4 pl-0">
+    <h2>Vos anciens concerts</h2>
+  </div>
+  <div class="cards justify-content-around">
+    <% @past_concerts.each do |concert| %>
+      <%= link_to concert, :action => 'go' do %>
+        <div class="card-concert-user">
+          <%= image_tag "Bannerimage.jpg" %>
+          <div class="card-concert-user-infos">
+            <div class="card-name">
+              <h2 class="card-band-genre-show"><%= concert.band.genre %></h2>
+              <h2 class="card-concert-localisation-show"><%= /.+, (.+)$/.match(concert.address)[1] %></h2>
+              <h2 class="card-concert-date-show"><%= frenchdate(concert.start_time.strftime("%A %d %B %Y"))%> | <%= concert.start_time.strftime("%Hh%M") %></h2>
+              <h2><%= concert.participations.count %> Participants</h2>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>

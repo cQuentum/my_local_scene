@@ -2,6 +2,14 @@ class MyConcertsController < ApplicationController
   def show
   end
 
+  def index
+    @band = Band.where(user_id: current_user.id)
+    @participations = Participation.where(concert: @concert)
+    @concerts = Concert.where(band: @band)
+    @past_concerts = @concerts.where('end_time <= ?', 1.hour.ago)
+    @future_concerts = @concerts.where('start_time >= ?', DateTime.now)
+  end
+
   def new
     @concert = Concert.new
   end
