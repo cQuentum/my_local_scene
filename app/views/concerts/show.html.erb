@@ -10,8 +10,13 @@
       </h4>
       <p class="concert-description-show"><%= @concert.description %></p>
       <h5 class="concert-localisation-show"><%= @concert.address %></h5>
-      <%= link_to concert_participations_path(@concert) do %>
-        <div class="btn-mls-show">PARTICIPER</div>
+
+      <% if Participation.exists?(user_id: current_user.id, concert_id: @concert.id) %>
+        <div class="btn-mls-show">ANNULER</div>
+      <% else %>
+        <%= link_to concert_participations_path(@concert), method: :post do %>
+          <div class="btn-mls-show">PARTICIPER</div>
+        <% end %>
       <% end %>
 
     </div>
