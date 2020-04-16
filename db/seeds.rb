@@ -1,6 +1,5 @@
 require 'open-uri'
 require 'faker'
-require 'pry'
 require 'json'
 
 start_seed_time = Time.now
