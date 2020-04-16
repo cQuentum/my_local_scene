@@ -1,65 +1,97 @@
-<div class="banner">
-  <div class="container">
-    <h1 id="title-banner" class="text-center">Des groupes et des scènes proches de vous !</h1>
-  </div>
-
-  <div class="row mt-5">
-    <div class="col-md-3 offset-md-4">
-
-      <%= form_tag concerts_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control search-form-index hover-search",
-      placeholder: "Entrez une ville...",
-      :required => 'required'
-    %>
+<% if !user_signed_in? %>
+  <div class="banner">
+    <div class="container">
+      <h1 id="title-banner" class="text-center">Des groupes et des scènes proches de vous !</h1>
     </div>
-    <div class="col">
-       <%= submit_tag "Rechercher", class: "btn btn-light search-form-button" %>
+
+    <div class="row mt-5">
+      <div class="col-md-3 offset-md-4">
+
+        <%= form_tag concerts_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control search-form-index hover-search",
+        placeholder: "Entrez une ville...",
+        :required => 'required'
+      %>
+      </div>
+      <div class="col">
+         <%= submit_tag "Rechercher", class: "btn btn-light search-form-button" %>
+      </div>
+        <% end %>
     </div>
-      <% end %>
   </div>
-</div>
+<% end %>
 
-
-
-
-<div class="container mt-5 mb-5">
-  <div class="container mt-5 pb-2 pl-0">
-    <h2 >Concerts à l'affiche : </h2>
-  </div>
+<% if current_user %>
+<div class="spacing-div">
+  <div class="container mt-5 mb-5">
+    <div class="container mt-5 pb-2 pl-0">
+      <h2 >Concerts à l'affiche : </h2>
+    </div>
+    <% if @concerts.empty? %>
+    <p>Malheureusement, aucun concert ne correspond à vos critères.</p>
+    <p>Essayez d'élargir votre zone depuis  <%= link_to "votre profil", profile_path(current_user) %> !</p>
+    <% end %>
   <div class="cards justify-content-around">
-    <% @concerts.first(3).each do |concert| %>
-    <%= link_to concert, :action => 'go' do %>
-      <div class="card-concert-user">
-        <%= image_tag "Bannerimage.jpg" %>
-        <div class="card-concert-user-infos">
-          <div class="card-name">
-            <h2 class="card-band-genre-show"><%= concert.band.genre %></h2>
-            <h2 class="card-band-name-show"><%= concert.band.name %></h2>
-            <h2 class="card-concert-date-show"><%= frenchdate(concert.start_time.strftime("%A %d %B %Y"))%> | <%= concert.start_time.strftime("%Hh%M") %></h2>
-            <h2 class="card-concert-localisation-show"><%= concert.address %></h2>
-          </div>
-          <div class="card-concert-user-pricing">
-            <h2><%= number_with_delimiter(concert.price_cents/100) %>€</h2>
+    <% @concerts.first(9).each do |concert| %>
+      <%= link_to concert, :action => 'go' do %>
+        <div class="card-concert-user">
+          <%= image_tag "Bannerimage.jpg" %>
+          <div class="card-concert-user-infos">
+            <div class="card-name">
+              <h2 class="card-band-genre-show"><%= concert.band.genre %></h2>
+              <h2 class="card-band-name-show"><%= concert.band.name %></h2>
+              <h2 class="card-concert-date-show"><%= frenchdate(concert.start_time.strftime("%A %d %B %Y"))%> | <%= concert.start_time.strftime("%Hh%M") %></h2>
+              <h2 class="card-concert-localisation-show"><%= concert.address %></h2>
+            </div>
+            <div class="card-concert-user-pricing">
+              <h2><%= number_with_delimiter(concert.price_cents/100) %>€</h2>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+<% else %>
+  <div class="container mt-5 mb-5">
+    <div class="container mt-5 pb-2 pl-0">
+      <h2 >Concerts à l'affiche : </h2>
+    </div>
+      <div class="cards justify-content-around">
+        <% @concerts.first(3).each do |concert| %>
+        <%= link_to concert, :action => 'go' do %>
+          <div class="card-concert-user">
+            <%= image_tag "Bannerimage.jpg" %>
+            <div class="card-concert-user-infos">
+              <div class="card-name">
+                <h2 class="card-band-genre-show"><%= concert.band.genre %></h2>
+                <h2 class="card-band-name-show"><%= concert.band.name %></h2>
+                <h2 class="card-concert-date-show"><%= frenchdate(concert.start_time.strftime("%A %d %B %Y"))%> | <%= concert.start_time.strftime("%Hh%M") %></h2>
+                <h2 class="card-concert-localisation-show"><%= concert.address %></h2>
+              </div>
+              <div class="card-concert-user-pricing">
+                <h2><%= number_with_delimiter(concert.price_cents/100) %>€</h2>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>
 
-
-<div class="wrapper wrapper-blue p-5">
-  <div class="container mt-5 pb-2 pl-0">
-    <h2 >Vous faites partie d'un groupe ?</h2>
+<% if !user_signed_in? %>
+  <div class="wrapper wrapper-blue p-5">
+    <div class="container mt-5 pb-2 pl-0">
+      <h2 >Vous faites partie d'un groupe ?</h2>
+    </div>
+    <div class="container bg-light p-5">
+      <h4>Hey toi !!</h4>
+      <p>Fatigué de jouer devant... et bien personne ? Trouvez les meilleures endroits où vous produire, préparer vos affaires et mettez le feu!</p>
+      <a class="btn btn-flat btn-blue" href="/bands/new">Créer un groupe</a>
+    </div>
   </div>
-  <div class="container bg-light p-5">
-    <h4>Hey toi !!</h4>
-    <p>Fatigué de jouer devant... et bien personne ? Trouvez les meilleures endroits où vous produire, préparer vos affaires et mettez le feu!</p>
-    <a class="btn btn-flat btn-blue" href="/bands/new">Créer un groupe</a>
-  </div>
-</div>
+<% end %>
 
 
