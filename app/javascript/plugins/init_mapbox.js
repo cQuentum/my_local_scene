@@ -48,7 +48,7 @@ const initMapbox = () => {
         data: { features: markers },
         cluster: true,
         clusterMaxZoom: 8, // Max zoom to cluster points on
-        clusterRadius: 50
+        clusterRadius: 100
       })
 
       map.addLayer({
