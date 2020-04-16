@@ -1,6 +1,15 @@
 <div class="container">
   <h1>Locations</h1>
 
+  <%= form_tag locations_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a place to play"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+
   <div class="d-flex">
     <div class="container">
       <div id="map"
@@ -10,6 +19,7 @@
     </div>
     <div class="user-data">
       <% @users_data.each do |user_data| %>
+        <% if user_data.number_of_users > 100 %>
         <div class="border rounded p-3 mb-3 js-location-info-card"
              id="<%= user_data.location %>-info-card"
              data-location="<%= user_data.location %>"
@@ -17,6 +27,7 @@
              >
           <h4><%= user_data.location %></h4>
           <p><%= user_data.number_of_users %> users</p>
+          <% end %>
         </div>
       <% end %>
     </div>
