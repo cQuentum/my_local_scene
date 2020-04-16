@@ -38,7 +38,7 @@
             <h2 class="card-band-genre-show"><%= concert.band.genre %></h2>
             <h2 class="card-band-name-show"><%= concert.band.name %></h2>
             <h2 class="card-concert-date-show"><%= frenchdate(concert.start_time.strftime("%A %d %B %Y"))%> | <%= concert.start_time.strftime("%Hh%M") %></h2>
-            <h2 class="card-concert-localisation-show"><%= concert.address %></h2>
+            <h2 class="card-concert-localisation-show"><%= /.+, (.+)$/.match(concert.address)[1] %></h2>
           </div>
           <div class="card-concert-user-pricing">
             <h2><%= number_with_delimiter(concert.price_cents/100) %>€</h2>
