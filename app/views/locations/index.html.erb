@@ -1,6 +1,7 @@
 <div class="container">
   <h1>Locations</h1>
 
+
   <%= form_tag locations_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
@@ -19,7 +20,7 @@
     </div>
     <div class="user-data">
       <% @users_data.each do |user_data| %>
-        <% if user_data.number_of_users > 100 %>
+        <% if user_data.number_of_users < 1 %>
         <div class="border rounded p-3 mb-3 js-location-info-card"
              id="<%= user_data.location %>-info-card"
              data-location="<%= user_data.location %>"

@@ -18,4 +18,9 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
+  include AlgoliaSearch
+
+  algoliasearch do
+    geoloc :lat_attr, :lng_attr
+  end
 end
