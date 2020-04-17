@@ -1,4 +1,5 @@
 require 'faker'
+require 'open-uri'
 
 start_seed_time = Time.now
 
@@ -96,6 +97,96 @@ test_account = User.new(
   )
 test_account.save!
 
+metal_user1 = User.new(
+    first_name: "Pierre",
+    last_name: "Facq",
+    email: "facq@gmail.com",
+    password: "lolilol",
+    location: "Morlaix",
+    latitude: 48.5776,
+    longitude: -3.8282,
+    move_radius: rand(1..30),
+    genres: ["Metal"].push(GlobalConstants::GENRES_BREST.sample(rand(1..2))).flatten,
+    skip_geocoding: true
+  )
+metal_user1.save!
+
+metal_user2 = User.new(
+    first_name: "Hugo",
+    last_name: "Daniel",
+    email: "daniel@gmail.com",
+    password: "lolilol",
+    location: "Morlaix",
+    latitude: 48.5776,
+    longitude: -3.8282,
+    move_radius: rand(1..30),
+    genres: ["Metal"].push(GlobalConstants::GENRES_BREST.sample(rand(1..2))).flatten,
+    skip_geocoding: true
+  )
+metal_user2.save!
+
+
+#Fake metal bands & concerts
+
+no_one_is_in_auchan = Band.new(
+    name: "No one is in Auchan",
+    genre: "Metal",
+    description: "Groupe de Metal Sludge basé à Morlaix.",
+    external_link: "nooneisinauchan.bandcamp.com"
+  )
+no_one_is_in_auchan.user = metal_user1
+file = URI.open('https://i.ibb.co/18T1wWZ/nooneisinauchan.jpg')
+no_one_is_in_auchan.photo.attach(io: file, filename: 'noiia.jpg', content_type: 'image/jpg')
+no_one_is_in_auchan.save!
+
+fetus_eater = Band.new(
+    name: "Fetus Eater",
+    genre: "Metal",
+    description: "Du bon gros grindcore des familles !",
+    external_link: "fetuseater.bandcamp.com"
+  )
+fetus_eater.user = metal_user2
+file = URI.open('https://i.ibb.co/t4W0kLr/fetuseater.jpg')
+fetus_eater.photo.attach(io: file, filename: 'feteat.jpg', content_type: 'image/jpg')
+fetus_eater.save!
+
+
+start_time = DateTime.strptime("01/05/20 21:00", "%d/%m/%y %H:%M")
+end_time = start_time + (2/24.0)
+concert_metal_1 = Concert.new(
+  title: "#{no_one_is_in_auchan.name} + Guests - Ty Coz",
+  address: "10 Venelle Beurre, Morlaix",
+  description: "Release party pour notre nouvel album Le Coronavirus Est Malade. Nous serons accompagnés d'un autre groupe surprise !",
+  external_link: "facebook.com/event/nooneauchan4",
+  price_cents: 1000,
+  confirmed: true,
+  start_time: start_time,
+  end_time: end_time,
+  )
+concert_metal_1.band = no_one_is_in_auchan
+file = URI.open('https://i.ibb.co/yyRj4vf/NO-ONE-IS-IN-AUCHAN.jpg')
+concert_metal_1.photo.attach(io: file, filename: 'concertnoiia.jpg', content_type: 'image/jpg')
+concert_metal_1.save!
+
+
+start_time = DateTime.strptime("25/04/20 21:00", "%d/%m/%y %H:%M")
+end_time = start_time + (0.5/24.0)
+concert_metal_2 = Concert.new(
+  title: "#{fetus_eater.name} - Pub La Selle",
+  address: "55 rue haute, Morlaix",
+  description: "Premier concert en solo, nous prévoyons un set très long d'une demi heure, du jamais vu dans le monde du grindcore.",
+  external_link: "facebook.com/event/feteat69",
+  price_cents: 800,
+  confirmed: true,
+  start_time: start_time,
+  end_time: end_time,
+  )
+concert_metal_2.band = fetus_eater
+file = URI.open('https://i.ibb.co/px8Q2bg/concert-fetus-eater.jpg')
+concert_metal_2.photo.attach(io: file, filename: 'noiia.jpg', content_type: 'image/jpg')
+concert_metal_2.save!
+
+
 ### Demo
 
 # Créer de petits clusters du genre choisi pour le groupe => Country
@@ -188,7 +279,8 @@ paul = User.new(
     genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
     skip_geocoding: true
   )
-
+file = URI.open('https://i.ibb.co/wNX4dXQ/paulpp.jpg')
+paul.photo.attach(io: file, filename: 'noiia.jpg', content_type: 'image/jpg')
 paul.save!
 
 jerome = User.new(
@@ -204,7 +296,9 @@ jerome = User.new(
     skip_geocoding: true
   )
 
-jerome.save
+file = URI.open('https://i.ibb.co/d0jSzpd/jeromepp.jpg')
+jerome.photo.attach(io: file, filename: 'noiia.jpg', content_type: 'image/jpg')
+jerome.save!
 
 # Create Demo band
 
@@ -215,8 +309,9 @@ zombie_rednecks = Band.new(
     external_link: "zombierednecks.bandcamp.com"
   )
 zombie_rednecks.user = paul
+file = URI.open('https://i.ibb.co/hDLv38c/zombred.jpg')
+zombie_rednecks.photo.attach(io: file, filename: 'noiia.jpg', content_type: 'image/jpg')
 zombie_rednecks.save!
-
 # Créer des concerts passés et futurs
 
 # Landeda (Hometown)
@@ -233,9 +328,11 @@ concert_landeda = Concert.new(
   end_time: end_time,
   )
 concert_landeda.band = zombie_rednecks
+file = URI.open('https://i.ibb.co/Yhph17C/landeda-concert.jpg')
+concert_landeda.photo.attach(io: file, filename: 'noiia.jpg', content_type: 'image/jpg')
 concert_landeda.save!
 
-# Brest (Random choice)
+# Brest (Shitty concert from yesterday)
 start_time = DateTime.strptime("16/04/20 23:00", "%d/%m/%y %H:%M")
 end_time = start_time + (1/24.0)
 concert_brest = Concert.new(
@@ -249,5 +346,6 @@ concert_brest = Concert.new(
   end_time: end_time,
   )
 concert_brest.band = zombie_rednecks
+file = URI.open('https://i.ibb.co/By2Z6km/brest-concert.jpg')
+concert_brest.photo.attach(io: file, filename: 'noiia.jpg', content_type: 'image/jpg')
 concert_brest.save!
-
