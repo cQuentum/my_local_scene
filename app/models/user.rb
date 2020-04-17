@@ -17,10 +17,4 @@ class User < ApplicationRecord
   validates :move_radius, numericality: { only_integer: true }
 
   has_one_attached :photo
-
-  include AlgoliaSearch
-
-  algoliasearch do
-    geoloc :lat_attr, :lng_attr
-  end
 end

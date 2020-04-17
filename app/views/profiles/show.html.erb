@@ -1,7 +1,7 @@
 <div class="container">
   <div class="form-block">
     <h2>Paramètres</h2>
-    <label>Vos genres de musique</label>
+    <label>Vos genres de musique :</label>
     <% if @user.genres == [] %>
     <p>Vous n'avez pas encore sélectionné de genre !</p>
     <% end %>
@@ -10,9 +10,9 @@
     <p class="music-tag"><%= genre %></p>
     <% end %>
     </div>
-    <label>Votre addresse</label>
+    <label>Votre addresse :</label>
     <p><%= @user.location %></p>
-    <label>Pour des concerts, vous vous déplacez de</label>
+    <label>Pour des concerts, vous vous déplacez de :</label>
     <p><%= @user.move_radius %>km<p>
     <%= link_to "Modifier", edit_profile_path(current_user), class: "btn-mls-profile" %>
   </div>
