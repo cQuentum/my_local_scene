@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col concert-show-infos">
       <h2 class="band-genre-show"><%= @concert.band.genre.upcase %></h2>
+      <%= link_to band_path(@concert.band) do %>
       <h1 class="band-name-show"><%= @concert.band.name %></h1>
+      <% end %>
       <h4 id="infos-show" class="d-flex justify-content-evenly">
         <div class="concert-date-show"><%= frenchdate(@concert.start_time.strftime("%A %d %B %Y")) %></div>
         <div class="concert-hour-show"><%= @concert.start_time.strftime("%Hh%M") %></div>
