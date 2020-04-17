@@ -21,7 +21,7 @@ class MyConcertsController < ApplicationController
     @concert.confirmed = true
     @concert.band = @band
     if @concert.save
-      redirect_to my_concert_path(@concert)
+      redirect_to concert_path(@concert)
     else
       render :new
     end
