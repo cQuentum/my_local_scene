@@ -1,6 +1,5 @@
 .footer {
   margin-top: auto;
-  bottom: 0;
   background: #12193F;
   display: flex;
   align-items: center;
@@ -10,34 +9,33 @@
   color: rgba(0,0,0,0.3);
   width: 100%;
 
-  position: -webkit-sticky;
   position: static;
   bottom: 0px;
 }
 .footer-links {
   display: flex;
   align-items: center;
+  flex-grow: 0;
+  margin-right: 12%;
 }
+
+.logofooter {
+  margin-left: 8%;
+}
+
 .footer-links a {
   color: #F18668;
   opacity: 0.8;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
+  text-align: center;
+  margin-right: 8%;
 }
 .footer-links a:hover {
   opacity: 1;
 }
-.footer .fa-heart {
-  color: #D23333;
-}
 
 .footer img {
   width: 100px;
-  margin-left: 50px;
-}
-
-.footer-copyright {
-  color: white;
-  margin-right: 50px;
 }
