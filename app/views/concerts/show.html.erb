@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col concert-show-infos">
       <h2 class="band-genre-show"><%= @concert.band.genre.upcase %></h2>
-      <h1 class="band-name-show"><%= @concert.band.name %></h1>
+      <%= link_to band_path(@concert.band) do %>
+        <h1 class="band-title-show"><%= @concert.title%></h1>
+      <% end %>
       <h4 id="infos-show" class="d-flex justify-content-evenly">
         <div class="concert-date-show"><%= frenchdate(@concert.start_time.strftime("%A %d %B %Y")) %></div>
         <div class="concert-hour-show"><%= @concert.start_time.strftime("%Hh%M") %></div>
@@ -12,10 +14,14 @@
       <h5 class="concert-localisation-show"><%= @concert.address %></h5>
 
       <% if current_user.band == @concert.band %>
-        <div class="btn-mls-show">DUPLIQUER</div>
+        <div></div>
         <div class="concert-participations-show">
           <div class="participations-count-show"><%= @concert.participations.count %></div>
-          <div class="participations-sentence-show">personnes participent à votre concert</div>
+          <% if @concert.participations.count <= 1 %>
+            <div class="participations-sentence-show">personne participe à votre concert</div>
+          <% else %>
+            <div class="participations-sentence-show">personnes participent à votre concert</div>
+          <% end %>
         </div>
       <% else %>
         <% if Participation.exists?(user_id: current_user.id, concert_id: @concert.id) %>

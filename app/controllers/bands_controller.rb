@@ -8,7 +8,7 @@ class BandsController < ApplicationController
     @band_show = Band.find(params[:id])
     @band = Band.where(user_id: current_user.id)
     @participations = Participation.where(concert: @concert)
-    @concerts = Concert.where(band: @band)
+    @concerts = Concert.where(band: @band_show)
     @future_concerts = @concerts.where('start_time >= ?', DateTime.now)
   end
 
