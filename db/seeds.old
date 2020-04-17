@@ -1,11 +1,21 @@
+require 'open-uri'
 require 'faker'
+require 'json'
 
 start_seed_time = Time.now
 
+# Fetch all cities in Finistère, store in array
+url = "https://geo.api.gouv.fr/departements/29/communes?fields=nom&format=json&geometry=centre"
+opened = open(url).read
+communes = JSON.parse(opened)
+finistere = []
+communes.each do |commune|
+  finistere << commune['nom']
+end
 
 #Seeding Brest
 counter = 1
-22.times do
+320.times do
   last_name = GlobalConstants::FAMILY_NAMES.sample
   prefix = rand(0..10000).to_s
   suffix = rand(0..10000).to_s
@@ -18,7 +28,7 @@ counter = 1
     latitude: 48.3905283,
     longitude: -4.4860088,
     move_radius: rand(1..30),
-    genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
+    genres: ["Metal"].push(GlobalConstants::GENRES_BREST.sample(rand(1..2))).flatten,
     skip_geocoding: true
   )
   user.save!
@@ -27,7 +37,7 @@ counter = 1
 end
 
 counter = 1
-30.times do
+218.times do
   last_name = GlobalConstants::FAMILY_NAMES.sample
   prefix = rand(0..10000).to_s
   suffix = rand(0..10000).to_s
@@ -40,7 +50,7 @@ counter = 1
     latitude: 47.9960325,
     longitude: -4.1024782,
     move_radius: rand(1..30),
-    genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
+    genres: ["Rap"].push(GlobalConstants::GENRES_QUIMPER.sample(rand(1..2))).flatten,
     skip_geocoding: true
   )
   user.save!
@@ -49,7 +59,7 @@ counter = 1
 end
 
 counter = 1
-12.times do
+140.times do
   last_name = GlobalConstants::FAMILY_NAMES.sample
   prefix = rand(0..10000).to_s
   suffix = rand(0..10000).to_s
@@ -62,7 +72,7 @@ counter = 1
     latitude: 48.2779589,
     longitude: -3.5620953,
     move_radius: rand(1..30),
-    genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
+    genres: ["Rock"].push(GlobalConstants::GENRES_CARHAIX.sample(rand(1..2))).flatten,
     skip_geocoding: true
   )
   user.save!
@@ -77,7 +87,79 @@ puts "Fixed seeds done in #{total_time}s"
 
 
 
+# Seed user random Finistere
 
+start_seed_time = Time.now
+counter = 1
+100.times do
+  last_name = GlobalConstants::FAMILY_NAMES.sample
+  prefix = rand(0..10000).to_s
+  suffix = rand(0..10000).to_s
+  user = User.new(
+    first_name: GlobalConstants::FIRST_NAMES.sample,
+    last_name: last_name,
+    email: Faker::Internet.unique.email,
+    password: "lolilol",
+    location: finistere.sample,
+    move_radius: rand(1..30),
+    genres: GlobalConstants::GENRES.sample(rand(1..3))
+  )
+  user.save!
+  puts "User #{counter} saved!"
+  counter += 1
+end
+
+# Seed band random Finistere
+adjectives = %w(Raging Flaming Incredible Mean Noisy Brilliant Anonymous Arctic Dark Solemn)
+counter = 1
+220.times do
+  user_counter = rand(1..(User.count))
+  random_words = Faker::Hipster.words(number: 3)
+  band_name = "The #{adjectives.sample} #{random_words[0].capitalize} #{random_words[1].capitalize} of #{random_words[2].capitalize}"
+  band_genre = GlobalConstants::GENRES.sample
+  band = Band.new(
+    name: band_name,
+    genre: band_genre,
+    description: "#{band_name} est le meilleur groupe de #{band_genre} de toute la région !",
+    external_link: "ceciestunlien.io"
+    )
+  band.user = User.find(user_counter)
+  band.save!
+  puts "Band #{counter} - #{band.name} owned by #{band.user.first_name} saved!"
+  counter += 1
+end
+
+
+# Seed concert
+
+456.times do
+  band = Band.find(rand(1..(Band.count)))
+  address = band.user.location
+  starting_hour = ["19", "20", "21"]
+  start_time = DateTime.strptime("#{rand(17..30)}/04/20 #{starting_hour.sample}:00", "%d/%m/%y %H:%M")
+  end_time = start_time + ((rand(1..3)/24.0)) #.hours ?
+  concert = Concert.new(
+    title: "#{band.name} à #{address}",
+    address: address,
+    longitude: band.user.longitude,
+    latitude: band.user.latitude,
+    description: "Premier concert à la maison, venez nombreux nous soutenir !",
+    external_link: "ceciestaussiunlienmaisdifferent.io",
+    price_cents: (rand(5..14) * 100),
+    confirmed: true,
+    start_time: start_time,
+    end_time: end_time,
+    skip_geocoding: true,
+    band: band
+    )
+
+  concert.save!
+  puts "Concert n°#{concert.id} saved!"
+end
+
+total_time = Time.now - start_seed_time
+
+puts "Geocoded seeds done in #{total_time}s"
 
 
 # Add test account
@@ -170,7 +252,6 @@ counter = 1
   counter += 1
 end
 
-
 total_time = Time.now - start_seed_time
 
 puts "Three clusters done in #{total_time}"
@@ -200,7 +281,7 @@ jerome = User.new(
     latitude: 48.5776,
     longitude: -3.8282,
     move_radius: rand(1..30),
-    genres: ["Metal"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
+    genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
     skip_geocoding: true
   )
 
@@ -220,12 +301,12 @@ zombie_rednecks.save!
 # Créer des concerts passés et futurs
 
 # Landeda (Hometown)
-start_time = DateTime.strptime("08/05/20 20:00", "%d/%m/%y %H:%M")
+start_time = DateTime.strptime("06/03/20 20:00", "%d/%m/%y %H:%M")
 end_time = start_time + (3/24.0)
 concert_landeda = Concert.new(
   title: "#{zombie_rednecks.name} + Lonely but Together + The Crop Circlers - Bar Les Embruns",
   address: "180 route de doenna, Landéda",
-  description: "Retour sur nos terres en bonne compagnie puisque nous retrouvons nos potes de Lonely but Together et un tout nouveau groupe local The Crop Circlers.",
+  description: "Première date chez nous en bonne compagnie puisque nous retrouvons nos potes de Lonely but Together et un tout nouveau groupe local The Crop Circlers.",
   external_link: "facebook.com/event/zombie_rednecks43",
   price_cents: 1200,
   confirmed: true,
@@ -236,7 +317,7 @@ concert_landeda.band = zombie_rednecks
 concert_landeda.save!
 
 # Brest (Random choice)
-start_time = DateTime.strptime("16/04/20 23:00", "%d/%m/%y %H:%M")
+start_time = DateTime.strptime("23/04/20 23:00", "%d/%m/%y %H:%M")
 end_time = start_time + (1/24.0)
 concert_brest = Concert.new(
   title: "#{zombie_rednecks.name} - Discothèque Baroombar",
@@ -251,3 +332,18 @@ concert_brest = Concert.new(
 concert_brest.band = zombie_rednecks
 concert_brest.save!
 
+# Concarneau (Actual Country cluster)
+start_time = DateTime.strptime("21/03/20 20:00", "%d/%m/%y %H:%M")
+end_time = start_time + (3/24.0)
+concert_concarneau = Concert.new(
+  title: "#{zombie_rednecks.name} + Babayou - La Taverne des Korrigans",
+  address: "2 avenue du Dr Pierre Nicolas, Concarneau",
+  description: "Concarneau, on arrive ! Babayou nous invite sur ses terres pour une soirée qui s'annonce mythique.",
+  external_link: "facebook.com/event/zombie_rednecks53",
+  price_cents: 1500,
+  confirmed: true,
+  start_time: start_time,
+  end_time: end_time,
+  )
+concert_concarneau.band = zombie_rednecks
+concert_concarneau.save!
