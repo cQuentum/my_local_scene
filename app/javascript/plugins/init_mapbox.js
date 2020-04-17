@@ -22,7 +22,7 @@ const addZoomOnClusters = (map, locationInfoCards) => {
 const highlightInfoCard = (location, locationInfoCards) => {
   const currentInfoCard   = document.getElementById(location + '-info-card')
   locationInfoCards.forEach(infoCard => infoCard.style.removeProperty("background-color"));
-  currentInfoCard.style.backgroundColor = 'red';
+  currentInfoCard.style.backgroundColor = 'dimgray';
 };
 
 const initMapbox = () => {
@@ -33,9 +33,10 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10',
+      style: 'mapbox://styles/mapbox/dark-v10',
       zoom: 3,
-      center: [-1.55, 47.27]
+      center: [-1.55, 47.27],
+      offset: -100
     });
 
     addZoomOnClusters(map, locationInfoCards);
@@ -144,10 +145,10 @@ const initMapbox = () => {
 
         highlightInfoCard(location, locationInfoCards);
 
-        const text = `Hey tu veux aller voir les concerts de ${location}, là où il y a ${userCount} intéressés ?`
+        const text = `Hey tu veux aller jouer à <b><strong>${location}</strong></b>, là où il y a <strong>${userCount}</strong> intéressés ?`
         new mapboxgl.Popup()
           .setLngLat(coordinates)
-          .setHTML(`<p>${text}</p>`)
+          .setHTML(` <p>${text}</p><a href="my_concerts/new">C'est parti !</a>`)
           .addTo(map);
       });
     });
