@@ -90,33 +90,38 @@
 //Style du contenu
 .card-band-genre-show {
   color: $mls-blue;
-  font-size: 20px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
 }
 
 .card-band-name-show {
-  font-size: 20px;
+  font-size: 26px;
   color: #100F3E;
   margin-top: 5px;
-  font-weight: 600;
+  font-weight: 300;
 }
 
 
 .card-concert-date-show {
-  font-size: 16px;
+  font-size: 15px;
   color: #100F3E;
-  opacity: 0.8;
+  opacity: 0.4;
+  font-weight: 800;
 }
 
 .card-concert-localisation-show {
-  font-size: 20px;
+  font-size: 15px;
   color: #100F3E;
+  opacity: 0.4;
+  font-weight: 400;
   // margin-top: 15px;
 }
 
 .card-concert-user-pricing h2 {
   // margin-top: 15px;
   font-weight: 800;
-  font-size: 22px;
+  font-size: 16px;
 }
 
 
@@ -242,13 +247,6 @@
   font-weight: 300;
   margin-top: 8px;
   margin-bottom: 20px;
-}
-
-.card-band-genre-show {
-  color: $mls-blue;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
 }
 
 .band-hour-show {
