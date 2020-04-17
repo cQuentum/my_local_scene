@@ -1,6 +1,10 @@
 .search-form-index {
-  width: 473px;
+  width: 490px;
+  height: 60px;
   margin-bottom: 10px;
+  border-radius: 50px;
+  border-width: 2px;
+  border-color: white;
 }
 
 .search-form-button {
@@ -8,7 +12,7 @@
 }
 
 .hover-search{
-  opacity: 0.8;
+  opacity: 0.95;
 }
 
 .hover-search:hover {
@@ -16,4 +20,11 @@
   color: black;
 }
 
-
+#query::placeholder {
+  color: $mls-orange;
+  padding-top: 5px;
+  padding-left: 10px;
+  font-size: 25px;
+  font-family: Muli;
+  font-weight: 800;
+}

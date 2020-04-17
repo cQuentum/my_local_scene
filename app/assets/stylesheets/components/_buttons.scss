@@ -77,4 +77,18 @@
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
   text-decoration: none;
   color: white;
+
+}
+
+
+.button-blue {
+  background-color: $mls-blue;
+  border-radius: 50px;
+  color: white;
+  font-family: Muli;
+  font-weight: 600;
+  height: 60px;
+  width: 60px;
+  border-width: 2px;
+  border-color: white;
 }
