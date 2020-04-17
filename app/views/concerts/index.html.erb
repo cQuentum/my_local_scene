@@ -9,7 +9,7 @@
     <% @concerts.each do |concert| %>
     <%= link_to concert, :action => 'go' do %>
       <div class="card-concert-user">
-        <%= image_tag "Bannerimage.jpg" %>
+        <%= cl_image_tag concert.photo.key %>
         <div class="card-concert-user-infos">
           <div class="card-name">
             <h2 class="card-band-genre-show"><%= concert.band.genre %></h2>

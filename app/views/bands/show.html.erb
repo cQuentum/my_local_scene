@@ -10,7 +10,9 @@
 
     <div class="row">
       <div class="col">
-        <div class="band-poster-show"> <img src="https://images.unsplash.com/photo-1518552722618-737f6d8e91c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"></div>
+        <div class="band-poster-show">
+          <%= cl_image_tag @band_show.photo.key %>
+        </div>
       </div>
     </div>
   </div>
@@ -20,7 +22,7 @@
     <% @concerts.each do |concert| %>
       <%= link_to concert, :action => 'go' do %>
         <div class="card-show-band">
-          <%= image_tag "Bannerimage.jpg" %>
+          <%= cl_image_tag concert.photo.key %>
           <div class="card-show-band-infos">
             <div class="card-name">
               <h2 class="card-band-genre-show"><%= concert.band.genre %></h2>
