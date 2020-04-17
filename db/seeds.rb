@@ -1,6 +1,45 @@
 require 'faker'
 require 'open-uri'
 
+
+
+
+# Create the Demo users (Paul who has the band, Jerome who's a spectator)
+
+paul = User.new(
+    first_name: "Paul",
+    last_name: "Fourchon",
+    email: "fourchon@gmail.com",
+    password: "lolilol",
+    location: "Landéda",
+    latitude: 48.5870,
+    longitude: -4.5723,
+    move_radius: rand(1..30),
+    genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
+    skip_geocoding: true
+  )
+file = URI.open('https://avatars3.githubusercontent.com/u/58589677?s=400&u=d0578c7956266113b6a2118fffe2a573e7d19c4c&v=4')
+paul.photo.attach(io: file, filename: 'paul.jpg', content_type: 'image/jpg')
+paul.save!
+
+jerome = User.new(
+    first_name: "Jérôme",
+    last_name: "Luce",
+    email: "luce@gmail.com",
+    password: "lolilol",
+    location: "Morlaix",
+    latitude: 48.5776,
+    longitude: -3.8282,
+    move_radius: rand(1..30),
+    genres: ["Metal"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
+    skip_geocoding: true
+  )
+
+file = URI.open('https://avatars2.githubusercontent.com/u/49526754?v=4')
+jerome.photo.attach(io: file, filename: 'jerome.jpg', content_type: 'image/jpg')
+jerome.save!
+
+
 start_seed_time = Time.now
 
 
@@ -131,7 +170,7 @@ metal_user2.save!
 no_one_is_in_auchan = Band.new(
     name: "No one is in Auchan",
     genre: "Metal",
-    description: "Groupe de Metal Sludge basé à Morlaix.",
+    description: "Groupe de Metal Sludge basé à Morlaix. Avez vous déjà rêvé d'être dans un magasin seul la nuit ? Musicalement, nous, c'est ça.",
     external_link: "nooneisinauchan.bandcamp.com"
   )
 no_one_is_in_auchan.user = metal_user1
@@ -142,7 +181,7 @@ no_one_is_in_auchan.save!
 fetus_eater = Band.new(
     name: "Fetus Eater",
     genre: "Metal",
-    description: "Du bon gros grindcore des familles !",
+    description: "Du bon gros grindcore des familles ! Dans la lignée directe des groupes fondateurs comme Vaginal Cassoulet ou Gronibard.",
     external_link: "fetuseater.bandcamp.com"
   )
 fetus_eater.user = metal_user2
@@ -183,7 +222,7 @@ concert_metal_2 = Concert.new(
   )
 concert_metal_2.band = fetus_eater
 file = URI.open('https://i.ibb.co/px8Q2bg/concert-fetus-eater.jpg')
-concert_metal_2.photo.attach(io: file, filename: 'noiia.jpg', content_type: 'image/jpg')
+concert_metal_2.photo.attach(io: file, filename: 'feteatconc.jpg', content_type: 'image/jpg')
 concert_metal_2.save!
 
 
@@ -265,40 +304,6 @@ end
 total_time = Time.now - start_seed_time
 
 puts "Three clusters done in #{total_time}"
-# Create the Demo users (Paul who has the band, Jerome who's a spectator)
-
-paul = User.new(
-    first_name: "Paul",
-    last_name: "Fourchon",
-    email: "fourchon@gmail.com",
-    password: "lolilol",
-    location: "Landéda",
-    latitude: 48.5870,
-    longitude: -4.5723,
-    move_radius: rand(1..30),
-    genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
-    skip_geocoding: true
-  )
-file = URI.open('https://i.ibb.co/wNX4dXQ/paulpp.jpg')
-paul.photo.attach(io: file, filename: 'noiia.jpg', content_type: 'image/jpg')
-paul.save!
-
-jerome = User.new(
-    first_name: "Jérôme",
-    last_name: "Luce",
-    email: "luce@gmail.com",
-    password: "lolilol",
-    location: "Morlaix",
-    latitude: 48.5776,
-    longitude: -3.8282,
-    move_radius: rand(1..30),
-    genres: ["Metal"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
-    skip_geocoding: true
-  )
-
-file = URI.open('https://i.ibb.co/d0jSzpd/jeromepp.jpg')
-jerome.photo.attach(io: file, filename: 'noiia.jpg', content_type: 'image/jpg')
-jerome.save!
 
 # Create Demo band
 
@@ -310,7 +315,7 @@ zombie_rednecks = Band.new(
   )
 zombie_rednecks.user = paul
 file = URI.open('https://i.ibb.co/hDLv38c/zombred.jpg')
-zombie_rednecks.photo.attach(io: file, filename: 'noiia.jpg', content_type: 'image/jpg')
+zombie_rednecks.photo.attach(io: file, filename: 'zombred.jpg', content_type: 'image/jpg')
 zombie_rednecks.save!
 # Créer des concerts passés et futurs
 
@@ -329,7 +334,7 @@ concert_landeda = Concert.new(
   )
 concert_landeda.band = zombie_rednecks
 file = URI.open('https://i.ibb.co/Yhph17C/landeda-concert.jpg')
-concert_landeda.photo.attach(io: file, filename: 'noiia.jpg', content_type: 'image/jpg')
+concert_landeda.photo.attach(io: file, filename: 'landedaconc.jpg', content_type: 'image/jpg')
 concert_landeda.save!
 
 # Brest (Shitty concert from yesterday)
@@ -338,7 +343,7 @@ end_time = start_time + (1/24.0)
 concert_brest = Concert.new(
   title: "#{zombie_rednecks.name} - Discothèque Baroombar",
   address: "22 bis rue de Lyon, Brest",
-  description: "Venez vous enjailler avec nous à Brest ce week-end !",
+  description: "Venez vous enjailler avec nous à Brest ce week-end ! C'est notre premier concert dans ce type d'établissement, on espère que ça va vous plaire !",
   external_link: "facebook.com/event/zombie_rednecks46",
   price_cents: 500,
   confirmed: true,
@@ -347,5 +352,5 @@ concert_brest = Concert.new(
   )
 concert_brest.band = zombie_rednecks
 file = URI.open('https://i.ibb.co/By2Z6km/brest-concert.jpg')
-concert_brest.photo.attach(io: file, filename: 'noiia.jpg', content_type: 'image/jpg')
+concert_brest.photo.attach(io: file, filename: 'brestconc.jpg', content_type: 'image/jpg')
 concert_brest.save!
