@@ -4,7 +4,7 @@
   </div>
 
   <div class="row mt-5">
-    <div class="col-md-3 offset-md-4">
+    <div class="col-md-3 mr-4  offset-md-4">
 
       <%= form_tag concerts_path, method: :get do %>
     <%= text_field_tag :query,
@@ -15,7 +15,9 @@
     %>
     </div>
     <div class="col">
-       <%= submit_tag "Rechercher", class: "btn btn-light search-form-button" %>
+      <button type="submit" class="btn button-blue">
+          <i class="fas fa-search"></i>
+      </button>
     </div>
       <% end %>
   </div>
