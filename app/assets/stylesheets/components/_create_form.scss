@@ -23,7 +23,7 @@
     font-size: 40px;
     text-align: center;
     font-weight: bold;
-    padding: 40px 0px;
+    padding: 20px 0px;
   }
 }
 
@@ -53,7 +53,7 @@
 }
 
 #fixed-height-mls{
-  height: 180px;
+  height: 130px;
 }
 
 .form-description-tall {
@@ -67,4 +67,12 @@
  #form-external-link {
   width: 430px;
   margin-right: 33px;
+}
+
+.upload-photo {
+  text-decoration: underline;
+}
+
+.upload-photo:hover{
+  text-shadow: 0 0 15px rgba(200,200,200,1);
 }
