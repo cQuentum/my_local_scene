@@ -12,11 +12,12 @@ class MyConcertsController < ApplicationController
 
   def new
     @concert = Concert.new
+    @user = current_user
   end
 
   def create
     @band = current_user.band
-    @concert = Concert.new(concert_params)
+    @concert = Concert.new(my_concert_params)
     @concert.price_cents = @concert.price_cents * 100
     @concert.confirmed = true
     @concert.band = @band
@@ -29,7 +30,7 @@ class MyConcertsController < ApplicationController
 
   private
 
-  def concert_params
+  def my_concert_params
     params.require(:concert).permit(:photo, :title, :address, :description, :external_link, :price_cents, :start_time, :end_time, :confirmed)
   end
 end
