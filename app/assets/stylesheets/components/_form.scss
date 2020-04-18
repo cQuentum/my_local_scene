@@ -28,3 +28,12 @@
   font-family: Muli;
   font-weight: 800;
 }
+
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+  color: $mls-blue;
+}
+
+
+.was-validated .form-control:valid, .form-control.is-valid {
+  border-color: black;
+}

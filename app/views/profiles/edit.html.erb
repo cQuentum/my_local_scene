@@ -1,11 +1,10 @@
-<div class="container">
-  <div class="form-block">
-    <h2>Mise à jour du profil</h2>
-    <%= simple_form_for @user, :url => profile_path do |f| %>
-    <%= f.input :location, label: "Addresse" %>
-    <%= f.input :genres, collection: GlobalConstants::GENRES, as: :check_boxes, label: "Choisissez jusqu'à trois genres !" %>
-    <%= f.input :move_radius, label: "Combien de kilomètres êtes vous prêt à parcourir pour voir un concert ?" %>
-    <%= f.button :submit, "Sauvegarder", class: "btn-mls-profile" %>
-    <% end %>
-  </div>
+<div class="form-block">
+  <h2>Mise à jour du profil</h2>
+  <%= simple_form_for @user, :url => profile_path do |f| %>
+  <%= f.input :location, label: "Addresse" %>
+  <%= f.input :genres, collection: GlobalConstants::GENRES, as: :check_boxes, label: "Choisissez jusqu'à trois genres !" %>
+  <%= f.input :move_radius, label: "Combien de kilomètres êtes vous prêt à parcourir pour voir un concert ?" %>
+  <%= f.button :submit, "Sauvegarder", class: "btn-mls-profile" %>
+  <% end %>
 </div>
+
