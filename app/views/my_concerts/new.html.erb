@@ -9,7 +9,7 @@
     <%= f.input :address, label: "Addresse du lieu"%>
     <div class="form-inline-mls">
     <%= f.input :external_link, label: "Lien de l'évènement (facebook, etc.)", input_html: { id: 'form-external-link', :value => @user.band.external_link }%>
-    <%= f.input :price_cents, label: "Prix €", input_html: { id: 'form-price' }%>
+    <%= f.input :price_cents, label: "Prix €", input_html: { id: 'form-price', :value => 0 }%>
     </div>
     <div class="form-inline-mls" id="fixed-height-mls">
     <%= f.input :start_time, as: :string, required: false, input_html: { class: 'datepicker', id: 'start-date' }, label: "Début du concert" %>
