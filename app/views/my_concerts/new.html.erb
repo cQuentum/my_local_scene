@@ -12,8 +12,8 @@
     <%= f.input :price_cents, label: "Prix €", input_html: { id: 'form-price', :value => 0 }%>
     </div>
     <div class="form-inline-mls" id="fixed-height-mls">
-    <%= f.input :start_time, as: :string, required: false, input_html: { class: 'datepicker', id: 'start-date' }, label: "Début du concert" %>
-    <%= f.input :end_time, as: :string, required: false, input_html: { class: 'datepicker', id: 'end-date' }, label: "Fin du concert" %>
+    <%= f.input :start_time, as: :string, required: true, input_html: { class: 'datepicker', id: 'start-date' }, label: "Début du concert" %>
+    <%= f.input :end_time, as: :string, required: true, input_html: { class: 'datepicker', id: 'end-date' }, label: "Fin du concert" %>
     <div class="vertical-mls">
     <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: 'Affiche du concert' %>
     <%= image_tag "", width: 100, class: "hidden", id: "photo-preview" %>

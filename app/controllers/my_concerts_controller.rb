@@ -24,6 +24,8 @@ class MyConcertsController < ApplicationController
     if @concert.save
       redirect_to concert_path(@concert)
     else
+      @user = current_user
+      flash[:alert] = "#{@concert.errors.messages[:base][0]}" unless @concert.errors.messages[:base][0].nil?
       render :new
     end
   end
