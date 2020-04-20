@@ -18,9 +18,9 @@
     </div>
   </div>
 <% if current_user.band && current_user.band == @band_show %>
-  <h2 class="grid-band-show mb-5 mt-5">Vos prochains concerts</h2>
+  <h2 id="future-concerts" class="grid-band-show mb-5 mt-5">Vos prochains concerts</h2>
 <% else %>
-  <h2 class="grid-band-show mb-5 mt-5">Leurs prochains concerts</h2>
+  <h2 id="future-concerts" class="grid-band-show mb-5 mt-5">Leurs prochains concerts</h2>
 <% end %>
   <div class="band-show-cards">
     <% @future_concerts.each do |concert| %>
