@@ -1,4 +1,4 @@
-<div class="background-image-form" ></div>
+<div class="background-image-form" >
 <div class="form-block">
   <h2><b><%= @user.band.name %></b> en concert</h2>
   <%= simple_form_for @concert, :url => my_concerts_path do |f| %>
@@ -24,4 +24,5 @@
     <%#= f.input :confirmed, as: :check_boxes, label: "Publier" %>
     <%= f.button :submit, "En scène !", class: "btn-mls-forms" %>
   <% end %>
+</div>
 </div>
