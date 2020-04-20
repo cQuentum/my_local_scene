@@ -35,8 +35,7 @@ const initMapbox = () => {
       container: 'map',
       style: 'mapbox://styles/mapbox/dark-v10',
       zoom: 3,
-      center: [-1.55, 47.27],
-      offset: -100
+      center: [-1.55, 47.27]
     });
 
     addZoomOnClusters(map, locationInfoCards);
