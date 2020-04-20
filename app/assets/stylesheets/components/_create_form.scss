@@ -4,8 +4,8 @@
   padding: 20px 70px;
   border-radius: 10px;
   box-shadow: 1px 9px 20px rgba(7, 0, 255, 0.1);
-  position: absolute;
-  left: 170px; right: 170px; top: 65px;
+  position: relative;
+  top: 65px;
   z-index: 1;
   label {
     color: $mls-blue;
