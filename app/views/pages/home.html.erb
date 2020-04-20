@@ -1,6 +1,10 @@
 <div class="banner">
-  <div class="container">
-    <h1 id="title-banner" class="text-center">Des groupes et des scènes proches de vous !</h1>
+  <div class="banner-title-container">
+    <h1 id="title-banner" class="text-center">Découvrez des groupes proches de chez vous !</h1>
+    <ul id="description-title-banner">
+      <li>Jouer devant des salles combles</li>
+      <li>Profiter de concerts qualitatifs</li>
+    </ul>
   </div>
 
   <div>
@@ -24,7 +28,7 @@
 <div class="spacing-div">
   <div class="container mt-5 mb-5">
     <div class="container mt-5 pb-2 pl-0">
-      <h2 >Concerts près de chez vous: </h2>
+      <h2 class="index-title-home" >Concerts près de chez vous</h2>
     </div>
     <% if @concerts.empty? %>
     <p>Malheureusement, aucun concert ne correspond à vos critères.</p>

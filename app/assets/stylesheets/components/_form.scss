@@ -2,6 +2,7 @@
   position: relative;
   width: 400px;
   margin: 0 auto;
+  margin-top: 60px;
 }
 
 .search-form-control .btn {
@@ -9,8 +10,8 @@
   top: 8px;
   bottom: 8px;
   right: 8px;
-  background-color: $mls-blue;
-  border-radius: 30px;
+  background-color: #FFFFFF;
+  color: $mls-blue;
 }
 
 .search-form-control .form-control {
@@ -28,6 +29,7 @@
 
 #query {
   font-family: Muli;
+  padding: 20px;
 }
 
 #query::placeholder {
