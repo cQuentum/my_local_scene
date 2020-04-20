@@ -1,10 +1,10 @@
   <div class="search-banner">
-  <h1>Faites tourner votre groupe !</h1>
+  <h1 id="location-title">Cherchez un endroit pour jouer de la musique <%= current_user.band.genre %> !</h1>
   <%= form_tag locations_path, class: "form-inline-map", method: :get do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control margin-location-form",
-      placeholder: "Cherchez un endroit pour jouer de la musique #{current_user.band.genre} !"
+      placeholder: "Ville, addresse, etc..."
     %>
     <%= submit_tag "Trouver", class: "btn-mls-locations" %>
   <% end %>
