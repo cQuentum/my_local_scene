@@ -17,7 +17,6 @@ class Concert < ApplicationRecord
   has_one_attached :photo
 
   validates :price_cents, numericality: true
-  validates :title, :photo, :address, :description, :start_time, :end_time, presence: :true
-  validates_with EndDateAfterStart
+  validates :title, :photo, :address, :description, :start_time, presence: :true
 end
 
