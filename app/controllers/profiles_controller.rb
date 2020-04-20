@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
 
   def update
     user_to_update = User.find(params[:id])
-    params[:user][:genres].shift
+    params[:user][:genres]
     user_to_update.update(update_params)
     redirect_to profile_path(user_to_update)
   end

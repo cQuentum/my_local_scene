@@ -1,7 +1,6 @@
 .banner {
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset_path("Bannerimage.jpg"));
-  background-size: cover;
-  background-position: center;
+  background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(asset_path("banner.png"));
+  background-position: 50%;
   padding: 300px 0;
   width: 100%;
   height: 100vh;
@@ -10,7 +9,7 @@
 
 .banner h1 {
   margin: 0;
-  color: #F18668;
+  color: #FFFFFF;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 48px;
   font-weight: 1000;
@@ -23,10 +22,27 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-#title-banner {
-  font-size: 72px;
-  font-weight: 900;
-  margin-bottom: 120px;
+.banner-title-container {
+  margin-right: 30%;
+  margin-left: 30%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  top: 5px;
 }
 
+#title-banner {
+  font-size: 68px;
+  font-weight: 300;
+  text-shadow: 2px 2px 7px #000000;
+  margin-bottom: 40px;
+}
 
+#description-title-banner {
+  font-size: 24px;
+  font-weight: 300;
+  opacity: 0.8;
+  text-shadow: 2px 2px 7px #000000;
+  color: #FFFFFF;
+  text-align: center;
+}

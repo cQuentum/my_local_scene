@@ -1,25 +1,26 @@
 <div class="banner">
-  <div class="container">
-    <h1 id="title-banner" class="text-center">Des groupes et des scènes proches de vous !</h1>
+  <div class="banner-title-container">
+    <h1 id="title-banner" class="text-center">Découvrez des groupes proches de chez vous !</h1>
+    <ul id="description-title-banner">
+      <li>Jouer devant des salles combles</li>
+      <li>Profiter de concerts qualitatifs</li>
+    </ul>
   </div>
 
-  <div class="row mt-5">
-    <div class="col-md-3 mr-4  offset-md-4">
-
-      <%= form_tag concerts_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control search-form-index hover-search",
-      placeholder: "Entrez une ville...",
-      :required => 'required'
-    %>
-    </div>
-    <div class="col">
-      <button type="submit" class="btn button-blue">
+  <div>
+    <%= simple_form_for :search, url: concerts_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Entrez une ville...",
+          :required => 'required'
+        %>
+        <button name="button" type="submit" class="btn btn-flat">
           <i class="fas fa-search"></i>
-      </button>
-    </div>
-      <% end %>
+        </button>
+      </div>
+    <% end %>
   </div>
 </div>
 
@@ -27,7 +28,7 @@
 <div class="spacing-div">
   <div class="container mt-5 mb-5">
     <div class="container mt-5 pb-2 pl-0">
-      <h2 >Concerts à l'affiche : </h2>
+      <h2 class="index-title-home">Concerts près de chez vous</h2>
     </div>
     <% if @concerts.empty? %>
     <p>Malheureusement, aucun concert ne correspond à vos critères.</p>

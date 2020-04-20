@@ -83,7 +83,7 @@
 }
 
 .card-concert-user:hover {
-  box-shadow: 0 0 15px rgba(100,100,100,1);
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
 }
 
 
@@ -255,4 +255,49 @@
   border-left: solid;
   border-width: 2px;
   border-color: rgba(55, 58, 60, 0.55);
+}
+
+
+// Genres cards spotify style
+
+.category-choices {
+  display: grid;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.category-choice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-origin: center;
+  width: 250px;
+  height: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  opacity: .6;
+  flex: 0 0 30%;
+  text-align: center;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  &.active {
+  background-size: cover;
+  background-position: center;
+  background-origin: center;
+  color: white;
+  opacity: 1;
+  border: solid 1px $mls-orange;
+  }
+}
+
+.label-text {
+  color: white;
 }
