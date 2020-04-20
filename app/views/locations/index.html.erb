@@ -1,29 +1,30 @@
-<div class="container" style="padding-left: 15px">
+<div class="map-container">
   <h1>Locations</h1>
-  <%= form_tag locations_path, method: :get do %>
+  <%= form_tag locations_path, class: "form-inline-map", method: :get do %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
-      placeholder: "Trouver un endroit pour jouer"
+      class: "form-control margin-location-form",
+      placeholder: "Cherchez un endroit pour jouer de la musique #{current_user.band.genre}"
     %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
   <div class="d-flex">
-    <div class="container">
+    <div class="map-subcontainer">
       <div id="map"
-           style="width: 100%; height: 600px;"
+           style="width: 100%; height: 750px;"
            data-markers="<%= @markers.to_json %>"
            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
     <div class="user-data">
-      <% @users_data.each do |user_data| %>
-        <div class="border rounded p-3 mb-3 js-location-info-card"
+      <% @users_sort_genre_city.each do |user_data| %>
+        <div class="location-info-card"
              id="<%= user_data.location %>-info-card"
              data-location="<%= user_data.location %>"
              data-coordinates="<%= [user_data.longitude, user_data.latitude].to_json %>"
              >
           <h4><%= user_data.location %></h4>
-          <p><%= user_data.number_of_users %> users</p>
+          <p>Spectateurs potentiels <%= user_data.number_of_users %><span>/<%= @total_users_in_city["#{user_data.location}"] %></span></p>
+          <p>Prix moyen pratiqué <%= @price_per_city["average_price_in_#{user_data.location}"] / 100 %><span>€</span></p>
         </div>
       <% end %>
     </div>

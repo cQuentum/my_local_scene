@@ -6,3 +6,57 @@
   text-align: center;
   font-family: "Muli", "Muli", "sans-serif";
 }
+
+.map-container {
+  padding: 50px;
+  margin-top: 40px;
+}
+
+.mapboxgl-control-container {
+  display: none;
+}
+
+#map {
+  height: 1000px;
+}
+
+.map-subcontainer {
+  width: 80vw;
+  margin-right: 50px;
+}
+
+.form-inline-map {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+  padding-bottom: 20px;
+}
+
+.margin-location-form {
+  margin-right: 30px;
+}
+
+.location-info-card {
+  width: 280px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border: 1px solid white;
+  span {
+    opacity: 0.4;
+  }
+}
+
+.user-data {
+  overflow-y: auto;
+  height: 750px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.user-data::-webkit-scrollbar {
+  display: none
+}

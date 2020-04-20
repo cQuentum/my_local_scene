@@ -21,13 +21,13 @@ const addZoomOnClusters = (map, locationInfoCards) => {
 
 const highlightInfoCard = (location, locationInfoCards) => {
   const currentInfoCard   = document.getElementById(location + '-info-card')
-  locationInfoCards.forEach(infoCard => infoCard.style.removeProperty("background-color"));
-  currentInfoCard.style.backgroundColor = 'dimgray';
+  locationInfoCards.forEach(infoCard => infoCard.style.removeProperty("border"));
+  currentInfoCard.style.border = 'solid 1px rgba(7, 0, 255, 0.8)';
 };
 
 const initMapbox = () => {
   const mapElement        = document.getElementById('map');
-  const locationInfoCards = document.querySelectorAll('.js-location-info-card');
+  const locationInfoCards = document.querySelectorAll('.location-info-card');
 
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
