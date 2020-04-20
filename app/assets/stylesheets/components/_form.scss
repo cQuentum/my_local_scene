@@ -1,32 +1,37 @@
-.search-form-index {
-  width: 490px;
-  height: 60px;
-  margin-bottom: 10px;
-  border-radius: 50px;
-  border-width: 2px;
-  border-color: white;
+.search-form-control {
+  position: relative;
+  width: 400px;
+  margin: 0 auto;
 }
 
-.search-form-button {
-  margin-bottom: 20px;
+.search-form-control .btn {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
+  background-color: $mls-blue;
+  border-radius: 30px;
 }
 
-.hover-search{
-  opacity: 0.95;
+.search-form-control .form-control {
+  height: 3.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid $mls-blue;
+  border-radius: 30px;
 }
 
-.hover-search:hover {
-  opacity: 1.0;
-  color: black;
+.search-form-control .form-control:focus {
+  border: 1px solid $mls-orange;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+#query {
+  font-family: Muli;
 }
 
 #query::placeholder {
-  color: $mls-orange;
-  padding-top: 5px;
-  padding-left: 10px;
-  font-size: 25px;
   font-family: Muli;
-  font-weight: 800;
 }
 
 .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
