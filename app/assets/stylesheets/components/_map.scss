@@ -8,8 +8,7 @@
 }
 
 .map-container {
-  padding: 50px;
-  margin-top: 40px;
+  padding: 0px 50px 50px 50px;
 }
 
 .mapboxgl-control-container {
@@ -28,8 +27,11 @@
 .form-inline-map {
   display: flex;
   justify-content: space-between;
-  width: 800px;
+  width: 830px;
   padding-bottom: 20px;
+  #query {
+    border-radius: 7px;
+  }
 }
 
 .margin-location-form {
@@ -45,8 +47,24 @@
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
   border: 1px solid white;
-  span {
+  .lighter-text {
     opacity: 0.4;
+  }
+  .mls-blue-text {
+    color: $mls-blue;
+    font-size: 25px;
+    font-weight: 900;
+  }
+  h4 {
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  p {
+    margin-bottom: 10px;
+    opacity: 0.8;
+  }
+  .border-bottom {
+    border-bottom: 1px solid grey;
   }
 }
 
@@ -59,4 +77,17 @@
 
 .user-data::-webkit-scrollbar {
   display: none
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.search-banner {
+  margin-top: 87px;
+  padding: 0px 50px;
+  border-radius: 5px;
 }

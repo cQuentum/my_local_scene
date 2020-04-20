@@ -92,3 +92,16 @@
   border-width: 2px;
   border-color: white;
 }
+
+.btn-mls-locations {
+  background-color: $mls-blue;
+  color: white;
+  font-family: Muli;
+  font-weight: 600;
+  width: 120px;
+  border-radius: 7px;
+}
+
+.btn-mls-locations:hover {
+  background: linear-gradient(#147EFF, #0F67DA);
+}
