@@ -5,12 +5,12 @@
     <p><%= @user.location %></p>
     <label>Vos genres de musique :</label>
     <% if @user.genres == [] %>
-    <p>Vous n'avez pas encore sélectionné de genre !</p>
+      <p>Vous n'avez pas encore sélectionné de genre !</p>
     <% end %>
     <div class="tag-group">
-    <% @user.genres.each do |genre| %>
-    <p class="music-tag"><%= genre %></p>
-    <% end %>
+      <% @user.genres.each do |genre| %>
+        <p class="music-tag"><%= genre %></p>
+      <% end %>
     </div>
     <label>Pour des concerts, vous vous déplacez de :</label>
     <p><%= @user.move_radius %>km<p>
