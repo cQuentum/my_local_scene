@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "MyLocalScene"
+meta_title: "MyLocalScene - Des groupes et des scènes proches de vous !"
+meta_description: "Relevant description"
+meta_image: "logo.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
