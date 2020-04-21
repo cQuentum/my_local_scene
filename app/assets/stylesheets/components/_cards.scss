@@ -264,9 +264,9 @@
   display: grid;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 20px 0;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  margin: 15px 0;
+  grid-template-columns: repeat(auto-fill, 15em);
+  grid-gap: 8px;
   grid-auto-rows: minmax(100px, auto);
 }
 
@@ -278,8 +278,7 @@
   background-position: center;
   background-origin: center;
   width: 250px;
-  height: 250px;
-  padding: 20px;
+  height: 150px;
   border-radius: 5px;
   opacity: .7;
   flex: 0 0 30%;
@@ -304,4 +303,12 @@
   font-size: 32px;
   font-family: Muli;
   font-weight: 600;
+}
+
+#grid-genre {
+  top: 0px; left: 0px;
+}
+
+#tag-genre {
+  top: 0px;
 }
