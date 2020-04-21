@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-def index
+  def index
     if params[:query].present?
       @users_sort_genre = User.where('genres @> ?', "{#{current_user.band.genre}}")
       @users_sort_genre_city = @users_sort_genre.where("location ILIKE ?", params[:query]).select("latitude, longitude, location, COUNT(users.*) as number_of_users").
