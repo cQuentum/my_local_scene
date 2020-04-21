@@ -11,7 +11,11 @@ class MyConcertsController < ApplicationController
   end
 
   def new
-    @concert = Concert.new
+    if params[:address].present?
+      @concert = Concert.new(address: params[:address])
+    else
+      @concert = Concert.new()
+    end
     @user = current_user
   end
 

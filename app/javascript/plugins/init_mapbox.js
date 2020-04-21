@@ -154,7 +154,7 @@ const initMapbox = () => {
         const text = `La ville de <b><strong>${location}</strong></b> compte <strong>${userCount}</strong> spectateurs potentiels.`
         new mapboxgl.Popup()
           .setLngLat(coordinates)
-          .setHTML(` <p>${text}</p><a href="my_concerts/new">Créer un concert !</a>`)
+          .setHTML(` <p>${text}</p><a href="my_concerts/new?address=${location}">Créer un concert !</a>`)
           .addTo(map);
       });
     });
