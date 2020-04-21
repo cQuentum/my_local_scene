@@ -1,27 +1,29 @@
   <div class="search-banner">
   <h1 id="location-title">Cherchez un endroit pour jouer de la musique <%= current_user.band.genre %> !</h1>
-  <div class="search-form-control form-group" id="map-query">
-  <%= form_tag locations_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control margin-location-form",
-      placeholder: "Entrez une ville..."
-    %>
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i>
-    </button>
-  <% end %>
-  </div>
   </div>
   <div class="map-container">
   <div class="d-flex" id="bg-container">
     <div class="map-subcontainer">
+      <div class="search-form-control form-group" id="map-query">
+      <%= form_tag locations_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control margin-location-form",
+          placeholder: "Entrez une ville..."
+        %>
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i>
+        </button>
+      <% end %>
+      </div>
       <div id="map"
            style="width: 100%; height: 793px;"
            data-markers="<%= @markers.to_json %>"
+           data-longitude="<%= @band_location[0] %>"
+           data-latitude="<%= @band_location[1] %>"
            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-    </div>
-    <div class="user-data">
+      </div>
+      <div class="user-data">
       <% @users_sort_genre_city.each do |user_data| %>
         <div class="location-info-card"
              id="<%= user_data.location %>-info-card"
