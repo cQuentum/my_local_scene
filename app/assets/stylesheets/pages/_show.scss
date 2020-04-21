@@ -10,8 +10,8 @@
 }
 
 .concert-poster-show img {
-  height: 750px;
-  width: 550px;
+  height: 70%;
+  width: 70%;
   border-radius: 14px;
   object-fit: fill;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
@@ -25,7 +25,7 @@
 }
 
 .band-title-show {
-  font-size: 64px;
+  font-size: 54px;
   font-weight: 300;
   color: #100F3E;
   text-decoration: none;
@@ -114,8 +114,8 @@
 //band show
 
 .band-poster-show img {
-  height: 500px;
-  width: 700px;
+  height: 100%;
+  width: 100%;
   border-radius: 14px;
   object-fit: cover;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
