@@ -10,11 +10,11 @@
 }
 
 .concert-poster-show img {
-  height: 70%;
   width: 70%;
   border-radius: 14px;
   object-fit: fill;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  margin-left: 30%;
 }
 
 .band-genre-show {
@@ -36,13 +36,13 @@
 }
 
 .concert-date-show {
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 800;
   color: #100F3E;
 }
 
 .concert-hour-show {
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 800;
   color: #100F3E;
   border-left: solid;
@@ -56,16 +56,16 @@
 }
 
 .concert-price-show {
-  font-size: 26px;
+  font-size: 20px;
   color: $mls-orange;
   font-weight: 800;
 }
 
 .concert-description-show {
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 21px;
+  font-weight: 400;
   color: rgba(55, 58, 60, 0.55);
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .concert-localisation-show {
