@@ -3,9 +3,9 @@ class ConcertsController < ApplicationController
 
   def index
     if params[:query].present?
-      @concerts = Concert.where("address ILIKE ?", "%#{params[:query]}%")
+      @concerts = Concert.where("address ILIKE ?", "%#{params[:query]}%").sort_by &:start_time
     else
-      @concerts = Concert.all.reverse
+      @concerts = Concert.includes(:band).sort_by &:start_time
     end
   end
 
@@ -22,7 +22,7 @@ class ConcertsController < ApplicationController
   private
 
   def concert_params
-    params.require(:concert).permit(:title, :address, :description, :external_link, :price_cents, :confirmed, :start_time, :end_time, :latitude, :longitude, :photo)
+    params.require(:concert).permit(:title, :address, :description, :external_link, :price_cents, :confirmed, :start_time, :latitude, :longitude, :photo)
   end
 
   def set_concert

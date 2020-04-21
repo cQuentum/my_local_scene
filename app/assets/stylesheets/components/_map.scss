@@ -8,7 +8,7 @@
 }
 
 .map-container {
-  padding: 0px 0px 50px 0px;
+  padding: 0px;
 }
 
 .mapboxgl-control-container {
@@ -114,8 +114,11 @@
 }
 
 #map-query {
-  margin: 0px 0px 0px 378px;
   display: inline-block;
+  position: absolute;
+  z-index: 2;
+  top: 184px;
+  left: 40px;
 }
 
 #bg-container {

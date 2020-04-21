@@ -28,6 +28,8 @@ class LocationsController < ApplicationController
       @price_per_city["average_price_in_#{concert_location}"] = @price_per_city["total_price_in_#{concert_location}"] / @price_per_city["number_of_concerts_in_#{concert_location}"]
     end
 
+    @band_location = [current_user.longitude, current_user.latitude]
+
     @markers = @users_sort_genre_city.flat_map do |user_data|
       user_data.number_of_users.times.map do
         {

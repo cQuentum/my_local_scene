@@ -32,10 +32,15 @@
 
   <body>
     <%= render 'shared/navbar' %>
+      <% if current_page?(locations_path) %>
+        <%= render 'shared/flashes' %>
+        <%= yield %>
+      <% else %>
     <div id="body-content">
       <%= render 'shared/flashes' %>
       <%= yield %>
     </div>
+    <% end %>
     <%= render 'shared/footer' %>
   </body>
 </html>

@@ -13,7 +13,7 @@ const addZoomOnClusters = (map, locationInfoCards) => {
       const coordinates = JSON.parse(infoCard.dataset.coordinates);
       map.easeTo({
         center: coordinates,
-        zoom: 8
+        zoom: 10
       });
     });
   });
@@ -38,7 +38,7 @@ const initMapbox = () => {
       // style: 'mapbox://styles/mapbox/dark-v10',
       style: 'mapbox://styles/ethyls/ck98kn09i189y1io6xd8w2r5e',
       zoom: 8,
-      center: [-3.8254, 48.25],
+      center: [mapElement.dataset.longitude, mapElement.dataset.latitude],
       offset: -100
     });
 

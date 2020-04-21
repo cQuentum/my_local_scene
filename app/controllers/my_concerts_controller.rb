@@ -6,7 +6,7 @@ class MyConcertsController < ApplicationController
     @band = Band.where(user_id: current_user.id)
     @participations = Participation.where(concert: @concert)
     @concerts = Concert.where(band: @band)
-    @past_concerts = @concerts.where('end_time <= ?', 1.hour.ago)
+    @past_concerts = @concerts.where('start_time <= ?', 1.hour.ago)
     @future_concerts = @concerts.where('start_time >= ?', DateTime.now)
   end
 
@@ -37,6 +37,6 @@ class MyConcertsController < ApplicationController
   private
 
   def my_concert_params
-    params.require(:concert).permit(:photo, :title, :address, :description, :external_link, :price_cents, :start_time, :end_time, :confirmed)
+    params.require(:concert).permit(:photo, :title, :address, :description, :external_link, :price_cents, :start_time, :confirmed)
   end
 end
