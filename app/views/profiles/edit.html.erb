@@ -13,7 +13,7 @@
 
     <div class="category-choices">
       <% GlobalConstants::GENRES.each do |genre| %>
-      <div class="form-check">
+      <div class="form-check make-it-slow-genres">
         <% if @user.genres.include?(genre) %>
           <input class="hidden" type="checkbox" checked value="<%= genre %>" name="user[genres][]" id="user_genres_<%= genre %>" />
             <label class="category-choice active" id="grid-genre"
