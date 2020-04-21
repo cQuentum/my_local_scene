@@ -10,11 +10,11 @@
 }
 
 .concert-poster-show img {
-  width: 70%;
+  width: 500px;
+  height: 78vh;
   border-radius: 14px;
   object-fit: fill;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-  margin-left: 30%;
+  box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.25);
 }
 
 .band-genre-show {
@@ -47,8 +47,8 @@
   color: #100F3E;
   border-left: solid;
   border-right: solid;
-  border-width: 2px;
-  border-color: rgba(55, 58, 60, 0.55);
+  border-width: 1px;
+  border-color: rgba(55, 58, 60, 0.75);
   padding-left: 55px;
   padding-right: 55px;
   margin-left: 55px;
@@ -118,7 +118,7 @@
   width: 100%;
   border-radius: 14px;
   object-fit: cover;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.25);
 }
 
 .band-show-infos {
