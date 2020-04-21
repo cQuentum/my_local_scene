@@ -1,6 +1,6 @@
 module GlobalConstants
   GENRES = ["Rock", "Metal", "Rap", "RnB", "Classique", "Jazz", "Hip-Hop", "Country", "Blues", "Electronique", "Folk", "Pop",
-"Funk", "Soul", "Reggae", "Ambient", "Ska", "Contemporaine", "Dance"]
+"Funk", "Soul", "Reggae", "Ambient", "Ska", "Contemporaine", "Dance", "Celtique"]
   GENRES_BREST = GENRES.dup
   GENRES_BREST.delete("Metal")
   GENRES_QUIMPER = GENRES.dup

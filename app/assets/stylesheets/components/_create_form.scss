@@ -1,13 +1,15 @@
 .form-block {
+  width: 70%;
   background-color: white;
-  margin: 20px 170px;
+
+  margin: 2% 15%;
   padding: 20px 70px;
   border-radius: 10px;
   box-shadow: 1px 9px 20px rgba(7, 0, 255, 0.1);
   position: relative;
   top: 65px;
   z-index: 1;
-  margin-bottom: 130px;
+  margin-bottom: 5%;
   label {
     color: $mls-blue;
     font-weight: 500;
@@ -39,6 +41,8 @@
     padding: 20px 0px;
   }
 }
+
+
 
 .background-image-form {
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset_path("background-form.jpg"));
