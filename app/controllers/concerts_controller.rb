@@ -5,7 +5,7 @@ class ConcertsController < ApplicationController
     if params[:query].present?
       @concerts = Concert.where("address ILIKE ?", "%#{params[:query]}%").sort_by &:start_time
     else
-      @concerts = Concert.all.sort_by &:start_time
+      @concerts = Concert.includes(:band).sort_by &:start_time
     end
   end
 

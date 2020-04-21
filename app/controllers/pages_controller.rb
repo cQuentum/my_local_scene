@@ -6,7 +6,7 @@ class PagesController < ApplicationController
       geo_accurate_concerts = Concert.near([current_user.latitude, current_user.longitude], current_user.move_radius)
       @concerts = geo_accurate_concerts.joins(:band).where(bands: {genre: current_user.genres} ).sort_by &:start_time
     else
-      @concerts = Concert.all.reverse
+      @concerts = Concert.includes(:band).reverse
     end
   end
 
