@@ -47,3 +47,14 @@
 #whitelink:hover {
   opacity: 1;
 }
+
+.padding-bottom {
+  padding-bottom: 4px;
+}
+
+
+.dropdown-menu-center {
+  left: 50% !important;
+  right: auto !important;
+  transform: translate(-50%, 0) !important;
+}
