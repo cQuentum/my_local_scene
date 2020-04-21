@@ -13,7 +13,7 @@ const addZoomOnClusters = (map, locationInfoCards) => {
       const coordinates = JSON.parse(infoCard.dataset.coordinates);
       map.easeTo({
         center: coordinates,
-        zoom: 9
+        zoom: 8
       });
     });
   });
