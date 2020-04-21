@@ -1,20 +1,24 @@
-<div class="container">
-  <div class="form-block">
-    <h2>Paramètres</h2>
-    <label>Votre addresse :</label>
-    <p><%= @user.location %></p>
-    <label>Vos genres de musique :</label>
-    <% if @user.genres == [] %>
-      <p>Vous n'avez pas encore sélectionné de genre !</p>
+<div class="edit-profile">
+
+  <h2>Paramètres</h2>
+
+  <label>Votre addresse :</label>
+  <h4><%= @user.location %></h4>
+
+  <label>Vos genres de musique :</label>
+  <% if @user.genres == [] %>
+    <h4>Vous n'avez pas encore sélectionné de genre !</h4>
+  <% end %>
+
+  <div class="tag-group">
+    <% @user.genres.each do |genre| %>
+      <h4 class="music-tag"><%= genre %></h4>
     <% end %>
-    <div class="tag-group">
-      <% @user.genres.each do |genre| %>
-        <p class="music-tag"><%= genre %></p>
-      <% end %>
-    </div>
-    <label>Pour des concerts, vous vous déplacez de :</label>
-    <p><%= @user.move_radius %>km<p>
-    <%= link_to "Modifier", edit_profile_path(current_user), class: "btn-mls-profile" %>
   </div>
+
+  <label>Pour des concerts, vous vous déplacez de :</label>
+  <h4><%= @user.move_radius %>km</h4>
+
+  <a class="btn-mls-profile" href="/profiles/1/edit">Modifier</a>
 </div>
 
