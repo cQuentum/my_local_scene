@@ -26,7 +26,7 @@ require("channels")
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '../plugins/flatpickr';
-import '../plugins/tilt.jquery';
+import { initTilt } from '../plugins/tilt.jquery';
 import { previewImageOnFileSelect } from '../components/image_preview'
 import { initFlatpickr } from '../plugins/flatpickr'
 import { toggleGenre } from '../components/category_choice'
@@ -38,6 +38,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initTilt();
   initMapbox();
   initFlatpickr();
   previewImageOnFileSelect();
