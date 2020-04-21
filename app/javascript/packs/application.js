@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '../plugins/flatpickr';
+import '../plugins/tilt.jquery';
 import { previewImageOnFileSelect } from '../components/image_preview'
 import { initFlatpickr } from '../plugins/flatpickr'
 import { toggleGenre } from '../components/category_choice'
