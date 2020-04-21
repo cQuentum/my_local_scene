@@ -137,4 +137,9 @@
 #button-style {
   height: 100%;
   width: 25%;
+  opacity: 0.9;
+  &:hover {
+  opacity: 1;
+  color: white;
+  }
 }

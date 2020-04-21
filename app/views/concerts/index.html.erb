@@ -2,6 +2,22 @@
   <div class="container mt-5 pb-2 pl-0">
     <% if (@concerts.blank?) %>
       <h2 class="index-title-home">Il n'y a pas de concert à <%= params[:query]%>.</h2>
+      <h2 class="index-title-home">Ré-essayer avec une autre ville</h2>
+          <div>
+          <%= simple_form_for :search, url: concerts_path, method: :get do |f| %>
+            <div class="search-form-control form-group">
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Ajoutez une ville",
+                :required => 'required'
+              %>
+            <button name="button" type="submit" class="btn btn-flat">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      <% end %>
+    </div>
     <% else %>
       <h2 class="index-title-home">Concerts près de <%= params[:query]%></h2>
   </div>
