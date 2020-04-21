@@ -10,7 +10,7 @@
   <div class="cards justify-content-around">
     <% @future_concerts.each do |concert| %>
       <%= link_to concert, :action => 'go' do %>
-        <div class="card-show-band">
+        <div class="card-show-band make-it-slow">
           <%= cl_image_tag concert.photo.key %>
           <div class="card-show-band-infos">
             <div class="card-name">
@@ -36,7 +36,7 @@
   <div class="cards justify-content-around">
     <% @past_concerts.each do |concert| %>
       <%= link_to concert, :action => 'go' do %>
-        <div class="card-show-band">
+        <div class="card-show-band make-it-slow">
           <%= cl_image_tag concert.photo.key %>
           <div class="card-show-band-infos">
             <div class="card-name">

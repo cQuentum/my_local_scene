@@ -8,7 +8,7 @@
   <div class="cards justify-content-around">
     <% @concerts.each do |concert| %>
     <%= link_to concert, :action => 'go' do %>
-      <div class="card-concert-user">
+      <div class="card-concert-user make-it-slow">
         <%= cl_image_tag concert.photo.key %>
         <div class="card-concert-user-infos">
           <div class="card-name">
