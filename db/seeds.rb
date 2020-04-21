@@ -155,7 +155,7 @@ end
 total_time = Time.now - start_seed_time
 
 puts "Total users created : #{User.count}"
-puts "Fixed seeds done in #{total_time}s"
+puts "Fixed seeds done in #{total_time} seconds"
 
 
 
