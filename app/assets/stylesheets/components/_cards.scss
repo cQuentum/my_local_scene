@@ -294,8 +294,15 @@
   opacity: 1;
   border: solid 2px $mls-orange;
   filter: grayscale(0%);
-  }
 
+
+  .gradient-blue {
+  position: absolute;
+  width: 250px;
+  height: 150px;
+  background-image: linear-gradient(rgba(46, 56, 203, 0.4), rgba(46, 56, 203, 0.4));
+  }
+  }
 }
 
 .label-text {
@@ -303,6 +310,7 @@
   font-size: 26px;
   font-family: Muli;
   font-weight: 600;
+  z-index: 998;
 }
 
 #grid-genre {
