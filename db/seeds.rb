@@ -1,9 +1,6 @@
 require 'faker'
 require 'open-uri'
 
-
-
-
 # Create the Demo users (Paul who has the band, Jerome who's a spectator)
 
 paul = User.new(
@@ -18,7 +15,7 @@ paul = User.new(
     genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
     skip_geocoding: true
   )
-file = URI.open('https://avatars3.githubusercontent.com/u/58589677?s=400&u=d0578c7956266113b6a2118fffe2a573e7d19c4c&v=4')
+file = URI.open('https://pbs.twimg.com/profile_images/1229445805700009986/jW1ys0x7_400x400.jpg')
 paul.photo.attach(io: file, filename: 'paul.jpg', content_type: 'image/jpg')
 paul.save!
 
@@ -35,7 +32,7 @@ jerome = User.new(
     skip_geocoding: true
   )
 
-file = URI.open('https://avatars2.githubusercontent.com/u/49526754?v=4')
+file = URI.open('https://i.ibb.co/ns2MZwy/jeromepp.jpg')
 jerome.photo.attach(io: file, filename: 'jerome.jpg', content_type: 'image/jpg')
 jerome.save!
 
@@ -268,18 +265,18 @@ wurm = Band.new(
     external_link: "wurm.bandcamp.com"
   )
 wurm.user = rock_user1
-file = URI.open('https://ibb.co/7bZDngy')
+file = URI.open('https://i.ibb.co/fQyWk80/wurm.jpg')
 wurm.photo.attach(io: file, filename: 'wurm.jpg', content_type: 'image/jpg')
 wurm.save!
 
 twllaw = Band.new(
-    name: "This Wave Looks Like A Wolf",
+    name: "TWLLAW",
     genre: "Metal",
-    description: "Avec un premier EP Endless Vortex Experiment sortie en 2015, TWLLAW nous revient avec un nouvel album sous leur bras ailé ! Car oui cette vague aérienne qui surgirait dans un ciel assombrit métaphore d'un avenir bien peu reluisant se vit en Live comme un ultime voyage poétique et puissant. Et quand la vague prend de l’ampleur c’est pour mieux nous transporter jusqu’à nous submerger dans un tourbillon sonore dans lequel le trio guitare/basse/batterie se fait incontrôlable.",
+    description: "Avec un premier EP Endless Vortex Experiment sortie en 2015, This Wave Looks Like a Wolf revient avec un nouvel album sous son bras ailé ! Car oui cette vague aérienne qui surgirait dans un ciel assombrit métaphore d'un avenir bien peu reluisant se vit en Live comme un ultime voyage poétique et puissant. Et quand la vague prend de l’ampleur c’est pour mieux nous transporter jusqu’à nous submerger dans un tourbillon sonore dans lequel le trio guitare/basse/batterie se fait incontrôlable.",
     external_link: "thiswavelookslikeawolf.bandcamp.com"
   )
 twllaw.user = rock_user2
-file = URI.open('https://ibb.co/WtQsFxm')
+file = URI.open('https://i.ibb.co/rsgvM7D/twllaw.jpg')
 twllaw.photo.attach(io: file, filename: 'twllaw.jpg', content_type: 'image/jpg')
 twllaw.save!
 
@@ -328,7 +325,7 @@ concert_metal_3 = Concert.new(
   start_time: start_time
   )
 concert_metal_3.band = wurm
-file = URI.open('https://ibb.co/ysG1g6f')
+file = URI.open('https://i.ibb.co/Jk04rvB/wurmaffiche.jpg')
 concert_metal_3.photo.attach(io: file, filename: 'concertwurm.jpg', content_type: 'image/jpg')
 concert_metal_3.save!
 
@@ -343,10 +340,9 @@ concert_metal_4 = Concert.new(
   start_time: start_time
   )
 concert_metal_4.band = twllaw
-file = URI.open('https://ibb.co/VCPVJWP')
-concert_metal_4.photo.attach(io: file, filename: 'twllaw.jpg', content_type: 'image/jpg')
+file = URI.open('https://i.ibb.co/dpzBj0z/twllawaffiche.jpg')
+concert_metal_4.photo.attach(io: file, filename: 'twllawaffiche.jpg', content_type: 'image/jpg')
 concert_metal_4.save!
-
 
 ### Demo
 
@@ -503,6 +499,7 @@ concert_landeda.band = zombie_rednecks
 file = URI.open('https://i.ibb.co/Yhph17C/landeda-concert.jpg')
 concert_landeda.photo.attach(io: file, filename: 'landedaconc.jpg', content_type: 'image/jpg')
 concert_landeda.save!
+landeda_id = concert_landeda.id
 
 # Brest (Shitty concert from yesterday)
 start_time = DateTime.strptime("16/04/20 23:00", "%d/%m/%y %H:%M")
@@ -519,5 +516,30 @@ concert_brest.band = zombie_rednecks
 file = URI.open('https://i.ibb.co/By2Z6km/brest-concert.jpg')
 concert_brest.photo.attach(io: file, filename: 'brestconc.jpg', content_type: 'image/jpg')
 concert_brest.save!
+brest_id = concert_brest.id
 
+# Adding participations to demo concerts
 
+# Shitty concert noone went to => Brest
+
+counter = 50
+5.times do
+  participation = Participation.new(
+    user: User.find(counter),
+    concert: Concert.find(brest_id)
+    )
+  participation.save!
+  counter += 1
+end
+
+# Other concert, a little more popular
+
+counter = 60
+13.times do
+  participation = Participation.new(
+    user: User.find(counter),
+    concert: Concert.find(landeda_id)
+    )
+  participation.save!
+  counter += 1
+end
