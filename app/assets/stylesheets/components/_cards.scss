@@ -344,6 +344,7 @@
 .make-it-slow:hover {
   -webkit-transform: scale(1.15, 1.15);
   transform: scale(1.15, 1.15);
+  z-index: 5;
 }
 
 .make-it-slow:hover::after {
