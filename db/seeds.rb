@@ -208,13 +208,41 @@ metal_user2 = User.new(
   )
 metal_user2.save!
 
+rock_user1 = User.new(
+    first_name: "Pierre Loup",
+    last_name: "Le Mouel",
+    email: "lemouel@gmail.com",
+    password: "lolilol",
+    location: "Rennes",
+    latitude: 48.1113387,
+    longitude: -1.6800198,
+    move_radius: rand(1..30),
+    genres: ["Metal"].push(GlobalConstants::GENRES_BREST.sample(rand(1..2))).flatten,
+    skip_geocoding: true
+  )
+rock_user1.save!
+
+rock_user2 = User.new(
+    first_name: "Kevin",
+    last_name: "Brosse",
+    email: "brosse@gmail.com",
+    password: "lolilol",
+    location: "Rennes",
+    latitude: 48.1113387,
+    longitude: -1.6800198,
+    move_radius: rand(1..30),
+    genres: ["Metal"].push(GlobalConstants::GENRES_BREST.sample(rand(1..2))).flatten,
+    skip_geocoding: true
+  )
+rock_user2.save!
+
 
 #Fake metal bands & concerts
 
 no_one_is_in_auchan = Band.new(
     name: "No one is in Auchan",
     genre: "Metal",
-    description: "Groupe de Metal Sludge basé à Morlaix. Avez vous déjà rêvé d'être dans un magasin seul la nuit ? Musicalement, nous, c'est ça.",
+    description: "Groupe de Metal Sludge basé à Morlaix. Avez vous déjà rêvé d'être dans un magasin seul la nuit ? Musicalement, nous, c'est ça. On s'inspire principalement de Earth, Novolic et autres groupes du genre.",
     external_link: "nooneisinauchan.bandcamp.com"
   )
 no_one_is_in_auchan.user = metal_user1
@@ -233,6 +261,30 @@ file = URI.open('https://i.ibb.co/t4W0kLr/fetuseater.jpg')
 fetus_eater.photo.attach(io: file, filename: 'feteat.jpg', content_type: 'image/jpg')
 fetus_eater.save!
 
+wurm = Band.new(
+    name: "Wurm",
+    genre: "Metal",
+    description: "Le quatuor instrumental de Frost-rock propose un voyage en terres glaciales, peuplée de Mammouth. Du Drone au Post-Rock en passant par le Metal, viens te réchauffer devant les amplis glacés.",
+    external_link: "wurm.bandcamp.com"
+  )
+wurm.user = rock_user1
+file = URI.open('https://ibb.co/7bZDngy')
+wurm.photo.attach(io: file, filename: 'wurm.jpg', content_type: 'image/jpg')
+wurm.save!
+
+twllaw = Band.new(
+    name: "This Wave Looks Like A Wolf",
+    genre: "Metal",
+    description: "Avec un premier EP Endless Vortex Experiment sortie en 2015, TWLLAW nous revient avec un nouvel album sous leur bras ailé ! Car oui cette vague aérienne qui surgirait dans un ciel assombrit métaphore d'un avenir bien peu reluisant se vit en Live comme un ultime voyage poétique et puissant. Et quand la vague prend de l’ampleur c’est pour mieux nous transporter jusqu’à nous submerger dans un tourbillon sonore dans lequel le trio guitare/basse/batterie se fait incontrôlable.",
+    external_link: "thiswavelookslikeawolf.bandcamp.com"
+  )
+twllaw.user = rock_user2
+file = URI.open('https://ibb.co/WtQsFxm')
+twllaw.photo.attach(io: file, filename: 'twllaw.jpg', content_type: 'image/jpg')
+twllaw.save!
+
+
+# Concerts
 
 start_time = DateTime.strptime("01/05/20 21:00", "%d/%m/%y %H:%M")
 concert_metal_1 = Concert.new(
@@ -264,6 +316,36 @@ concert_metal_2.band = fetus_eater
 file = URI.open('https://i.ibb.co/px8Q2bg/concert-fetus-eater.jpg')
 concert_metal_2.photo.attach(io: file, filename: 'feteatconc.jpg', content_type: 'image/jpg')
 concert_metal_2.save!
+
+start_time = DateTime.strptime("15/05/20 21:00", "%d/%m/%y %H:%M")
+concert_metal_3 = Concert.new(
+  title: "#{wurm.name} + Mileck - Alex's Tavern",
+  address: "10 rue Saint Michel, Rennes",
+  description: "Concert à l'Alex's Tavern avec le groupe Mileck ! Venez fêter la fin du confinement en musique. Prix libre, bouchons d'oreille à disposition à l'entrée.",
+  external_link: "facebook.com/event/wurm69nicelmao",
+  price_cents: 0,
+  confirmed: true,
+  start_time: start_time
+  )
+concert_metal_3.band = wurm
+file = URI.open('https://ibb.co/ysG1g6f')
+concert_metal_3.photo.attach(io: file, filename: 'concertwurm.jpg', content_type: 'image/jpg')
+concert_metal_3.save!
+
+start_time = DateTime.strptime("09/05/20 21:00", "%d/%m/%y %H:%M")
+concert_metal_4 = Concert.new(
+  title: "#{twllaw.name} + Orso + Overstrange Mood - Mondo Bizarro",
+  address: "Avenue de Rochester, Rennes",
+  description: "Nous rejoignons à nouveau la scène du Mondo Bizarro en compagnie d'Orso, groupe de Post Hardcore Suisse et OSM, groupe de Metal Prog. Merci à Antisthène pour l'organisation.",
+  external_link: "facebook.com/event/twllaw42bestanswerever",
+  price_cents: 1200,
+  confirmed: true,
+  start_time: start_time
+  )
+concert_metal_4.band = twllaw
+file = URI.open('https://ibb.co/VCPVJWP')
+concert_metal_4.photo.attach(io: file, filename: 'twllaw.jpg', content_type: 'image/jpg')
+concert_metal_4.save!
 
 
 ### Demo
@@ -437,3 +519,5 @@ concert_brest.band = zombie_rednecks
 file = URI.open('https://i.ibb.co/By2Z6km/brest-concert.jpg')
 concert_brest.photo.attach(io: file, filename: 'brestconc.jpg', content_type: 'image/jpg')
 concert_brest.save!
+
+
