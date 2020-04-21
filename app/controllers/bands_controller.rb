@@ -1,6 +1,4 @@
 class BandsController < ApplicationController
-  before_action :set_band
-
   def index
   end
 
