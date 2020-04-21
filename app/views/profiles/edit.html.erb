@@ -1,9 +1,9 @@
 <div class="form-block">
   <h2>Mise à jour du profil</h2>
   <%= simple_form_for @user, :url => profile_path do |f| %>
-  <%= f.input :location, label: "Addresse" %>
+  <%= f.input :location, label: "Votre adresse" %>
   <fieldset class="form-group check_boxes optional user_genres form-group-valid">
-    <legend class="col-form-label pt-0">Choisissez les genres de musique qui vous intéresse !
+    <legend class="col-form-label pt-0">Vos genres de musique :
     </legend>
 
     <div class="category-choices">
@@ -11,7 +11,7 @@
       <div class="form-check">
         <% if @user.genres.include?(genre) %>
           <input class="hidden" type="checkbox" checked value="<%= genre %>" name="user[genres][]" id="user_genres_<%= genre %>" />
-            <label class="category-choice active"
+            <label class="category-choice active" id="grid-genre"
                  style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("genres/#{genre}.jpg")%>);"
                  for="user_genres_<%= genre %>"
                  >
@@ -21,7 +21,7 @@
             </label>
         <% else %>
           <input class="hidden" type="checkbox" value="<%= genre %>" name="user[genres][]" id="user_genres_<%= genre %>" />
-          <label class="category-choice"
+          <label class="category-choice" id="grid-genre"
                  style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("genres/#{genre}.jpg")%>);"
                  for="user_genres_<%= genre %>"
                  >

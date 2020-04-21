@@ -2,10 +2,10 @@
 
   <h2>Paramètres</h2>
 
-  <label>Votre addresse :</label>
+  <label>Votre adresse :</label>
   <h4><%= @user.location %></h4>
 
-  <label>Vos genres de musique :</label>
+  <label id="tag-genre">Vos genres de musique :</label>
   <% if @user.genres == [] %>
     <h4>Vous n'avez pas encore sélectionné de genre !</h4>
   <% end %>
