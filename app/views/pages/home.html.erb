@@ -1,27 +1,24 @@
 <div class="banner">
   <div class="banner-title-container">
-    <h1 id="title-banner" class="text-center">Découvrez des groupes proches de chez vous !</h1>
-    <ul id="description-title-banner">
-      <li>Jouez devant des salles combles</li>
-      <li>Profitez de concerts qualitatifs</li>
-    </ul>
+    <h1 id="title-banner" class="text-center">Explorez la scène local !</h1>
+    <p id="description-title-banner"> Un nouvel outil pour les musiciens et les passionnés.<br>Découvrez, échangez, partagez.</p>
+    <div>
+      <%= simple_form_for :search, url: concerts_path, method: :get do |f| %>
+        <div class="search-form-control form-group">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Entrez une ville...",
+            :required => 'required'
+          %>
+          <button name="button" type="submit" class="btn btn-flat">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      <% end %>
+    </div>
   </div>
 
-  <div>
-    <%= simple_form_for :search, url: concerts_path, method: :get do |f| %>
-      <div class="search-form-control form-group">
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Entrez une ville...",
-          :required => 'required'
-        %>
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
-    <% end %>
-  </div>
 </div>
 
 <% if current_user %>
