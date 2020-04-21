@@ -23,7 +23,7 @@ const highlightInfoCard = (location, locationInfoCards) => {
   const currentInfoCard   = document.getElementById(location + '-info-card')
   locationInfoCards.forEach(infoCard => infoCard.style.removeProperty("border"));
   // locationInfoCards.forEach(infoCard => infoCard.style.removeProperty("background-color"));
-  currentInfoCard.style.border = 'solid 2px rgba(241, 134, 104, 0.8)';
+  currentInfoCard.style.border = 'solid 2px rgba(46, 56, 203, 0.8)';
   // currentInfoCard.style.backgroundColor = 'rgba(7, 0, 255, 0.03)';
 };
 

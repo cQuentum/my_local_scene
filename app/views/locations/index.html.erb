@@ -1,13 +1,17 @@
   <div class="search-banner">
   <h1 id="location-title">Cherchez un endroit pour jouer de la musique <%= current_user.band.genre %> !</h1>
-  <%= form_tag locations_path, class: "form-inline-map", method: :get do %>
+  <div class="search-form-control form-group" id="map-query">
+  <%= form_tag locations_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control margin-location-form",
-      placeholder: "Ville, addresse, etc..."
+      placeholder: "Entrez une ville..."
     %>
-    <%= submit_tag "Trouver", class: "btn-mls-locations" %>
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i>
+    </button>
   <% end %>
+  </div>
   </div>
   <div class="map-container">
   <div class="d-flex">
