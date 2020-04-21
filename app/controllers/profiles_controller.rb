@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
     params[:user][:genres]
     user_to_update.genres = [] if params[:user][:genres].blank?
     user_to_update.update(update_params)
-    redirect_to profile_path(user_to_update)
+    redirect_to root_path(user_to_update), notice: "Votre profil et préférences ont bien été sauvegardés"
   end
 
 private

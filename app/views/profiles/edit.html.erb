@@ -2,6 +2,7 @@
   <h2>Mise à jour du profil</h2>
   <%= simple_form_for @user, :url => profile_path do |f| %>
   <%= f.input :location, label: "Votre adresse" %>
+  <%= f.input :move_radius, label: "Combien de kilomètres êtes vous prêt à parcourir pour voir un concert ?" %>
   <fieldset class="form-group check_boxes optional user_genres form-group-valid">
     <legend class="col-form-label pt-0">Vos genres de musique :
     </legend>
@@ -34,7 +35,6 @@
       <% end %>
     </div>
   </fieldset>
-  <%= f.input :move_radius, label: "Combien de kilomètres êtes vous prêt à parcourir pour voir un concert ?" %>
   <%= f.button :submit, "Sauvegarder", class: "btn-mls-profile" %>
   <% end %>
 </div>
