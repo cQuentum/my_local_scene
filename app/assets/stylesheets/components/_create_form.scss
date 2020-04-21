@@ -53,6 +53,11 @@
   width: 80%;
 }
 
+#move-radius {
+  position: absolute;
+  right: 20px;
+}
+
 .form-address {
   background-color: white !important;
 }
@@ -112,4 +117,15 @@
 .form-check {
   padding-left: 0px;
   padding-right: 0px;
+}
+
+
+.buttoncenter {
+  display: flex;
+  justify-content: center;
+}
+
+.centeredbutton {
+  justify-content: center;
+  align-items: center;
 }
