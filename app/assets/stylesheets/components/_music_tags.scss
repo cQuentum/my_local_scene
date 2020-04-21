@@ -1,8 +1,10 @@
 .tag-group {
- display: flex;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .music-tag {
+  width: 15%;
   border: 2px solid $mls-blue;
   padding: 2px 10px;
   border-radius: 50px;
