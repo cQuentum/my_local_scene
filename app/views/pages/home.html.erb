@@ -1,14 +1,14 @@
 <div class="banner">
   <div class="banner-title-container">
     <h1 id="title-banner" class="text-center">Explorez la scène locale !</h1>
-    <p id="description-title-banner"> Un nouvel outil pour les musiciens et les passionnés.<br>Découvrez, échangez, partagez.</p>
+    <p id="description-title-banner"> Un nouvel outil pour les musiciens et les passionnés.<br>Retrouvez les meilleurs coins pour vos concerts.</p>
     <div>
       <%= simple_form_for :search, url: concerts_path, method: :get do |f| %>
         <div class="search-form-control form-group">
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
-            placeholder: "Ajoutez une ville",
+            placeholder: "Recherchez une ville",
             id: "concert_address",
             :required => 'required'
           %>
@@ -57,7 +57,7 @@
 <% else %>
   <div class="container mt-5 mb-5">
     <div class="container mt-5 pb-2 pl-0">
-      <h2 >Concerts à l'affiche : </h2>
+      <h2 >Concerts à l'affiche</h2>
     </div>
       <div class="cards justify-content-around">
         <% @concerts.first(3).each do |concert| %>
