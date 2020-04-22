@@ -4,21 +4,20 @@
       <div class="col band-show-infos">
         <h2 class="band-genre-show"><%= @band_show.genre.upcase %></h2>
         <h1 class="band-title-show"><%= @band_show.name %></h1>
-        <% if /youtube/ === @band_show.external_link  %>
-        <%= link_to ("http://#{@band_show.external_link}") do %>
-          <i class="fab fa-youtube show-icon"></i>
-          <% end %>
-        <% elsif /soundcloud/ === @band_show.external_link %>
-        <%= link_to ("http://#{@band_show.external_link}") do %>
-          <i class="fab fa-soundcloud show-icon"></i>
-          <% end %>
-        <% elsif /bandcamp/ === @band_show.external_link %>
-        <%= link_to ("http://#{@band_show.external_link}") do %>
-          <i class="fab fa-bandcamp show-icon"></i>
-          <% end %>
-        <% else %>
-        <%= link_to "Écoutez nous !", "http://#{@band_show.external_link}" %>
-        <% end %>
+        <div class="inline-external-link">
+          <%= link_to ("http://#{@band_show.external_link}") do %>
+            <i class="fab fa-youtube show-icon pulse"></i>
+            <% end %>
+          <%= link_to ("http://#{@band_show.external_link}") do %>
+            <i class="fab fa-soundcloud show-icon pulse be-less-wide-plz"></i>
+            <% end %>
+          <%= link_to ("http://#{@band_show.external_link}") do %>
+            <i class="fab fa-bandcamp show-icon pulse"></i>
+            <% end %>
+          <%= link_to ("http://#{@band_show.external_link}") do %>
+            <i class="fab fa-instagram show-icon pulse"></i>
+            <% end %>
+        </div>
         <p class="concert-description-show"><%= @band_show.description %></p>
       </div>
     </div>
