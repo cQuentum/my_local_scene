@@ -350,8 +350,8 @@
 }
 
 .make-it-slow:hover {
-  -webkit-transform: scale(1.05, 1.05);
-  transform: scale(1.05, 1.05);
+  -webkit-transform: scale(1.10, 1.10);
+  transform: scale(1.10, 1.10);
   z-index: 5;
 }
 
@@ -398,22 +398,30 @@
 
 // card blank to add a concert in myconcerts
 
-.card-band-adding-concert {
-  font-size: 30px;
-  color: #100F3E;
-  font-weight: 300;
+.card-placeholder-name {
+  font-size: 26px;
+  color: white;
+  font-weight: 600;
   margin-top: 8px;
   margin-bottom: 20px;
 }
 
 
-.card-name-adding {
+
+.card-placeholder {
   display: flex;
   justify-content: center;
-  width: 350px;
-  height: 540px;
+  height: 100%;
   align-items: center;
-  // align-content: center;
   flex-direction: column;
+
+  background-image: linear-gradient(rgba(46, 56, 203, 0.7), rgba(46, 56, 203, 0.7)), url(asset_path("background-form.jpg"));
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+
 }
 
+.fa-plus-circle {
+  color: white;
+}
