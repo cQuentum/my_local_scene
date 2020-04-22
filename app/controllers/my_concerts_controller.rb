@@ -8,6 +8,7 @@ class MyConcertsController < ApplicationController
     @concerts = Concert.where(band: @band)
     @past_concerts = @concerts.where('start_time <= ?', 1.hour.ago)
     @future_concerts = @concerts.where('start_time >= ?', DateTime.now)
+
   end
 
   def new

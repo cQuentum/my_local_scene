@@ -359,6 +359,8 @@
   opacity: 1;
 }
 
+// Animation Cards genres profiles
+
 .make-it-slow-genres {
   position: relative;
   display: inline-block;
@@ -390,5 +392,28 @@
 
 .make-it-slow-genres:hover::after {
   opacity: 1;
+}
+
+
+
+// card blank to add a concert in myconcerts
+
+.card-band-adding-concert {
+  font-size: 30px;
+  color: #100F3E;
+  font-weight: 300;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
+
+.card-name-adding {
+  display: flex;
+  justify-content: center;
+  width: 350px;
+  height: 540px;
+  align-items: center;
+  // align-content: center;
+  flex-direction: column;
 }
 
