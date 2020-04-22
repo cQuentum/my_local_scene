@@ -5,16 +5,16 @@
         <h2 class="band-genre-show"><%= @band_show.genre.upcase %></h2>
         <h1 class="band-title-show"><%= @band_show.name %></h1>
         <div class="inline-external-link">
-          <%= link_to ("http://#{@band_show.external_link}") do %>
+          <%= link_to ("http://#{@band_show.external_link}"), target: "_blank" do %>
             <i class="fab fa-youtube show-icon pulse"></i>
             <% end %>
-          <%= link_to ("http://#{@band_show.external_link}") do %>
+          <%= link_to ("http://#{@band_show.external_link}"), target: "_blank" do %>
             <i class="fab fa-soundcloud show-icon pulse be-less-wide-plz"></i>
             <% end %>
-          <%= link_to ("http://#{@band_show.external_link}") do %>
+          <%= link_to ("http://#{@band_show.external_link}"), target: "_blank" do %>
             <i class="fab fa-bandcamp show-icon pulse"></i>
             <% end %>
-          <%= link_to ("http://#{@band_show.external_link}") do %>
+          <%= link_to ("http://#{@band_show.external_link}"), target: "_blank" do %>
             <i class="fab fa-instagram show-icon pulse"></i>
             <% end %>
         </div>
