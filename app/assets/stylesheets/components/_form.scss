@@ -37,7 +37,12 @@
 }
 
 .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
-  color: $mls-blue;
+  color: black;
+}
+
+
+.was-validated:active .form-check-input:valid:active ~ .form-check-label:active, .form-check-input.is-valid:active ~ .form-check-label:active {
+  color: black;
 }
 
 

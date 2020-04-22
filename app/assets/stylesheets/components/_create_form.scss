@@ -13,7 +13,7 @@
   label {
     color: $mls-blue;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 17px;
     position: relative;
     top: 22px; left: 20px;
     z-index: 2;
@@ -24,16 +24,17 @@
   legend {
     color: $mls-blue;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 17px;
   }
   input {
     margin-bottom: 0px;
-    border: 1px solid #8290D8;
+    border: 1px solid black;
     border-radius: 5px;
     z-index: 1;
     height: 70px;
     padding: 25px;
   }
+
   h2 {
     font-size: 40px;
     text-align: center;
@@ -99,7 +100,7 @@
 .form-description-tall {
   textarea {
     height: 135px;
-    border: 1px solid #8290D8;
+    border: 1px solid black;
     border-radius: 5px;
     padding: 25px;
   }
@@ -138,8 +139,25 @@
   height: 100%;
   width: 25%;
   opacity: 0.9;
+  border: 0px solid black;
   &:hover {
   opacity: 1;
   color: white;
   }
+}
+
+// style des forms on focus
+.was-validated .form-control:valid:focus, .form-control.is-valid:focus {
+  border-color: #93c4fd;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(22, 127, 251, 0.25);
+}
+
+.was-validated .form-control:valid, .form-control.is-valid {
+  background-image: none;
+}
+
+.col-form-label {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
