@@ -27,7 +27,9 @@
         </div>
       <% else %>
         <% if Participation.exists?(user_id: current_user.id, concert_id: @concert.id) %>
-          <div class="btn-mls-show">ANNULER</div>
+          <%= link_to concert_participation_path(@concert), method: :delete do %>
+            <div class="btn-mls-show">ANNULER</div>
+          <% end %>
         <% else %>
           <%= link_to concert_participations_path(@concert), method: :post do %>
             <div class="btn-mls-show">PARTICIPER</div>
