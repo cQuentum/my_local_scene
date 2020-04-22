@@ -32,9 +32,6 @@
   </div>
 <% if current_user.band && current_user.band == @band_show %>
   <h2 id="future-concerts" class="grid-band-show mb-5 mt-5">Vos prochains concerts</h2>
-<% else %>
-  <h2 id="future-concerts" class="grid-band-show mb-5 mt-5">Leurs prochains concerts</h2>
-<% end %>
   <div class="band-show-cards">
     <% @future_concerts.each do |concert| %>
       <%= link_to concert, :action => 'go' do %>
@@ -54,6 +51,28 @@
             </div>
           </div>
         </div>
+      <% end %>
+    <% end %>
+    <% else %>
+      <h2 id="future-concerts" class="grid-band-show mb-5 mt-5">Leurs prochains concerts</h2>
+      <div class="band-show-cards">
+        <% @concerts.each do |concert| %>
+        <%= link_to concert, :action => 'go' do %>
+          <div class="card-concert-user make-it-slow">
+            <%= cl_image_tag concert.photo.key %>
+            <div class="card-concert-user-infos">
+              <div class="card-name">
+                <h2 class="card-band-genre-show"><%= concert.band.genre.upcase %></h2>
+                <h2 class="card-band-name-show"><%= concert.band.name %></h2>
+                <h2 class="card-concert-date-show"><%= frenchdate(concert.start_time.strftime("%A %d %B %Y"))%> | <%= concert.start_time.strftime("%Hh%M") %></h2>
+                <h2 class="card-concert-localisation-show"><%= concert.address %></h2>
+              </div>
+              <div class="card-concert-user-pricing">
+                <h2><%= number_with_delimiter(concert.price_cents/100) %>€</h2>
+              </div>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
     </div>

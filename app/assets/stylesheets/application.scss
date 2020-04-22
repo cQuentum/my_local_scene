@@ -16,3 +16,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+input[type=submit] {
+  text-transform: uppercase;
+}

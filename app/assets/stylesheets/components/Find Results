@@ -1,0 +1,206 @@
+Searching 194 files for "7px"
+
+/home/adrien/code/cQuentum/my_local_scene/yarn-error.log:
+ 5605      version "4.1.0"
+ 5606      resolved "https://registry.yarnpkg.com/p-locate/-/p-locate-4.1.0.tgz#a3428bb7088b3a60292f66919278b7c297ad4f07"
+ 5607:     integrity sha512-R79ZZ/0wAxKGu3oYMlz8jy/kbhsNrS7SKZ7PxEHBgJ5+F2mtFW2fK2cOtBh1cHYkQsbzFV7I+EoRKe6Yt0oK7A==
+ 5608      dependencies:
+ 5609        p-limit "^2.2.0"
+
+/home/adrien/code/cQuentum/my_local_scene/yarn.lock:
+ 5548    version "4.1.0"
+ 5549    resolved "https://registry.yarnpkg.com/p-locate/-/p-locate-4.1.0.tgz#a3428bb7088b3a60292f66919278b7c297ad4f07"
+ 5550:   integrity sha512-R79ZZ/0wAxKGu3oYMlz8jy/kbhsNrS7SKZ7PxEHBgJ5+F2mtFW2fK2cOtBh1cHYkQsbzFV7I+EoRKe6Yt0oK7A==
+ 5551    dependencies:
+ 5552      p-limit "^2.2.0"
+
+/home/adrien/code/cQuentum/my_local_scene/app/assets/stylesheets/components/_banner.scss:
+   33  #title-banner {
+   34    font-weight: 300;
+   35:   text-shadow: 2px 2px 7px #000000;
+   36    margin-bottom: 40px;
+   37  }
+   ..
+   41    font-weight: 300;
+   42    opacity: 0.8;
+   43:   text-shadow: 2px 2px 7px #000000;
+   44    color: #FFFFFF;
+   45    text-align: center;
+
+/home/adrien/code/cQuentum/my_local_scene/app/assets/stylesheets/components/_buttons.scss:
+  100    font-weight: 600;
+  101    width: 120px;
+  102:   border-radius: 7px;
+  103  }
+  104
+
+/home/adrien/code/cQuentum/my_local_scene/app/assets/stylesheets/components/_cards.scss:
+  236
+  237  .card-band-date-show {
+  238:   font-size: 17px;
+  239    color: #100F3E;
+  240    opacity: 0.4;
+
+/home/adrien/code/cQuentum/my_local_scene/app/assets/stylesheets/components/_create_form.scss:
+   14      color: $mls-blue;
+   15      font-weight: 500;
+   16:     font-size: 17px;
+   17      position: relative;
+   18      top: 22px; left: 20px;
+   ..
+   25      color: $mls-blue;
+   26      font-weight: 500;
+   27:     font-size: 17px;
+   28    }
+   29    input {
+
+/home/adrien/code/cQuentum/my_local_scene/app/assets/stylesheets/components/_map.scss:
+   33    padding-top: 20px;
+   34    #query {
+   35:     border-radius: 7px;
+   36      border: 1px solid #8290D8;
+   37    }
+   ..
+  101    background-color: white;
+  102    width: 100%;
+  103:   box-shadow: 1px 7px 20px rgba(7, 0, 255, 0.08);
+  104    position: relative;
+  105    z-index: 1;
+
+10 matches across 7 files
+
+
+Searching 194 files for "6px"
+
+/home/adrien/code/cQuentum/my_local_scene/yarn-error.log:
+ 2998      version "2.0.0"
+ 2999      resolved "https://registry.yarnpkg.com/entities/-/entities-2.0.0.tgz#68d6084cab1b079767540d80e56a39b423e4abf4"
+ 3000:     integrity sha512-D9f7V0JSRwIxlRI2mjMqufDrRDnx8p+eEOz7aUM9SuvF8gsBzra0/6tbjl1m8eQHrZlYj6PxqE00hZ1SAIKPLw==
+ 3001
+ 3002    envify@^4.0.0:
+
+/home/adrien/code/cQuentum/my_local_scene/yarn.lock:
+ 2941    version "2.0.0"
+ 2942    resolved "https://registry.yarnpkg.com/entities/-/entities-2.0.0.tgz#68d6084cab1b079767540d80e56a39b423e4abf4"
+ 2943:   integrity sha512-D9f7V0JSRwIxlRI2mjMqufDrRDnx8p+eEOz7aUM9SuvF8gsBzra0/6tbjl1m8eQHrZlYj6PxqE00hZ1SAIKPLw==
+ 2944
+ 2945  envify@^4.0.0:
+
+/home/adrien/code/cQuentum/my_local_scene/app/assets/stylesheets/components/_alert.scss:
+    1  .alert {
+    2    position: fixed;
+    3:   bottom: 16px;
+    4:   right: 16px;
+    5    z-index: 1000;
+    6  }
+    .
+    8  .alert-warning {
+    9    position: fixed;
+   10:   bottom: 16px;
+   11:   right: 16px;
+   12    z-index: 1000;
+   13    background-color: #FF4136;
+   ..
+   17  .alert-info {
+   18    position: fixed;
+   19:   bottom: 16px;
+   20:   right: 16px;
+   21    z-index: 1000;
+   22    background-color: #01FF70;
+
+/home/adrien/code/cQuentum/my_local_scene/app/assets/stylesheets/components/_avatar.scss:
+    4  }
+    5  .avatar-large {
+    6:   width: 56px;
+    7    border-radius: 50%;
+    8  }
+
+/home/adrien/code/cQuentum/my_local_scene/app/assets/stylesheets/components/_cards.scss:
+   34
+   35  .card-product h2 {
+   36:   font-size: 16px;
+   37    font-weight: bold;
+   38    margin: 0;
+   ..
+   48
+   49  .card-product .card-product-infos {
+   50:   padding: 16px;
+   51  }
+   52
+   ..
+   78  .card-concert-user-infos .card-concert-user-user {
+   79    position: absolute;
+   80:   right: 16px;
+   81    top: -20px;
+   82    width: 40px;
+   ..
+   97
+   98  .card-band-name-show {
+   99:   font-size: 26px;
+  100    color: #100F3E;
+  101    margin-top: 5px;
+  ...
+  122    // margin-top: 15px;
+  123    font-weight: 800;
+  124:   font-size: 16px;
+  125  }
+  126
+  ...
+  128
+  129  // .card-concert-user h2 {
+  130: //   font-size: 16px;
+  131  //   font-weight: bold;
+  132  //   margin: 0;
+  ...
+  193  .card-show-band-infos .card-show-band-band {
+  194    position: absolute;
+  195:   right: 16px;
+  196    top: -20px;
+  197    width: 40px;
+  ...
+  222
+  223  .card-show-band-participations .fa-user{
+  224:   font-size: 16px;
+  225    font-weight: 800;
+  226    color: rgba(55, 58, 60, 0.55);
+  ...
+  308  .label-text {
+  309    color: white;
+  310:   font-size: 26px;
+  311    font-family: Muli;
+  312    font-weight: 600;
+  ...
+  400
+  401  .card-placeholder-name {
+  402:   font-size: 26px;
+  403    color: white;
+  404    font-weight: 600;
+
+/home/adrien/code/cQuentum/my_local_scene/app/assets/stylesheets/components/_footer.scss:
+    5    justify-content: space-between;
+    6    height: 100px;
+    7:   padding: 8px 16px;
+    8    color: rgba(0,0,0,0.3);
+    9    width: 100%;
+
+/home/adrien/code/cQuentum/my_local_scene/app/assets/stylesheets/components/_form.scss:
+   17  .search-form-control .form-control {
+   18    height: 3.5rem;
+   19:   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+   20    border: 1px solid $mls-blue;
+   21    border-radius: 30px;
+   ..
+   25    border: 1px solid $mls-orange;
+   26    outline: none !important;
+   27:   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+   28  }
+   29
+
+/home/adrien/code/cQuentum/my_local_scene/app/assets/stylesheets/components/_navbar.scss:
+   51
+   52  .padding-bottom {
+   53:   padding-bottom: 6px;
+   54    padding-top: 5px;
+   55  }
+
+23 matches across 8 files
