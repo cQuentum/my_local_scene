@@ -5,7 +5,7 @@ class AddDetailsToUsers < ActiveRecord::Migration[6.0]
     add_column :users, :location, :string
     add_column :users, :latitude, :float
     add_column :users, :longitude, :float
-    add_column :users, :move_radius, :integer
+    add_column :users, :move_radius, :integer, default: 0
     add_column :users, :genres, :string, array: true, default: []
   end
 end
