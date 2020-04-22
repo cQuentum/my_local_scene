@@ -168,6 +168,8 @@
   border-radius: 15px;
   width: 350px;
   height: 540px;
+  min-width: 350px;
+  min-height: 540px;
 }
 
 .band-show-cards a {
@@ -404,6 +406,7 @@
   font-weight: 600;
   margin-top: 8px;
   margin-bottom: 20px;
+
 }
 
 
@@ -412,13 +415,15 @@
   display: flex;
   justify-content: center;
   height: 100%;
+  width: 100%;
+  min-width: 350px;
+  min-height: 540px;
   align-items: center;
   flex-direction: column;
 
   background-image: linear-gradient(rgba(46, 56, 203, 0.7), rgba(46, 56, 203, 0.7)), url(asset_path("background-form.jpg"));
   background-size: cover;
   background-position: center;
-  width: 100%;
 
 }
 
