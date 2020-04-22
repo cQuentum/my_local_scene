@@ -25,8 +25,8 @@ jerome = User.new(
     email: "luce@gmail.com",
     password: "lolilol",
     location: "Morlaix",
-    latitude: 48.5776,
-    longitude: -3.8282,
+    latitude: 48.5824932,
+    longitude: -3.8331972,
     move_radius: rand(1..30),
     genres: ["Metal"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
     skip_geocoding: true
