@@ -27,7 +27,7 @@ class MyConcertsController < ApplicationController
     @concert.confirmed = true
     @concert.band = @band
     if @concert.save
-      redirect_to concert_path(@concert)
+      redirect_to concert_path(@concert), notice: "Bonne chance pour votre nouveau concert !"
     else
       @user = current_user
       flash[:alert] = "#{@concert.errors.messages[:base][0]}" unless @concert.errors.messages[:base][0].nil?
