@@ -24,8 +24,11 @@
 <% if current_user %>
 <div class="spacing-div">
   <div class="container mt-5 mb-5">
-    <div class="container mt-5 pb-2 pl-0">
-      <h2 class="index-title-home">Concerts près de chez vous</h2>
+    <div class="container mt-5 pb-2 pl-0 change-your-life-parent">
+      <h2 class="index-title-home">Les concerts sélectionnés pour vous</h2>
+      <%= link_to edit_profile_path(current_user) do %>
+      <p id="change-your-life">Envie de changement ? Elargissez vos horizons !</p>
+      <% end %>
     </div>
     <% if @concerts.empty? %>
     <p>Malheureusement, aucun concert ne correspond à vos critères.</p>
@@ -82,17 +85,17 @@
   </div>
 </div>
 
-<% if !user_signed_in? %>
-  <div class="wrapper wrapper-blue p-5">
-    <div class="container mt-5 pb-2 pl-0">
-      <h2 >Vous faites partie d'un groupe ?</h2>
-    </div>
-    <div class="container bg-light p-5">
-      <h4>Hey toi !!</h4>
-      <p>Fatigué de jouer devant... et bien personne ? Trouvez les meilleures endroits où vous produire, préparer vos affaires et mettez le feu!</p>
-      <a class="btn btn-flat btn-blue" href="/bands/new">Créer un groupe</a>
-    </div>
-  </div>
-<% end %>
+<%# if !user_signed_in? %>
+  <!-- <div class="wrapper wrapper-blue p-5"> -->
+    <!-- <div class="container mt-5 pb-2 pl-0"> -->
+      <!-- <h2 >Vous faites partie d'un groupe ?</h2> -->
+    <!-- </div> -->
+    <!-- <div class="container bg-light p-5"> -->
+      <!-- <h4>Hey toi !!</h4> -->
+      <!-- <p>Fatigué de jouer devant... et bien personne ? Trouvez les meilleures endroits où vous produire, préparer vos affaires et mettez le feu!</p> -->
+      <!-- <a class="btn btn-flat btn-blue" href="/bands/new">Créer un groupe</a> -->
+    <!-- </div> -->
+  <!-- </div> -->
+<%# end %>
 
 

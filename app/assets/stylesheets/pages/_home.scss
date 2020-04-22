@@ -6,8 +6,23 @@ h2 {
   text-align: center;
   font-weight: 600;
   font-size: 30px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
+
+a:hover {
+  text-decoration: none !important;
+}
+#change-your-life {
+  text-align: center;
+  color: $mls-blue;
+  margin-bottom: 40px;
+}
+
+#change-your-life:hover {
+  color: $mls-orange;
+  text-decoration: none;
+}
+
 
 .fa-map-marker-alt {
   color: #12193F;
