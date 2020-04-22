@@ -1,4 +1,8 @@
 class ParticipationsController < ApplicationController
+  def index
+    @participation = Participation.where(user_id: current_user.id)
+    @concerts = Concert.where(participations: @participation).reverse
+  end
 
   def create
     @participation = Participation.new

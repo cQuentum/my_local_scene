@@ -1,0 +1,23 @@
+<div class="container mb-5" id="container-margin">
+  <h2 class="index-title-home">Vos prochaines participations</h2>
+  <div class="cards justify-content-around">
+    <% @concerts.each do |concert| %>
+    <%= link_to concert, :action => 'go' do %>
+      <div class="card-concert-user make-it-slow">
+        <%= cl_image_tag concert.photo.key %>
+        <div class="card-concert-user-infos">
+          <div class="card-name">
+            <h2 class="card-band-genre-show"><%= concert.band.genre.upcase %></h2>
+            <h2 class="card-band-name-show"><%= concert.band.name %></h2>
+            <h2 class="card-concert-date-show"><%= frenchdate(concert.start_time.strftime("%A %d %B %Y"))%> | <%= concert.start_time.strftime("%Hh%M") %></h2>
+            <h2 class="card-concert-localisation-show"><%= concert.address %></h2>
+          </div>
+          <div class="card-concert-user-pricing">
+            <h2><%= number_with_delimiter(concert.price_cents/100) %>€</h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
