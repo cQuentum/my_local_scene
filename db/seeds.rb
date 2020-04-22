@@ -183,8 +183,8 @@ metal_user1 = User.new(
     email: "facq@gmail.com",
     password: "lolilol",
     location: "Morlaix",
-    latitude: 48.5776,
-    longitude: -3.8282,
+    latitude: 48.5824932,
+    longitude: -3.8331972,
     move_radius: rand(1..30),
     genres: ["Metal"].push(GlobalConstants::GENRES_BREST.sample(rand(1..2))).flatten,
     skip_geocoding: true
@@ -197,8 +197,8 @@ metal_user2 = User.new(
     email: "daniel@gmail.com",
     password: "lolilol",
     location: "Morlaix",
-    latitude: 48.5776,
-    longitude: -3.8282,
+    latitude: 48.5824932,
+    longitude: -3.8331972,
     move_radius: rand(1..30),
     genres: ["Metal"].push(GlobalConstants::GENRES_BREST.sample(rand(1..2))).flatten,
     skip_geocoding: true
@@ -359,8 +359,8 @@ counter = 1
     email: Faker::Internet.unique.email,
     password: "lolilol",
     location: "Morlaix",
-    latitude: 48.5776,
-    longitude: -3.8282,
+    latitude: 48.5824932,
+    longitude: -3.8331972,
     move_radius: rand(1..30),
     genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
     skip_geocoding: true
@@ -377,14 +377,51 @@ end
     email: Faker::Internet.unique.email,
     password: "lolilol",
     location: "Morlaix",
-    latitude: 48.5776,
-    longitude: -3.8282,
+    latitude: 48.5824932,
+    longitude: -3.8331972,
     move_radius: rand(1..30),
     genres: GlobalConstants::GENRES.sample(rand(1..3)).flatten,
     skip_geocoding: true
   )
   user.save!
   puts "Morlaix user #{counter} saved. Genres : #{user.genres}"
+  counter += 1
+end
+
+counter = 1
+37.times do
+  user = User.new(
+    first_name: GlobalConstants::FIRST_NAMES.sample,
+    last_name: GlobalConstants::FAMILY_NAMES.sample,
+    email: Faker::Internet.unique.email,
+    password: "lolilol",
+    location: "Carantec",
+    latitude: 48.668359,
+    longitude: -3.9142802,
+    move_radius: rand(1..30),
+    genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
+    skip_geocoding: true
+  )
+  user.save!
+  puts "Carantec user #{counter} saved. Genres : #{user.genres}"
+  counter += 1
+end
+
+16.times do
+  user = User.new(
+    first_name: GlobalConstants::FIRST_NAMES.sample,
+    last_name: GlobalConstants::FAMILY_NAMES.sample,
+    email: Faker::Internet.unique.email,
+    password: "lolilol",
+    location: "Carantec",
+    latitude: 48.668359,
+    longitude: -3.9142802,
+    move_radius: rand(1..30),
+    genres: GlobalConstants::GENRES.sample(rand(1..3)).flatten,
+    skip_geocoding: true
+  )
+  user.save!
+  puts "Carantec user #{counter} saved. Genres : #{user.genres}"
   counter += 1
 end
 
@@ -397,8 +434,8 @@ counter = 1
     email: Faker::Internet.unique.email,
     password: "lolilol",
     location: "Douarnenez",
-    latitude: 48.0932,
-    longitude: -4.3286,
+    latitude: 48.0944459,
+    longitude: -4.3311243,
     move_radius: rand(1..30),
     genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
     skip_geocoding: true
@@ -415,8 +452,8 @@ end
     email: Faker::Internet.unique.email,
     password: "lolilol",
     location: "Douarnenez",
-    latitude: 48.0932,
-    longitude: -4.3286,
+    latitude: 48.0944459,
+    longitude: -4.3311243,
     move_radius: rand(1..30),
     genres: GlobalConstants::GENRES.sample(rand(1..3)).flatten,
     skip_geocoding: true
@@ -435,8 +472,8 @@ counter = 1
     email: Faker::Internet.unique.email,
     password: "lolilol",
     location: "Concarneau",
-    latitude: 47.8728,
-    longitude: -3.9207,
+    latitude: 47.8757017,
+    longitude: -3.9223889,
     move_radius: rand(1..30),
     genres: ["Country"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
     skip_geocoding: true
@@ -454,8 +491,8 @@ counter = 1
     email: Faker::Internet.unique.email,
     password: "lolilol",
     location: "Concarneau",
-    latitude: 47.8728,
-    longitude: -3.9207,
+    latitude: 47.8757017,
+    longitude: -3.9223889,
     move_radius: rand(1..30),
     genres: GlobalConstants::GENRES.sample(rand(1..3)).flatten,
     skip_geocoding: true
