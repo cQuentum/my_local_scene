@@ -16,9 +16,11 @@
     </div>
     <div class="form-inline-mls" id="fixed-height-mls">
     <%= f.input :start_time, as: :string, required: true, input_html: { class: 'datepicker', id: 'start-date' }, label: "Date et Heure du concert" %>
-    <div class="vertical-mls">
-    <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: 'Affiche du concert' %>
-    <%= image_tag "", width: 100, class: "hidden", id: "photo-preview" %>
+    <div class="form-inline-mls">
+    <div class= "buttoncenter button-form-final">
+    <%= image_tag "Preview-icon.png", width: 100, id: "photo-preview" %>
+    </div>
+    <%= f.input :photo, input_html: { id: 'photo-input', onchange: "readURL(this);", type: 'file' }, label_html: { class: 'upload-photo'}, label: 'Affiche du concert'%>
     </div>
     </div>
     <%#= f.input :confirmed, as: :check_boxes, label: "Publier" %>
