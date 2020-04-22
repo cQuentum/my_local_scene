@@ -52,6 +52,26 @@
   letter-spacing: 0.1em;
 }
 
+.cancel {
+  width: 250px;
+  background-color: #FF4500;
+  opacity: 0.9;
+  &:hover {
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+}
+
+.join {
+  background-color: $mls-blue;
+  opacity: 0.9;
+  &:hover {
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+}
+
+
 .btn-mls-forms {
   background-color: $mls-blue;
   color: white;
