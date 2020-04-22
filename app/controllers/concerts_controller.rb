@@ -3,9 +3,9 @@ class ConcertsController < ApplicationController
 
   def index
     if params[:query].present?
-      @concerts = Concert.where("address ILIKE ?", "%#{params[:query]}%").sort_by &:start_time
+      @concerts = Concert.near(params[:query]).sort_by &:start_time
     else
-      @concerts = Concert.includes(:band).sort_by &:start_time
+      @concerts = Concert.includes(:band).where('start_time >= ?', DateTime.now).sort_by &:start_time
     end
   end
 

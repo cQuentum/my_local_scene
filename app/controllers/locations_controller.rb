@@ -5,6 +5,16 @@ class LocationsController < ApplicationController
       @users_sort_genre_city = @users_sort_genre.where("location ILIKE ?", params[:query]).select("latitude, longitude, location, COUNT(users.*) as number_of_users").
         group(:location, :latitude, :longitude).
         geocoded
+      if @users_sort_genre_city.empty?
+        @users_sort_genre_city = @users_sort_genre.where("location ILIKE ?", /(.+), (.+), .+$/.match(params[:query])[1]).select("latitude, longitude, location, COUNT(users.*) as number_of_users").
+        group(:location, :latitude, :longitude).
+        geocoded
+      end
+      if @users_sort_genre_city.empty?
+        @users_sort_genre_city = @users_sort_genre.where("location ILIKE ?", /(.+), (.+), .+,.+$/.match(params[:query])[2]).select("latitude, longitude, location, COUNT(users.*) as number_of_users").
+        group(:location, :latitude, :longitude).
+        geocoded
+      end
     else
       @users_sort_genre = User.where('genres @> ?', "{#{current_user.band.genre}}")
       @users_sort_genre_city = @users_sort_genre.select("latitude, longitude, location, COUNT(users.*) as number_of_users").
