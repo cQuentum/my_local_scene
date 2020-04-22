@@ -1,10 +1,12 @@
 import places from 'places.js';
 
 const initAutocomplete = () => {
-  const addressInput = document.getElementById('user_adress');
+  const addressInput = document.getElementById('concert_address');
   if (addressInput) {
     places({ container: addressInput });
   }
 };
 
 export { initAutocomplete };
+
+
