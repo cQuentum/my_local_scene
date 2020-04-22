@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_130043) do
     t.string "location"
     t.float "latitude"
     t.float "longitude"
-    t.integer "move_radius"
+    t.integer "move_radius", default: 0
     t.string "genres", default: [], array: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
