@@ -29,14 +29,28 @@
 <div class="spacing-div">
   <div class="container mt-5 mb-5">
     <div class="container mt-5 pb-2 pl-0 change-your-life-parent">
-      <h2 class="index-title-home">Les concerts sélectionnés pour vous</h2>
+      <h2 class="index-title-home pb-4">Les concerts sélectionnés pour vous parmis ces genres :</h2>
+      <% if @user.genres.size > 3 %>
+        <div class="inline-genres-home  pb-4">
+          <% @user.genres.first(3).each do |genre| %>
+            <h2 class="genres-home"><%= genre %>
+          <% end %>
+            ...</h2>
+        </div>
+      <% else %>
+        <div class="inline-genres-home  pb-4">
+          <% @user.genres.first(3).each do |genre| %>
+            <h2 class="genres-home"><%= genre %></h2>
+          <% end %>
+        </div>
+      <% end %>
       <%= link_to edit_profile_path(current_user) do %>
-      <p id="change-your-life">Envie de changement ? Elargissez vos horizons !</p>
+        <p id="change-your-life">Envie de changement ? Elargissez vos horizons !</p>
       <% end %>
     </div>
     <% if @concerts.empty? %>
-    <p>Malheureusement, aucun concert ne correspond à vos critères.</p>
-    <p>Essayez d'élargir votre zone depuis  <%= link_to "votre profil", profile_path(current_user) %> !</p>
+      <p>Malheureusement, aucun concert ne correspond à vos critères.</p>
+      <p>Essayez d'élargir votre zone depuis  <%= link_to "votre profil", profile_path(current_user) %> !</p>
     <% end %>
   <div class="cards justify-content-around">
     <% @concerts.first(9).each do |concert| %>
@@ -64,7 +78,7 @@
 <% else %>
   <div class="container mt-5 mb-5">
     <div class="container mt-5 pb-2 pl-0">
-      <h2 >Concerts à l'affiche</h2>
+      <h2 class="text-center">Concerts à l'affiche</h2>
     </div>
       <div class="cards justify-content-around">
         <% @concerts.first(3).each do |concert| %>
