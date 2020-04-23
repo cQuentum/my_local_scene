@@ -22,8 +22,10 @@ const addZoomOnClusters = (map, locationInfoCards) => {
 const highlightInfoCard = (location, locationInfoCards) => {
   const currentInfoCard   = document.getElementById(location + '-info-card')
   locationInfoCards.forEach(infoCard => infoCard.style.removeProperty("border"));
+  locationInfoCards.forEach(infoCard => infoCard.classList.remove('active'));
   // locationInfoCards.forEach(infoCard => infoCard.style.removeProperty("background-color"));
   currentInfoCard.style.border = 'solid 2px rgba(46, 56, 203, 0.8)';
+  currentInfoCard.classList.add('active');
   // currentInfoCard.style.backgroundColor = 'rgba(7, 0, 255, 0.03)';
 };
 
