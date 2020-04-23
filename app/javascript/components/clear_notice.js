@@ -5,8 +5,8 @@
 // };
 
 // export { clearNotice };
-const noticeDegage = () => {
-  $(".alert").fadeOut(6000);
-};
+// const noticeDegage = () => {
+//   $(".alert").fadeOut(2000);
+// };
 
-export { noticeDegage }
+// export { noticeDegage }
