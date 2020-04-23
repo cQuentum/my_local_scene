@@ -233,6 +233,33 @@ rock_user2 = User.new(
   )
 rock_user2.save!
 
+jazz_user1 = User.new(
+    first_name: "Louis",
+    last_name: "Armsweak",
+    email: "armsweak@gmail.com",
+    password: "lolilol",
+    location: "Brest",
+    latitude: 48.3905283,
+    longitude: -4.4860088,
+    move_radius: rand(1..30),
+    genres: ["Jazz"].push(GlobalConstants::GENRES_BREST.sample(rand(1..2))).flatten,
+    skip_geocoding: true
+  )
+jazz_user1.save!
+
+jazz_user2 = User.new(
+    first_name: "Andrée",
+    last_name: "Maillet",
+    email: "maillet@gmail.com",
+    password: "lolilol",
+    location: "Rennes",
+    latitude: 48.1113387,
+    longitude: -1.6800198,
+    move_radius: rand(1..30),
+    genres: ["Jazz"].push(GlobalConstants::GENRES_BREST.sample(rand(1..2))).flatten,
+    skip_geocoding: true
+  )
+jazz_user2.save!
 
 #Fake metal bands & concerts
 
@@ -280,6 +307,27 @@ file = URI.open('https://i.ibb.co/rsgvM7D/twllaw.jpg')
 twllaw.photo.attach(io: file, filename: 'twllaw.jpg', content_type: 'image/jpg')
 twllaw.save!
 
+thejazzygoblins = Band.new(
+    name: "The Jazzy Goblins",
+    genre: "Jazz",
+    description: "Notre jazz est vif, douloureux, doux, tendre, lent ; il apaise, il bouleverse, c'est de la musique et ce qu'il rythme est vrai, c'est le pouls de la vie.",
+    external_link: "thiswavelookslikeawolf.bandcamp.com"
+  )
+thejazzygoblins.user = jazz_user1
+file = URI.open('https://nsa40.casimages.com/img/2020/04/23//200423104920239755.jpg')
+thejazzygoblins.photo.attach(io: file, filename: '200423104920239755.jpg', content_type: 'image/jpg')
+thejazzygoblins.save!
+
+theloveoflads = Band.new(
+    name: "The Love Of Lads",
+    genre: "Jazz",
+    description: "Quatre musiciens, un répertoire original, des compos qui sentent l'évasion, le swing, la spontanéité d'un concert improvisé dans le fin fond d'une roulotte.",
+    external_link: "thiswavelookslikeawolf.bandcamp.com"
+  )
+theloveoflads.user = jazz_user2
+file = URI.open('https://nsa40.casimages.com/img/2020/04/23//200423120515114057.jpg')
+theloveoflads.photo.attach(io: file, filename: '200423120515114057.jpg', content_type: 'image/jpg')
+theloveoflads.save!
 
 # Concerts
 
@@ -343,6 +391,37 @@ concert_metal_4.band = twllaw
 file = URI.open('https://i.ibb.co/dpzBj0z/twllawaffiche.jpg')
 concert_metal_4.photo.attach(io: file, filename: 'twllawaffiche.jpg', content_type: 'image/jpg')
 concert_metal_4.save!
+
+
+start_time = DateTime.strptime("26/06/20 21:00", "%d/%m/%y %H:%M")
+concert_jazz_1 = Concert.new(
+  title: "#{thejazzygoblins.name} - Greenwich Café",
+  address: "5 boulevard des français libres, Brest",
+  description: "Notre premier concert solo au greenwich café.",
+  external_link: "facebook.com/event/jazzygoblins29",
+  price_cents: 1300,
+  confirmed: true,
+  start_time: start_time
+  )
+concert_jazz_1.band = thejazzygoblins
+file = URI.open('https://i.ibb.co/xCX49ZB/The-Jazzy-Goblins.jpg')
+concert_jazz_1.photo.attach(io: file, filename: 'The-Jazzy-Goblins.jpg', content_type: 'image/jpg')
+concert_jazz_1.save!
+
+start_time = DateTime.strptime("04/06/20 19:00", "%d/%m/%y %H:%M")
+concert_jazz_2 = Concert.new(
+  title: "#{theloveoflads.name} - Le Barado'Zic",
+  address: "3 Rue de Siam, Brest",
+  description: "Premier concert sur Brest, venez nombreux !",
+  external_link: "facebook.com/event/theloveoflads29",
+  price_cents: 800,
+  confirmed: true,
+  start_time: start_time
+  )
+concert_jazz_2.band = theloveoflads
+file = URI.open('https://nsa40.casimages.com/img/2020/04/23//200423114756556919.jpg')
+concert_jazz_2.photo.attach(io: file, filename: '200423114756556919.jpg', content_type: 'image/jpg')
+concert_jazz_2.save!
 
 ### Demo
 
