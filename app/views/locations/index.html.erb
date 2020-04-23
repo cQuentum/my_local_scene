@@ -1,6 +1,10 @@
-<div class="map-container">
-  <div class="d-flex" id="bg-container">
-    <div class="map-subcontainer">
+ <div class="search-banner">
+  <h1 id="location-title">Trouvez un endroit pour jouer de la musique <%= current_user.band.genre %> !</h1>
+</div>
+  <div class="map-container">
+    <div class="map-container">
+    <div class="d-flex" id="bg-container">
+     <div class="map-subcontainer">
       <div class="search-form-control form-group" id="map-query">
       <%= form_tag locations_path, method: :get do %>
         <%= text_field_tag :query,
@@ -15,7 +19,7 @@
       <% end %>
       </div>
       <div id="map"
-           style="width: 100%; height: 927px;"
+           style="width: 100%; height: 823px;"
            data-markers="<%= @markers.to_json %>"
            data-longitude="<%= @band_location[0] %>"
            data-latitude="<%= @band_location[1] %>"
