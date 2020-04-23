@@ -112,7 +112,7 @@
 }
 
 .upload-photo {
-  text-decoration: underline;
+  text-decoration: none;
   z-index: 1;
 }
 
@@ -178,4 +178,19 @@ padding:25px;
 .col-form-label {
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.label-check-box{
+  position: absolute;
+  left: 20px;
+}
+
+.login-check-box{
+  position: absolute;
+  left: 20px;
+}
+
+.btn-login-margin{
+  margin-top: 20px;
+  margin-bottom: 10px;
 }

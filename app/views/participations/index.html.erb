@@ -1,5 +1,5 @@
 <div class="container mb-5" id="container-margin">
-  <h2 class="index-title-home">Vos prochaines participations</h2>
+  <h2 class="index-title-home participation-title">Vos prochaines participations</h2>
   <div class="cards justify-content-around">
     <% @concerts.each do |concert| %>
     <%= link_to concert, :action => 'go' do %>

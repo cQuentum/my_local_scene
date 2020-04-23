@@ -1,19 +1,22 @@
-<div class="container">
-  <div class="form-block">
-    <h2>Nouveau groupe</h2>
-    <h5>Afin de créer un nouveau groupe, renseignez les informations ci-dessous</h5>
-    <%= simple_form_for @band, :url => bands_path do |f| %>
-      <%= f.input :name, label: "Nom du groupe" %>
-      <div class="form-description-tall">
+<div class="form-block">
+  <h2>Nouveau groupe</h2>
+  <h5>Afin de créer un nouveau groupe, renseignez les informations ci-dessous</h5>
+  <%= simple_form_for @band, :url => bands_path do |f| %>
+    <%= f.input :name, label: "Nom du groupe" %>
+    <div class="form-description-tall">
       <%= f.input :description %>
-      </div>
+    </div>
+    <div class="form-inline-mls" id="fixed-height-mls">
+      <%= f.input :external_link, label: "Lien externe"%>
       <div class="form-inline-mls">
-      <%= f.input :external_link, label: "Page du groupe (facebook, etc.)"%>
-            <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: 'Affiche du groupe' %>
-      <%= image_tag "", width: 100, class: "hidden", id: "photo-preview" %>
+        <div class= "buttoncenter button-form-final">
+          <%= image_tag "Preview-icon.png", width: 100, id: "photo-preview" %>
+        </div>
+        <%= f.input :photo, input_html: { id: 'photo-input', onchange: "readURL(this);", type: 'file' }, label_html: { class: 'upload-photo'}, label: 'Photo du groupe'%>
       </div>
+    </div>
       <%= f.button :submit, "Créer!", class: "btn btn-primary mls-push-right" %>
-      </div>
-    <% end %>
-  </div>
+  <% end %>
 </div>
+
+
