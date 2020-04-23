@@ -1,6 +1,10 @@
 <div class="banner">
   <div class="banner-title-container">
-    <h1 id="title-banner" class="text-center">Explorez la scène locale !</h1>
+    <div class="flextypewriter">
+      <div class="typewriter">
+         <h1 id="title-banner" class="text-center">Explorez la scène locale !</h1>
+      </div>
+    </div>
     <p id="description-title-banner"> Un nouvel outil pour les musiciens et les passionnés.<br>Retrouvez les meilleurs coins pour vos concerts.</p>
     <div>
       <%= simple_form_for :search, url: concerts_path, method: :get do |f| %>
