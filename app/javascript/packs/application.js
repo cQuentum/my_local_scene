@@ -31,7 +31,6 @@ import { initTilt } from '../plugins/tilt.jquery';
 import { previewImageOnFileSelect } from '../components/image_preview'
 import { initFlatpickr } from '../plugins/flatpickr'
 import { toggleGenre } from '../components/category_choice'
-import { noticeDegage } from '../components/clear_notice'
 
 
 // Internal imports, e.g:
@@ -48,5 +47,4 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
   previewImageOnFileSelect();
   toggleGenre();
-  noticeDegage();
 });
