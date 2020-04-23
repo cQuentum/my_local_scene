@@ -26,7 +26,11 @@
             <%= link_to "Mes participations", participations_path, id: "whitelink" %>
           </li>
           <li class="nav-item dropdown">
+            <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+            <%= image_tag "placeholder_profile_picture.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+            <% end %>
             <div class="dropdown-menu dropdown-menu-center" aria-labelledby="navbarDropdown">
               <%= link_to "Mes préférences", edit_profile_path(current_user), class: "dropdown-item" %>
               <%= link_to "Mon groupe", band_path(current_user.band), class: "dropdown-item"  %>
@@ -42,7 +46,11 @@
             <%= link_to "Mes participations", participations_path, id: "whitelink" %>
           </li>
           <li class="nav-item dropdown">
-            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+            <%= image_tag "placeholder_profile_picture.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+            <% end %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "Mes préférences", edit_profile_path(current_user), class: "dropdown-item" %>
               <div class="dropdown-divider"></div>
