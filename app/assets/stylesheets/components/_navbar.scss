@@ -42,7 +42,7 @@
   font-size: 15px;
   font-weight: 400;
   letter-spacing: .8px;
-  opacity: .6;
+  opacity: .8;
 }
 
 #whitelink:hover {
@@ -54,9 +54,25 @@
   padding-top: 5px;
 }
 
-
 .dropdown-menu-center {
   left: 50% !important;
   right: auto !important;
   transform: translate(-50%, 0) !important;
+}
+
+.link-3 {
+  transition: 0.4s;
+  text-decoration: none;
+  font-color: #FFFFFF;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: .8px;
+  opacity: .6;
+  position: relative;
+}
+.link-3:hover {
+  background-color: $mls-orange;
+  font-color: #FFFFFF;
+  opacity: 1;
 }
