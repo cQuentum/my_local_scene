@@ -28,7 +28,7 @@ jerome = User.new(
     latitude: 48.5824932,
     longitude: -3.8331972,
     move_radius: rand(1..30),
-    genres: ["Metal"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
+    genres: ["Metal","Jazz"].push(GlobalConstants::GENRES_DEMO.sample(rand(1..2))).flatten,
     skip_geocoding: true
   )
 
@@ -368,7 +368,7 @@ concert_metal_3 = Concert.new(
   address: "10 rue Saint Michel, Rennes",
   description: "Concert à l'Alex's Tavern avec le groupe Mileck ! Venez fêter la fin du confinement en musique. Prix libre, bouchons d'oreille à disposition à l'entrée.",
   external_link: "facebook.com/event/wurm69nicelmao",
-  price_cents: 0,
+  price_cents: 5,
   confirmed: true,
   start_time: start_time
   )
@@ -391,6 +391,21 @@ concert_metal_4.band = twllaw
 file = URI.open('https://i.ibb.co/dpzBj0z/twllawaffiche.jpg')
 concert_metal_4.photo.attach(io: file, filename: 'twllawaffiche.jpg', content_type: 'image/jpg')
 concert_metal_4.save!
+
+start_time = DateTime.strptime("29/06/20 21:00", "%d/%m/%y %H:%M")
+concert_metal_5 = Concert.new(
+  title: "#{wurm.name} - Tempo",
+  address: "Cours Beaumont, Morlaix",
+  description: "Notre premier concert solo au Tempo.",
+  external_link: "facebook.com/event/wurm69nicelmao",
+  price_cents: 5,
+  confirmed: true,
+  start_time: start_time
+  )
+concert_metal_5.band = wurm
+file = URI.open('https://nsa40.casimages.com/img/2020/04/23//200423035507711556.jpg')
+concert_metal_5.photo.attach(io: file, filename: '200423035507711556.jpg', content_type: 'image/jpg')
+concert_metal_5.save!
 
 
 start_time = DateTime.strptime("26/06/20 21:00", "%d/%m/%y %H:%M")
@@ -422,6 +437,36 @@ concert_jazz_2.band = theloveoflads
 file = URI.open('https://nsa40.casimages.com/img/2020/04/23//200423114756556919.jpg')
 concert_jazz_2.photo.attach(io: file, filename: '200423114756556919.jpg', content_type: 'image/jpg')
 concert_jazz_2.save!
+
+start_time = DateTime.strptime("21/06/20 19:00", "%d/%m/%y %H:%M")
+concert_jazz_3 = Concert.new(
+  title: "#{theloveoflads.name} - Pub En Selle",
+  address: "55 rue haute, Morlaix",
+  description: "Premier concert sur Morlaix, venez nombreux !",
+  external_link: "facebook.com/event/theloveoflads29",
+  price_cents: 800,
+  confirmed: true,
+  start_time: start_time
+  )
+concert_jazz_3.band = theloveoflads
+file = URI.open('https://nsa40.casimages.com/img/2020/04/23/200423032616277216.jpg')
+concert_jazz_3.photo.attach(io: file, filename: '200423032616277216.jpg', content_type: 'image/jpg')
+concert_jazz_3.save!
+
+start_time = DateTime.strptime("28/06/20 21:00", "%d/%m/%y %H:%M")
+concert_jazz_4 = Concert.new(
+  title: "#{thejazzygoblins.name} - Ty Coz",
+  address: "10 Venelle Beurre, Morlaix",
+  description: "Notre premier concert solo au Ty Coz.",
+  external_link: "facebook.com/event/jazzygoblins29",
+  price_cents: 1300,
+  confirmed: true,
+  start_time: start_time
+  )
+concert_jazz_4.band = thejazzygoblins
+file = URI.open('https://i.ibb.co/xCX49ZB/The-Jazzy-Goblins.jpg')
+concert_jazz_4.photo.attach(io: file, filename: 'The-Jazzy-Goblins.jpg', content_type: 'image/jpg')
+concert_jazz_4.save!
 
 ### Demo
 
