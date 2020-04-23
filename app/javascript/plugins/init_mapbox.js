@@ -157,7 +157,8 @@ const initMapbox = () => {
         new mapboxgl.Popup()
           .setLngLat(coordinates)
           .setHTML(` <p>${text}</p><a href="my_concerts/new?address=${location}">Créer un concert !</a>`)
-          .addTo(map);
+          .addTo(map)
+          .setWidth(500);
       });
     });
   }

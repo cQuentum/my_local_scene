@@ -1,5 +1,5 @@
 .mapboxgl-popup {
-  max-width: 200px;
+  width: 600px;
 }
 
 .mapboxgl-popup-content {
@@ -166,3 +166,21 @@
   display: block;
 }
 
+
+
+.mapboxgl-popup-content p {
+  font-size: 18px;
+
+}
+
+.mapboxgl-popup-content a {
+  font-size: 20px;
+}
+
+
+.mapboxgl-popup-content {
+  max-width: 300px;
+  width: 300px;
+  max-height: 100px;
+  height: 100px;
+}
