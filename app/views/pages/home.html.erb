@@ -49,8 +49,8 @@
       <% end %>
     </div>
     <% if @concerts.empty? %>
-      <p>Malheureusement, aucun concert ne correspond à vos critères.</p>
-      <p>Essayez d'élargir votre zone depuis  <%= link_to "votre profil", profile_path(current_user) %> !</p>
+      <p class="text-center">Malheureusement, aucun concert ne correspond à vos critères.</p>
+      <p class="text-center">Essayez d'élargir votre zone depuis  <%= link_to "votre profil", edit_profile_path(current_user) %> !</p>
     <% end %>
   <div class="cards justify-content-around">
     <% @concerts.first(9).each do |concert| %>
