@@ -28,7 +28,7 @@
   }
   input {
     margin-bottom: 0px;
-    border: 1px solid black;
+    border: 1px solid rgba(0,0,0,0.3);
     border-radius: 5px;
     z-index: 1;
     height: 70px;
@@ -52,6 +52,13 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+
+#label-add-image {
+  margin-bottom: 0;
+  width: 150px;
+  position: relative;
+  right: 18px;
 }
 
 #form-price {
@@ -100,7 +107,7 @@
 .form-description-tall {
   textarea {
     height: 135px;
-    border: 1px solid black;
+    border: 1px solid rgba(0,0,0,0.3);
     border-radius: 5px;
     padding: 25px;
   }
@@ -114,6 +121,8 @@
 .upload-photo {
   text-decoration: none;
   z-index: 1;
+  width: 150px;
+  height: 150px;
 }
 
 .upload-photo:hover{
@@ -139,13 +148,13 @@
 
 
 #photo-preview {
-  max-width: 70px;
-  border: 1px solid black;
+  width: 120px;
   border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.3);
   padding: 5px;
-  margin-right: 20px;
-  height: 70px;
-  margin-top: 5px;
+  height: 120px;
+  position: relative;
+  left: 4px;
 }
 
 #photo-input[type=file] {
