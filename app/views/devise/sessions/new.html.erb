@@ -10,11 +10,11 @@
       <%= f.input :password,
                   required: false,
                   input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <%= f.input :remember_me, input_html: { class: 'login-check-box' }, label_html: { class: 'label-check-box' }, as: :boolean if devise_mapping.rememberable? %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Log in", class: "btn btn-primary mls-push-right" %>
+      <%= f.button :submit, "Log in", class: "btn btn-primary mls-push-right btn-login-margin" %>
     </div>
   <% end %>
 
