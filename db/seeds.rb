@@ -368,7 +368,7 @@ concert_metal_3 = Concert.new(
   address: "10 rue Saint Michel, Rennes",
   description: "Concert à l'Alex's Tavern avec le groupe Mileck ! Venez fêter la fin du confinement en musique. Prix libre, bouchons d'oreille à disposition à l'entrée.",
   external_link: "facebook.com/event/wurm69nicelmao",
-  price_cents: 5,
+  price_cents: 500,
   confirmed: true,
   start_time: start_time
   )
@@ -398,7 +398,7 @@ concert_metal_5 = Concert.new(
   address: "Cours Beaumont, Morlaix",
   description: "Notre premier concert solo au Tempo.",
   external_link: "facebook.com/event/wurm69nicelmao",
-  price_cents: 5,
+  price_cents: 500,
   confirmed: true,
   start_time: start_time
   )
