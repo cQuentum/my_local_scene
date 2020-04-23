@@ -2,6 +2,11 @@ require 'faker'
 require 'open-uri'
 
 # Create the Demo users (Paul who has the band, Jerome who's a spectator)
+puts "Destroying old db"
+Participation.destroy_all
+Concert.destroy_all
+Band.destroy_all
+User.destroy_all
 
 paul = User.new(
     first_name: "Paul",
@@ -662,40 +667,9 @@ concert_landeda.photo.attach(io: file, filename: 'landedaconc.jpg', content_type
 concert_landeda.save!
 landeda_id = concert_landeda.id
 
-# Brest (Shitty concert from yesterday)
-start_time = DateTime.strptime("16/04/20 23:00", "%d/%m/%y %H:%M")
-concert_brest = Concert.new(
-  title: "#{zombie_rednecks.name} - Discothèque Baroombar",
-  address: "22 bis rue de Lyon, Brest",
-  description: "Venez vous enjailler avec nous à Brest ce week-end ! C'est notre premier concert dans ce type d'établissement, on espère que ça va vous plaire !",
-  external_link: "facebook.com/event/zombie_rednecks46",
-  price_cents: 500,
-  confirmed: true,
-  start_time: start_time
-  )
-concert_brest.band = zombie_rednecks
-file = URI.open('https://i.ibb.co/By2Z6km/brest-concert.jpg')
-concert_brest.photo.attach(io: file, filename: 'brestconc.jpg', content_type: 'image/jpg')
-concert_brest.save!
-brest_id = concert_brest.id
-
-# Adding participations to demo concerts
-
-# Shitty concert noone went to => Brest
-
-counter = 50
-5.times do
-  participation = Participation.new(
-    user: User.find(counter),
-    concert: Concert.find(brest_id)
-    )
-  participation.save!
-  counter += 1
-end
-
 # Other concert, a little more popular
 
-counter = 60
+counter = User.first.id.to_i + 2
 13.times do
   participation = Participation.new(
     user: User.find(counter),
