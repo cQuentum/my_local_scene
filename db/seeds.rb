@@ -535,8 +535,8 @@ concert_jazz_4 = Concert.new(
   start_time: start_time
   )
 concert_jazz_4.band = thejazzygoblins
-file = URI.open('https://i.ibb.co/xCX49ZB/The-Jazzy-Goblins.jpg')
-concert_jazz_4.photo.attach(io: file, filename: 'The-Jazzy-Goblins.jpg', content_type: 'image/jpg')
+file = URI.open('https://nsa40.casimages.com/img/2020/04/24//200424123540660942.jpg')
+concert_jazz_4.photo.attach(io: file, filename: '200424123540660942.jpg', content_type: 'image/jpg')
 concert_jazz_4.save!
 
 start_time = DateTime.strptime("20/06/20 21:00", "%d/%m/%y %H:%M")
