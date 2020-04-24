@@ -2,10 +2,20 @@ class ConcertsController < ApplicationController
   before_action :set_concert, only: [:show]
 
   def index
-    if params[:query].present?
-      @concerts = Concert.near(params[:query]).sort_by &:start_time
+    if user_signed_in?
+      if params[:query].present?
+        @concerts_query = Concert.near(params[:query])
+        @concerts = @concerts_query.joins(:band).where(bands: {genre: current_user.genres} ).where('start_time >= ?', DateTime.now).sort_by &:start_time
+      else
+        @concerts = Concert.includes(:band).where(bands: {genre: current_user.genres} ).where('start_time >= ?', DateTime.now).sort_by &:start_time
+      end
     else
-      @concerts = Concert.includes(:band).where('start_time >= ?', DateTime.now).sort_by &:start_time
+      if params[:query].present?
+        @concerts_query = Concert.near(params[:query])
+        @concerts = @concerts_query.joins(:band).where('start_time >= ?', DateTime.now).sort_by &:start_time
+      else
+        @concerts = Concert.includes(:band).where('start_time >= ?', DateTime.now).sort_by &:start_time
+      end
     end
   end
 
