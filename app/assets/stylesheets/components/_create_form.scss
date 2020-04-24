@@ -48,9 +48,10 @@
   background-size: cover;
   background-position: center;
   width: 100%;
-  min-height: 110vh;
-  height: 110vh;
+  // min-height: 100%;
+  height: 100%;
   overflow: hidden;
+
 }
 
 #label-add-image {
@@ -201,4 +202,10 @@ padding:25px;
 .btn-login-margin{
   margin-top: 20px;
   margin-bottom: 10px;
+}
+
+
+.paddingb-enscene {
+    margin-top: 30px;
+    margin-bottom: 50px;
 }
