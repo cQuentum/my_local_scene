@@ -59,6 +59,10 @@
   width: 150px;
   position: relative;
   right: 18px;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }
 
 #form-price {
@@ -155,6 +159,9 @@
   height: 120px;
   position: relative;
   left: 4px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 #photo-input[type=file] {
