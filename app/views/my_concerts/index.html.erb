@@ -45,31 +45,32 @@
 
 
 
-  <div class="container mt-5 pb-4 pl-0">
-    <h2 class="index-title-home">Vos anciens concerts</h2>
-  </div>
-  <div class="cards justify-content-around">
-    <% @past_concerts.each do |concert| %>
-      <%= link_to concert, :action => 'go' do %>
-        <div class="card-show-band make-it-slow">
-          <%= cl_image_tag concert.photo.key %>
-          <div class="card-show-band-infos">
-            <div class="card-name">
-              <div class="card-band-show-genre-participations">
-                <h2 class="card-band-genre-show"><%= concert.band.genre.upcase %></h2>
-                <h2 class="card-show-band-participations" ><i class="fas fa-user"></i><div class="card-participations-count"><%= concert.participations.count %></div></h2>
+  <% if @past_concerts.size != 0 %>
+    <div class="container mt-5 pb-4 pl-0">
+      <h2 class="index-title-home">Vos anciens concerts</h2>
+    </div>
+    <div class="cards justify-content-around">
+      <% @past_concerts.each do |concert| %>
+        <%= link_to concert, :action => 'go' do %>
+          <div class="card-show-band make-it-slow">
+            <%= cl_image_tag concert.photo.key %>
+            <div class="card-show-band-infos">
+              <div class="card-name">
+                <div class="card-band-show-genre-participations">
+                  <h2 class="card-band-genre-show"><%= concert.band.genre.upcase %></h2>
+                  <h2 class="card-show-band-participations" ><i class="fas fa-user"></i><div class="card-participations-count"><%= concert.participations.count %></div></h2>
+                </div>
+                <h2 class="card-band-localisation-show"><%= /.+, (.+)$/.match(concert.address)[1] %></h2>
+                <h2 class="card-band-date-show d-flex">
+                  <div ><%= frenchdate(concert.start_time.strftime("%A %d %B %Y"))%></div>
+                  <div class="band-hour-show"><%= concert.start_time.strftime("%Hh%M") %></div>
+                </h2>
               </div>
-              <h2 class="card-band-localisation-show"><%= /.+, (.+)$/.match(concert.address)[1] %></h2>
-              <h2 class="card-band-date-show d-flex">
-                <div ><%= frenchdate(concert.start_time.strftime("%A %d %B %Y"))%></div>
-                <div class="band-hour-show"><%= concert.start_time.strftime("%Hh%M") %></div>
-              </h2>
             </div>
           </div>
-        </div>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
-  </div>
-
+    </div>
+  <% end %>
 </div>
