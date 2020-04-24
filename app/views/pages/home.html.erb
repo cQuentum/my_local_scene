@@ -30,7 +30,7 @@
   <div class="container mt-5 mb-5">
     <div class="container mt-5 pb-2 pl-0 change-your-life-parent">
       <% if @user.genres.size >= 2 %>
-      <h2 class="index-title-home pb-4">Les concerts sélectionnés pour vous parmis les genres : <%= @user.genres.first(3).join(', ') %> ...</h2>
+      <h2 class="index-title-home pb-4">Les concerts sélectionnés pour vous parmi les genres : <%= @user.genres.first(3).join(', ') %> ...</h2>
       <% elsif @user.genres.size == 1%>
         <h2 class="index-title-home pb-4">Les concerts sélectionnés pour vous dans le genre <%= @user.genres.first%></h2>
       <%  else %>

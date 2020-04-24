@@ -23,7 +23,7 @@
       <% if params[:query] == "" %>
       <h2 class="index-title-home">Tous les concerts à venir</h2>
       <% else %>
-      <h2 class="index-title-home">Les concerts sélectionnés pour vous à <%= params[:query]%> parmis les genres : <%= current_user.genres.first(3).join(', ') %> ...</h2>
+      <h2 class="index-title-home">Les concerts sélectionnés pour vous à <%= params[:query]%> parmi les genres : <%= current_user.genres.first(3).join(', ') %> ...</h2>
       <% end %>
   </div>
   <div class="cards justify-content-around">
