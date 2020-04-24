@@ -45,10 +45,10 @@
       <p class="text-center">Malheureusement, aucun concert ne correspond à vos critères.</p>
       <p class="text-center">Essayez d'élargir votre zone depuis  <%= link_to "votre profil", edit_profile_path(current_user) %> !</p>
     <% end %>
-  <div class="cards justify-content-around">
+  <div class="cards justify-content-around", id="homepage-proof">
     <% @concerts.first(9).each do |concert| %>
       <%= link_to concert, :action => 'go' do %>
-        <div class="card-concert-user make-it-slow">
+        <div class="card-concert-user make-it-slow remember-scroll">
           <%= cl_image_tag concert.photo.key %>
           <div class="card-concert-user-infos">
             <div class="card-name">
