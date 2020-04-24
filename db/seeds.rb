@@ -7,6 +7,7 @@ Participation.destroy_all
 Concert.destroy_all
 Band.destroy_all
 User.destroy_all
+puts "Old db destroyed"
 
 paul = User.new(
     first_name: "Paul",
@@ -238,6 +239,20 @@ rock_user2 = User.new(
   )
 rock_user2.save!
 
+rock_user3 = User.new(
+    first_name: "Jack",
+    last_name: "Mauvais",
+    email: "mauvais@gmail.com",
+    password: "lolilol",
+    location: "Rennes",
+    latitude: 48.1113387,
+    longitude: -1.6800198,
+    move_radius: rand(1..30),
+    genres: ["Metal"].push(GlobalConstants::GENRES_BREST.sample(rand(1..2))).flatten,
+    skip_geocoding: true
+  )
+rock_user3.save!
+
 jazz_user1 = User.new(
     first_name: "Louis",
     last_name: "Armsweak",
@@ -265,6 +280,20 @@ jazz_user2 = User.new(
     skip_geocoding: true
   )
 jazz_user2.save!
+
+jazz_user69 = User.new(
+    first_name: "Pedro",
+    last_name: "Universidad",
+    email: "universidadpedrolane@gmail.com",
+    password: "lolilol",
+    location: "Rennes",
+    latitude: 48.1113387,
+    longitude: -1.6800198,
+    move_radius: rand(1..30),
+    genres: ["Jazz"].push(GlobalConstants::GENRES_BREST.sample(rand(1..2))).flatten,
+    skip_geocoding: true
+  )
+jazz_user69.save!
 
 #Fake metal bands & concerts
 
@@ -312,11 +341,22 @@ file = URI.open('https://i.ibb.co/rsgvM7D/twllaw.jpg')
 twllaw.photo.attach(io: file, filename: 'twllaw.jpg', content_type: 'image/jpg')
 twllaw.save!
 
+chainsawsoul = Band.new(
+    name: "Chainsaw Soul",
+    genre: "Metal",
+    description: "Grands explorateurs de sous genres de cet art noble qu'est le Metal, nous sommes enfin de retour avec une formation de Neo Trash Metal Celtique, et ça envoie du gros Menhir.",
+    external_link: "chainsawsoul.bandcamp.com"
+  )
+chainsawsoul.user = rock_user3
+file = URI.open('https://nsa40.casimages.com/img/2020/04/24//200424115736347428.jpg')
+chainsawsoul.photo.attach(io: file, filename: '200424115736347428.jpg', content_type: 'image/jpg')
+chainsawsoul.save!
+
 thejazzygoblins = Band.new(
     name: "The Jazzy Goblins",
     genre: "Jazz",
     description: "Notre jazz est vif, douloureux, doux, tendre, lent ; il apaise, il bouleverse, c'est de la musique et ce qu'il rythme est vrai, c'est le pouls de la vie.",
-    external_link: "thiswavelookslikeawolf.bandcamp.com"
+    external_link: "jazzygoblins.bandcamp.com"
   )
 thejazzygoblins.user = jazz_user1
 file = URI.open('https://nsa40.casimages.com/img/2020/04/23//200423104920239755.jpg')
@@ -327,12 +367,23 @@ theloveoflads = Band.new(
     name: "The Love Of Lads",
     genre: "Jazz",
     description: "Quatre musiciens, un répertoire original, des compos qui sentent l'évasion, le swing, la spontanéité d'un concert improvisé dans le fin fond d'une roulotte.",
-    external_link: "thiswavelookslikeawolf.bandcamp.com"
+    external_link: "theloveoflads.bandcamp.com"
   )
 theloveoflads.user = jazz_user2
 file = URI.open('https://nsa40.casimages.com/img/2020/04/23//200423120515114057.jpg')
 theloveoflads.photo.attach(io: file, filename: '200423120515114057.jpg', content_type: 'image/jpg')
 theloveoflads.save!
+
+fredapache = Band.new(
+    name: "Fredapache",
+    genre: "Jazz",
+    description: "Un peu d'Acid Jazz, beaucoup de culture, et une petite voix qui te rendra fou ! Un jour, peut-être qu'on chauffera Marseille !",
+    external_link: "fredapache.bandcamp.com"
+  )
+fredapache.user = jazz_user69
+file = URI.open('https://i.ibb.co/G0w9ZH3/Madrid-Acid-Jazz-Band-2.jpg')
+fredapache.photo.attach(io: file, filename: 'fredapache.jpg', content_type: 'image/jpg')
+fredapache.save!
 
 # Concerts
 
@@ -412,6 +463,21 @@ file = URI.open('https://nsa40.casimages.com/img/2020/04/23//200423035507711556.
 concert_metal_5.photo.attach(io: file, filename: '200423035507711556.jpg', content_type: 'image/jpg')
 concert_metal_5.save!
 
+start_time = DateTime.strptime("07/05/20 20:00", "%d/%m/%y %H:%M")
+concert_metal_6 = Concert.new(
+  title: "#{chainsawsoul.name} - Mondo Bizarro",
+  address: "Avenue de Rochester, Rennes",
+  description: "De retour sur notre scène favorite pour un set de trois heure, fans de Neo Trash Metal Celtique, on vous attend !",
+  external_link: "facebook.com/event/69chainsaw69",
+  price_cents: 900,
+  confirmed: true,
+  start_time: start_time
+  )
+concert_metal_6.band = chainsawsoul
+file = URI.open('https://nsa40.casimages.com/img/2020/04/24//20042412073092482.jpg')
+concert_metal_6.photo.attach(io: file, filename: '20042412073092482.jpg', content_type: 'image/jpg')
+concert_metal_6.save!
+
 
 start_time = DateTime.strptime("26/06/20 21:00", "%d/%m/%y %H:%M")
 concert_jazz_1 = Concert.new(
@@ -472,6 +538,81 @@ concert_jazz_4.band = thejazzygoblins
 file = URI.open('https://i.ibb.co/xCX49ZB/The-Jazzy-Goblins.jpg')
 concert_jazz_4.photo.attach(io: file, filename: 'The-Jazzy-Goblins.jpg', content_type: 'image/jpg')
 concert_jazz_4.save!
+
+start_time = DateTime.strptime("20/06/20 21:00", "%d/%m/%y %H:%M")
+concert_jazz_5 = Concert.new(
+  title: "#{thejazzygoblins.name} - Penny Lane",
+  address: "1 Rue de Coetquen, Rennes",
+  description: "Notre premier concert solo au Penny Lane.",
+  external_link: "facebook.com/event/jazzygoblins29",
+  price_cents: 1000,
+  confirmed: true,
+  start_time: start_time
+  )
+concert_jazz_5.band = thejazzygoblins
+file = URI.open('https://nsa40.casimages.com/img/2020/04/24//200424100538398897.jpg')
+concert_jazz_5.photo.attach(io: file, filename: '200424100538398897.jpg', content_type: 'image/jpg')
+concert_jazz_5.save!
+
+start_time = DateTime.strptime("27/06/20 20:00", "%d/%m/%y %H:%M")
+concert_jazz_6 = Concert.new(
+  title: "#{theloveoflads.name} - Ty Anna Tavarn",
+  address: "19 Place Sainte-Anne, Rennes",
+  description: "Notre premier concert solo au Ty Anna Tavarn.",
+  external_link: "facebook.com/event/theloveoflads29",
+  price_cents: 1500,
+  confirmed: true,
+  start_time: start_time
+  )
+concert_jazz_6.band = theloveoflads
+file = URI.open('https://nsa40.casimages.com/img/2020/04/24//200424101821670623.jpg')
+concert_jazz_6.photo.attach(io: file, filename: '200424101821670623.jpg', content_type: 'image/jpg')
+concert_jazz_6.save!
+
+start_time = DateTime.strptime("17/06/20 20:00", "%d/%m/%y %H:%M")
+concert_jazz_7 = Concert.new(
+  title: "#{theloveoflads.name} - LE POURQUOI PAS",
+  address: "15 Quai du Port Rhu, Douarnenez",
+  description: "Notre premier concert solo à Douarnenez.",
+  external_link: "facebook.com/event/theloveoflads29",
+  price_cents: 1100,
+  confirmed: true,
+  start_time: start_time
+  )
+concert_jazz_7.band = theloveoflads
+file = URI.open('https://nsa40.casimages.com/img/2020/04/24//200424110532793993.jpg')
+concert_jazz_7.photo.attach(io: file, filename: '200424110532793993.jpg', content_type: 'image/jpg')
+concert_jazz_7.save!
+
+start_time = DateTime.strptime("13/06/20 21:00", "%d/%m/%y %H:%M")
+concert_jazz_8 = Concert.new(
+  title: "#{thejazzygoblins.name} - La Taverne des Korrigans",
+  address: "2 Avenue du Dr Pierre Nicolas, Concarneau",
+  description: "Notre premier concert solo à Concarneau.",
+  external_link: "facebook.com/event/jazzygoblins29",
+  price_cents: 800,
+  confirmed: true,
+  start_time: start_time
+  )
+concert_jazz_8.band = thejazzygoblins
+file = URI.open('https://nsa40.casimages.com/img/2020/04/24//200424112229424666.jpg')
+concert_jazz_8.photo.attach(io: file, filename: '200424112229424666.jpg', content_type: 'image/jpg')
+concert_jazz_8.save!
+
+start_time = DateTime.strptime("23/05/20 22:00", "%d/%m/%y %H:%M")
+concert_jazz_69 = Concert.new(
+  title: "#{fredapache.name} - Synthi",
+  address: "2 rue de Chateaudun, Rennes",
+  description: "Nous sommes ravis de venir jouer dans un des meilleurs bars communistes de Rennes ! Venez nous retrouver, et bien entendu, l'entrée est au tarif habituel d'un euro symbolique !",
+  external_link: "facebook.com/event/fredapache420",
+  price_cents: 100,
+  confirmed: true,
+  start_time: start_time
+  )
+concert_jazz_69.band = fredapache
+file = URI.open('https://i.ibb.co/FKX9cnd/fredapache.jpg')
+concert_jazz_69.photo.attach(io: file, filename: 'fredapacheconcert.jpg', content_type: 'image/jpg')
+concert_jazz_69.save!
 
 ### Demo
 
