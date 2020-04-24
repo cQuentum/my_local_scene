@@ -9,7 +9,9 @@ const rememberScroll = () => {
 const goToScrollLocation = () => {
   if (document.getElementById("homepage-proof")!=null) {
      window.scrollTo(0, document.cookie);
+     document.cookie = 0;
   };
+
 };
 
 export { rememberScroll }
