@@ -4,7 +4,7 @@
     <% if (@concerts.blank?) %>
       <h2 class="index-title-home"> You don't have any concerts coming.</h2>
     <% else %>
-      <h2 class="index-title-home">Vos prochains concerts</h2>
+      <h2 class="index-title-home">Vos prochains concerts avec <%= current_user.band.name %></h2>
   </div>
 
   <div class="cards justify-content-around">
